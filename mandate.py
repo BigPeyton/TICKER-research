@@ -20,6 +20,8 @@ CANDIDATES = {
     "B": dict(zip(HOLDINGS, [1, 0, 0, 55, 20, 15, 5, 4])),
     "C": dict(zip(HOLDINGS, [1, 1, 0, 70, 20, 0, 0, 8])),
     "D": dict(zip(HOLDINGS, [100, 0, 0, 0, 0, 0, 0, 0])),
+    # Lab 14 benchmark: 60% global equity, 40% investment-grade bonds.
+    "E": dict(zip(HOLDINGS, [0, 0, 0, 60, 40, 0, 0, 0])),
 }
 RESERVE_SIZE = 100
 QUARTERLY_DISTRIBUTION = 0.75
