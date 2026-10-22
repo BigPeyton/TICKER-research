@@ -7,7 +7,7 @@ SLEEVES = [
     ("Treasury bills", 0.035, 0.005),
     ("Treasury 10-year note", 0.043, 0.070),
     ("Investment-grade bond fund", 0.050, 0.060),
-    ("Global equity index fund", 0.080, 0.160),
+    ("Global equity index fund", 0.080, 0.160),1
 ]
 CORRELATIONS = [
     [1.00, 0.10, 0.05, 0.00],
@@ -80,6 +80,100 @@ def reserve_weight(weights, indices=RESERVE_INDICES):
 
 def meets_objective(portfolio_return, objective=OBJECTIVE_RETURN):
     return portfolio_return >= objective
+
+
+
+def search_portfolio(returns, covariance, objective, reserve_minimum, reserve_indices):
+    """Try all long-only allocations in 5 percentage-point steps."""
+    size = len(returns)
+    if not 1 <= size <= 6:
+        raise ValueError("Use one to six assets.")
+    if not all(math.isfinite(x) for x in [*returns, objective, reserve_minimum]):
+        raise ValueError("Returns and mandate inputs must be finite.")
+    if not 0 <= reserve_minimum <= 1:
+        raise ValueError("Reserve minimum must be between 0 and 100%.")
+    if any(i < 0 or i >= size for i in reserve_indices):
+        raise ValueError("Invalid reserve asset index.")
+    if len(covariance) != size or any(len(row) != size for row in covariance):
+        raise ValueError("Covariance dimensions must match the assets.")
+
+    def allocations(slots, remaining):
+        # Twenty units, each worth 5%, must be allocated across all assets.
+        if slots == 1:
+            yield [remaining / 20]
+        else:
+            for units in range(remaining + 1):
+                for rest in allocations(slots - 1, remaining - units):
+                    yield [units / 20] + rest
+
+    best = None
+    for weights in allocations(size, 20):
+        result = expected_return(weights, returns)
+        reserve = reserve_weight(weights, reserve_indices)
+        if result < objective - 1e-12 or reserve < reserve_minimum - 1e-12:
+            continue
+        risk = portfolio_volatility(weights, covariance)
+        if best is None or risk < best["volatility"]:
+            best = {"weights": weights, "return": result,
+                    "volatility": risk, "reserve": reserve}
+    return best
+
+
+def estimate_from_csv(source, last_36=False):
+    """Read monthly adjusted prices; estimate annual moments from simple returns.
+
+    source is a text file-like object. Last 36 means 36 monthly RETURNS,
+    calculated from the last 37 prices. Sample standard deviations are used.
+    """
+    import csv
+    import statistics
+    from datetime import date
+
+    rows = list(csv.reader(source))
+    if not rows or len(rows[0]) < 4 or len(rows[0]) > 7:
+        raise ValueError("CSV needs a date column and three to six ticker columns.")
+    names = [name.strip() for name in rows[0][1:]]
+    if any(not name for name in names) or len(set(names)) != len(names):
+        raise ValueError("Ticker names must be nonempty and unique.")
+    prices, dates = [], []
+    previous_month = None
+    for row in rows[1:]:
+        if not row or not any(cell.strip() for cell in row):
+            continue
+        if len(row) != len(names) + 1:
+            raise ValueError("Every row must have a date and a price for every ticker.")
+        try:
+            day = date.fromisoformat(row[0].strip())
+            values = [float(value) for value in row[1:]]
+        except ValueError as error:
+            raise ValueError("Use YYYY-MM-DD dates and numeric adjusted prices.") from error
+        month = day.year * 12 + day.month
+        if previous_month is not None and month != previous_month + 1:
+            raise ValueError("Use consecutive monthly rows, oldest first, with no duplicates.")
+        if any(not math.isfinite(value) or value <= 0 for value in values):
+            raise ValueError("Prices must be positive finite numbers, with no missing cells.")
+        previous_month = month
+        prices.append(values)
+        dates.append(day.isoformat())
+    if len(prices) < 3:
+        raise ValueError("At least three monthly prices are needed.")
+    monthly = [[current[i] / previous[i] - 1 for i in range(len(names))]
+               for previous, current in zip(prices, prices[1:])]
+    if last_36:
+        if len(monthly) < 36:
+            raise ValueError("The last-36-month view needs at least 37 monthly prices.")
+        monthly = monthly[-36:]
+    columns = list(zip(*monthly))
+    returns = [statistics.mean(column) * 12 for column in columns]
+    volatilities = [statistics.stdev(column) * math.sqrt(12) for column in columns]
+    if any(vol <= 0 for vol in volatilities):
+        raise ValueError("Every asset needs nonzero return variation to estimate correlations.")
+    correlations = [[1.0 if i == j else max(-1.0, min(1.0,
+                     statistics.correlation(columns[i], columns[j])))
+                     for j in range(len(names))] for i in range(len(names))]
+    return {"names": names, "returns": returns, "volatilities": volatilities,
+            "covariance": build_covariance(volatilities, correlations),
+            "months": len(monthly), "start": dates[-len(monthly)-1], "end": dates[-1]}
 
 
 def main():
