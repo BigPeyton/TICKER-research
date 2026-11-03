@@ -1,0 +1,307 @@
+{
+  "ticker": "CAT",
+  "company": "CATERPILLAR INC",
+  "cik": 18230,
+  "source": {
+    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+    "retrieved_at": "2026-11-03T19:03:41.884578+00:00"
+  },
+  "rows": [
+    {
+      "fiscal_year_end": "2021-12-31",
+      "revenue": {
+        "value": 50971000000,
+        "tag": "us-gaap:Revenues",
+        "start": "2021-01-01",
+        "end": "2021-12-31",
+        "filed": "2024-02-16",
+        "accession": "0000018230-24-000009",
+        "unit": "USD"
+      },
+      "net_income": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "NetIncomeLoss"
+        ],
+        "end": "2021-12-31",
+        "unit": "USD"
+      },
+      "operating_cash_flow": {
+        "value": 7198000000,
+        "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "start": "2021-01-01",
+        "end": "2021-12-31",
+        "filed": "2024-02-16",
+        "accession": "0000018230-24-000009",
+        "unit": "USD"
+      },
+      "capital_spending": {
+        "value": 1093000000,
+        "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "start": "2021-01-01",
+        "end": "2021-12-31",
+        "filed": "2024-02-16",
+        "accession": "0000018230-24-000009",
+        "unit": "USD"
+      },
+      "equity": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "StockholdersEquity"
+        ],
+        "end": "2021-12-31",
+        "unit": "USD"
+      },
+      "roe": {
+        "value": null,
+        "tag": "derived: NetIncomeLoss / StockholdersEquity",
+        "unit": "%"
+      },
+      "owner_earnings": {
+        "value": 6105000000,
+        "tag": "derived: us-gaap:NetCashProvidedByUsedInOperatingActivities - us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "unit": "USD"
+      }
+    },
+    {
+      "fiscal_year_end": "2022-12-31",
+      "revenue": {
+        "value": 59427000000,
+        "tag": "us-gaap:Revenues",
+        "start": "2022-01-01",
+        "end": "2022-12-31",
+        "filed": "2025-02-14",
+        "accession": "0000018230-25-000008",
+        "unit": "USD"
+      },
+      "net_income": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "NetIncomeLoss"
+        ],
+        "end": "2022-12-31",
+        "unit": "USD"
+      },
+      "operating_cash_flow": {
+        "value": 7766000000,
+        "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "start": "2022-01-01",
+        "end": "2022-12-31",
+        "filed": "2025-02-14",
+        "accession": "0000018230-25-000008",
+        "unit": "USD"
+      },
+      "capital_spending": {
+        "value": 1296000000,
+        "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "start": "2022-01-01",
+        "end": "2022-12-31",
+        "filed": "2025-02-14",
+        "accession": "0000018230-25-000008",
+        "unit": "USD"
+      },
+      "equity": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "StockholdersEquity"
+        ],
+        "end": "2022-12-31",
+        "unit": "USD"
+      },
+      "roe": {
+        "value": null,
+        "tag": "derived: NetIncomeLoss / StockholdersEquity",
+        "unit": "%"
+      },
+      "owner_earnings": {
+        "value": 6470000000,
+        "tag": "derived: us-gaap:NetCashProvidedByUsedInOperatingActivities - us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "unit": "USD"
+      }
+    },
+    {
+      "fiscal_year_end": "2023-12-31",
+      "revenue": {
+        "value": 67060000000,
+        "tag": "us-gaap:Revenues",
+        "start": "2023-01-01",
+        "end": "2023-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "net_income": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "NetIncomeLoss"
+        ],
+        "end": "2023-12-31",
+        "unit": "USD"
+      },
+      "operating_cash_flow": {
+        "value": 12885000000,
+        "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "start": "2023-01-01",
+        "end": "2023-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "capital_spending": {
+        "value": 1597000000,
+        "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "start": "2023-01-01",
+        "end": "2023-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "equity": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "StockholdersEquity"
+        ],
+        "end": "2023-12-31",
+        "unit": "USD"
+      },
+      "roe": {
+        "value": null,
+        "tag": "derived: NetIncomeLoss / StockholdersEquity",
+        "unit": "%"
+      },
+      "owner_earnings": {
+        "value": 11288000000,
+        "tag": "derived: us-gaap:NetCashProvidedByUsedInOperatingActivities - us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "unit": "USD"
+      }
+    },
+    {
+      "fiscal_year_end": "2024-12-31",
+      "revenue": {
+        "value": 64809000000,
+        "tag": "us-gaap:Revenues",
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "net_income": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "NetIncomeLoss"
+        ],
+        "end": "2024-12-31",
+        "unit": "USD"
+      },
+      "operating_cash_flow": {
+        "value": 12035000000,
+        "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "capital_spending": {
+        "value": 1988000000,
+        "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "equity": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "StockholdersEquity"
+        ],
+        "end": "2024-12-31",
+        "unit": "USD"
+      },
+      "roe": {
+        "value": null,
+        "tag": "derived: NetIncomeLoss / StockholdersEquity",
+        "unit": "%"
+      },
+      "owner_earnings": {
+        "value": 10047000000,
+        "tag": "derived: us-gaap:NetCashProvidedByUsedInOperatingActivities - us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "unit": "USD"
+      }
+    },
+    {
+      "fiscal_year_end": "2025-12-31",
+      "revenue": {
+        "value": 67589000000,
+        "tag": "us-gaap:Revenues",
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "net_income": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "NetIncomeLoss"
+        ],
+        "end": "2025-12-31",
+        "unit": "USD"
+      },
+      "operating_cash_flow": {
+        "value": 11739000000,
+        "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "capital_spending": {
+        "value": 2821000000,
+        "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "filed": "2026-02-13",
+        "accession": "0000018230-26-000008",
+        "unit": "USD"
+      },
+      "equity": {
+        "value": null,
+        "tag": "not found",
+        "searched_tags": [
+          "StockholdersEquity"
+        ],
+        "end": "2025-12-31",
+        "unit": "USD"
+      },
+      "roe": {
+        "value": null,
+        "tag": "derived: NetIncomeLoss / StockholdersEquity",
+        "unit": "%"
+      },
+      "owner_earnings": {
+        "value": 8918000000,
+        "tag": "derived: us-gaap:NetCashProvidedByUsedInOperatingActivities - us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "unit": "USD"
+      }
+    }
+  ],
+  "checks": {
+    "ROE >= 15% every year": "not known",
+    "Owner earnings positive every year": "pass",
+    "Owner earnings grew first to last": "pass"
+  },
+  "facts_signature": "571ff8f3debb0c117cd2c4288c358788e89c93268ae4d3231861fa3acc8031ac"
+}
