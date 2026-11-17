@@ -1,7 +1,6 @@
-
 # Validation and AI use
 
-Prepared November 17, 2026. Student review and the independent Lab 20 activities are pending.
+Prepared November 17, 2026; updated with Luke's returned cold-run note and Peyton's reported 10-to-30-bps trading-cost experiment. Prediction/results are recorded below. Peyton confirmed that he wrote the prediction before testing but did not commit it to GitHub first; that required step remains unmet. Original experiment exports still need to be linked. The code explanation and independent app startup remain unresolved.
 
 ## Data, controls, and reproducibility
 
@@ -33,55 +32,60 @@ The default candidate returns 5.51% net with 3.81% volatility and 75% reserve. E
 
 These were designed and run with AI assistance. They do **not** qualify as the required human-authored, precommitted experiment. Reoptimization must not be described as the original weights surviving. The reversal rule is to withdraw a failing candidate, and reject a scenario with no feasible grid allocation; live use also requires all full-mandate gaps to be resolved.
 
-## Locked Changed-Input Record — NOT YET PERFORMED
+## Partner cold run — returned note
 
-The lab requires the student to close AI, predict first, and **commit and push before running the chosen change**. Blank fields below are intentional. Do not backdate a prediction or label an already-run engineering test as a prospective prediction.
+Luke's [unchanged returned note](luke-cold-run.md) reports Windows/Python 3.13.15 and `python run.py` failing to resolve `pypi.org`. Retrying reproduced that failure. `python run.py --report` confirmed the decision 36 seconds after the first launch attempt; time spent reading the README was not measured.
 
-### Before the run — Peyton writes this with AI closed
+Peyton later supplied a running browser app. Luke changed the reserve minimum from 3% to 80% and observed scenario rejection with no feasible grid allocation; full-mandate FAIL remained. He restored 3% and saw the 5.51% net estimate and paper-pilot decision. The 7-second browser check excludes startup; its launch command and commit were unverified. This supports an assisted control check, not a successful independent installation, and is not the required precommitted human prediction.
 
-| Required field | Student entry |
+In response, the README now documents this exact setup error and distinguishes the offline fallback from the interactive app. This documentation improvement is prepared locally; its publication and a partner rerun after the update are pending. No application-source fix or resolved DNS problem is claimed. The [readiness record](lab20-readiness.md) preserves the remaining gaps.
+
+## Locked Changed-Input Record
+
+**Status: prediction and results supplied by Peyton; prediction written before testing, but not committed to GitHub before testing.** Peyton explicitly confirmed this sequence. The lab's pre-run commit-and-push requirement was not completed. Uploading this record afterward does not retroactively satisfy that requirement. Original experiment exports still need to be attached. No commit, run timestamp, or independently captured output is invented here. Codex formatted the supplied account afterward.
+
+### Before the run — Peyton's supplied prediction
+
+- **Control changed:** Trading cost per turnover.
+- **Original value:** 10 basis points.
+- **New value:** 30 basis points.
+- **Other controls:** All other controls remained at their defaults.
+
+**Predictions saved before testing, as reported by Peyton:**
+
+- **Estimated net return:** Stay the same because the selected portfolio has 0% modeled turnover, so the higher trading cost would still be multiplied by zero.
+- **Volatility:** Stay the same because I expected the same portfolio and asset weights to remain selected.
+- **Asset weights:** Stay the same at 75% SGOV and 25% ACWI, with 0% SCHR and VTC. Increasing trading costs should not make competing allocations more attractive.
+- **Recommendation/mandate verdict:** Stay the same—“PILOT ON PAPER; 0% live allocation,” modeled numeric rules PASS, and full mandate FAIL. Changing trading costs would not resolve the outstanding mandate issues.
+
+**Reason for my predictions:** The default portfolio already had the lowest estimated volatility among eligible allocations and required no turnover. Raising trading costs should leave this portfolio unaffected while making portfolios requiring trading less attractive.
+
+### After the run — actual results reported by Peyton
+
+| Measure | Before: 10 bps | After: 30 bps | Prediction matched? |
+|---|---|---|---|
+| Estimated annual net return | 5.51% | 5.51% | Yes |
+| Annualized volatility | 3.81% | 3.81% | Yes |
+| Asset weights | 75% SGOV, 25% ACWI; 0% SCHR and VTC | Unchanged | Yes |
+| Recommendation | Paper pilot; 0% live allocation | Unchanged | Yes |
+| Modeled numeric rules | PASS | PASS | Yes |
+| Full mandate | FAIL | FAIL | Yes |
+
+**What I learned:** All four predictions matched the results. A higher trading-cost assumption does not automatically reduce net return; it depends on how much trading the portfolio requires. Because modeled turnover stayed at 0%, the higher cost had no effect on the selected portfolio. The full mandate still failed because its unresolved requirements remained.
+
+**Ending app state:** The control was left at 30 basis points after testing. This reports the interactive state; it does not change the source-code default of 10 basis points or the saved default output.
+
+### Timing and evidence to attach
+
+| Required evidence | Status |
 |---|---|
-| One load-bearing input / exact app control | PENDING |
-| Old value and units | PENDING |
-| New value and units | PENDING |
-| Expected direction of decision numbers, and why | PENDING |
-| Expected decision / mandate-verdict effect | PENDING |
-| Prediction date and time, including time zone | PENDING |
-| GitHub immutable commit URL containing this prediction | PENDING — commit and push before the run |
+| Prediction date/time and time zone | Not supplied |
+| Immutable GitHub prediction commit, pushed before the run | NOT COMPLETED. Peyton confirmed that he made and saved the prediction before testing but did not put it on GitHub first. The prediction and reported results are retained; this missing required step is disclosed. |
+| Run date/time and code commit used | Not supplied |
+| Before and after JSON exports from this experiment | Not yet located; the existing 25-to-50-bps annual-cost exports belong to the separate AI-assisted experiment |
+| Result commit | Pending publication |
 
-### After the run — preserve the prediction above
-
-| Required field | Student entry |
-|---|---|
-| Run date and time | PENDING |
-| Before output file and GitHub link | PENDING |
-| After output file and GitHub link | PENDING |
-| Actual return, risk, allocation and mandate-verdict changes | PENDING |
-| Did the decision change? | PENDING |
-| Why actual matched/differed, or why nothing changed | PENDING |
-| Result commit URL | PENDING |
-
-Use the app's JSON download button for the default and changed results. Preserve both files under `outputs/` with distinct names and put their GitHub links here. Freeze the model/data files during the experiment so input effects are not mixed with code changes.
-
-## Material AI uses and dispositions
-
-Tool: **OpenAI Codex**, interaction date November 17, 2026. The user identified the session as **Astra, medium** earlier in the conversation; an exact backend model build/version is not exposed in the artifact workflow. Do not claim a more specific model or setting was verified. Python 3.13.15 and Streamlit 1.66.0 are the tested software versions.
-
-| AI contribution | Disposition and check |
-|---|---|
-| Reused earlier Lab 14/15 calculations | Retained in `portfolio.py`; corrected a stray integer `1` after the equity input tuple that would break baseline iteration; known-answer checks pass |
-| Proposed app and constrained search | Implemented; compared against transparent baselines, explicit rules, grid enumeration, and Streamlit interaction checks |
-| Added net-cost accounting and SGOV signal cap | Explicit research assumptions, not client approvals; unit/turnover checks pass; predictive validity is not established |
-| Suggested missing-mandate handling | Retained: numeric PASS never implies full clearance; missing risk policy and operational/source checks block live use |
-| Attempted raw historical-rate retrieval | Failed/timeouts; preserved the student-checked Lab 17 summary instead and disclosed the limitation; no successful new source check claimed |
-| Drafted memo, readiness record and video prompts | Prepared for student review; does not establish student agreement, an independent partner run, a human prediction, recorded videos, upload, or submission |
-
-Peyton must review the final interpretation and be able to explain the decision-producing code without AI. The opening ownership statement in the README and memo is a draft until that review occurs.
-
-## Unresolved and not claimed
-
-The independent cold run, AI-off prediction with prior GitHub commit, six-minute human code explanation, subsequent fix/rerun if necessary, final student decision line, recordings/transcripts, GitHub publication, and Brightspace submission have not been established by these automated checks. Raw signal evidence and committee risk/operating approvals also remain unresolved. Lab 20 allows truthful unresolved items; that does not establish Project 2 readiness or approval.
-
+The supplied explanation is consistent with the model's cost formula: trading-cost rate multiplied by zero turnover contributes zero drag. The exact zero-turnover candidate remains feasible and keeps its volatility; increasing nonnegative trading costs cannot add new feasible competitors when all other settings and data are fixed. This reasoning supports the reported unchanged result but does not replace the original outputs or establish when the prediction was committed.
 
 ## Prospective cost experiment (AI-assisted)
 
@@ -114,3 +118,22 @@ The prediction matched the fixed-weight cost effect: the original 75/25 portfoli
 Evidence: [before output](../outputs/cost-before-25bps.json), [after output](../outputs/cost-after-50bps.json), and [immutable output commit](https://github.com/BigPeyton/TICKER-research/commit/c889e79f36152bf2094e559de1d8054622409040). Only annual cost changed; the other app controls remained at their displayed defaults. Annual cost was restored to 25 bps after both downloads. No model or data files were edited during this experiment.
 
 This completes the AI-assisted prediction/commit/run comparison. It does not establish an independent AI-off prediction, a human code explanation, or Peyton's personal confirmation.
+
+## Material AI uses and dispositions
+
+Tool: **OpenAI Codex**, interaction date November 17, 2026. The user identified the session as **Astra, medium** earlier in the conversation; an exact backend model build/version is not exposed in the artifact workflow. Do not claim a more specific model or setting was verified. Python 3.13.15 and Streamlit 1.66.0 are the tested software versions.
+
+| AI contribution | Disposition and check |
+|---|---|
+| Reused earlier Lab 14/15 calculations | Retained in `portfolio.py`; corrected a stray integer `1` after the equity input tuple that would break baseline iteration; known-answer checks pass |
+| Proposed app and constrained search | Implemented; compared against transparent baselines, explicit rules, grid enumeration, and Streamlit interaction checks |
+| Added net-cost accounting and SGOV signal cap | Explicit research assumptions, not client approvals; unit/turnover checks pass; predictive validity is not established |
+| Suggested missing-mandate handling | Retained: numeric PASS never implies full clearance; missing risk policy and operational/source checks block live use |
+| Attempted raw historical-rate retrieval | Failed/timeouts; preserved the student-checked Lab 17 summary instead and disclosed the limitation; no successful new source check claimed |
+| Drafted memo, readiness record and video prompts | Prepared for student review; does not establish student agreement, an independent partner run, a human prediction, recorded videos, upload, or submission |
+
+Peyton must review the final interpretation and be able to explain the decision-producing code without AI. The opening ownership statement in the README and memo is a draft until that review occurs.
+
+## Unresolved and not claimed
+
+The original project folder was published and its app/data/documentation/test files verified against the local package. Luke's returned note separately establishes his reported cold-run attempt and assisted browser check; it does not establish a successful independent app launch. An updated folder was uploaded inside the existing project folder, creating a nested duplicate; the main project record still needs these merged updates. No subsequent independent partner startup rerun is recorded. Peyton's trading-cost prediction and results are now reported above. He confirmed predicting before testing, but did not commit to GitHub before testing; that required step remains unmet. Original exports are not yet linked. The six-minute human code explanation, final student-owned decision line, recordings/transcripts, and Brightspace submission remain unrecorded. Raw signal evidence and committee risk/operating approvals remain unresolved. Lab 20 allows truthful unresolved items; that does not establish Project 2 readiness or approval.
