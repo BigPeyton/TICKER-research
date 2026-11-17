@@ -1,0 +1,14 @@
+{
+  "series": "FEDFUNDS",
+  "units": "percent",
+  "measurement_month": "2026-08-01",
+  "value": 3.63,
+  "vintage_date": "2026-09-30",
+  "original_check_date": "2026-10-29",
+  "evidence_kind": "student_checked_lab17_transcription",
+  "evidence_file": "docs/prior-evidence/lab17_point_in_time.md",
+  "evidence_commit": "7904f42d1c0f3f800c7ff285d96c7cc87d32d761",
+  "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS&vintage_date=2026-09-30",
+  "raw_vintage_bundled": false,
+  "fresh_retrieval_status": "Timed out on 2026-11-17. Prior evidence only; do not claim a newly validated raw vintage."
+}
