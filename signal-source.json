@@ -1,0 +1,9 @@
+{
+    "series":  "FEDFUNDS",
+    "vintage_date":  "2026-09-30",
+    "source_url":  "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS\u0026vintage_date=2026-09-30",
+    "attempt_date": "2026-11-17",
+    "status": "FAILED: endpoint timed out; no raw file retrieved",
+    "fallback_evidence": "signal-record.json and docs/prior-evidence/lab17_point_in_time.md",
+    "sha256": null
+}
