@@ -92,3 +92,25 @@ This prediction was drafted and entered with Codex assistance before running thi
 - Expected decision: The app may select different weights to meet the objective; if no feasible allocation exists it will reject the scenario. Full-mandate clearance should remain FAIL and live allocation should remain 0%.
 - Timing: November 17, 2026, America/Indianapolis. The GitHub commit timestamp will establish publication before this experiment.
 - Status: Prediction only; this experiment has not yet been run. Results and the immutable prediction commit link will be appended afterward.
+
+
+### Observed cost experiment result
+
+Run November 17, 2026, approximately 5:47 PM EST (America/Indianapolis), after the [prediction commit](https://github.com/BigPeyton/TICKER-research/commit/e3963e480406cb0d682ce82fe89c5acb51fd577c) was published. Codex operated the app at http://127.0.0.1:8503/.
+
+| Metric | Before: 25 bps | After: 50 bps |
+|---|---|---|
+| Selected allocation | 75% SGOV / 25% ACWI | 70% SGOV / 30% ACWI |
+| Estimated annual net return | 5.51% | 5.68% |
+| Annualized volatility | 3.81% | 4.54% |
+| SGOV reserve | 75% | 70% |
+| Illustrative turnover | 0% | 5% |
+| Selected portfolio modeled rules | PASS | PASS |
+| Full-mandate clearance | FAIL | FAIL |
+| Decision | PILOT ON PAPER; 0% live allocation | PILOT ON PAPER; 0% live allocation |
+
+The prediction matched the fixed-weight cost effect: the original 75/25 portfolio would fall from approximately 5.51% to 5.26%, a 0.25-percentage-point reduction, below the 5.50% objective. This fixed-weight number is calculated from the saved baseline and extra cost; the app instead displays its reoptimized candidate. It increased ACWI by 5 percentage points, producing a higher selected return and higher volatility. The allocation changed, but the paper-only decision and full-mandate FAIL did not. The original weights did not survive the return rule.
+
+Evidence: [before output](../outputs/cost-before-25bps.json), [after output](../outputs/cost-after-50bps.json), and [immutable output commit](https://github.com/BigPeyton/TICKER-research/commit/c889e79f36152bf2094e559de1d8054622409040). Only annual cost changed; the other app controls remained at their displayed defaults. Annual cost was restored to 25 bps after both downloads. No model or data files were edited during this experiment.
+
+This completes the AI-assisted prediction/commit/run comparison. It does not establish an independent AI-off prediction, a human code explanation, or Peyton's personal confirmation.
