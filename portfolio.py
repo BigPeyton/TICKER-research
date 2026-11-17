@@ -7,7 +7,7 @@ SLEEVES = [
     ("Treasury bills", 0.035, 0.005),
     ("Treasury 10-year note", 0.043, 0.070),
     ("Investment-grade bond fund", 0.050, 0.060),
-    ("Global equity index fund", 0.080, 0.160),1
+    ("Global equity index fund", 0.080, 0.160),
 ]
 CORRELATIONS = [
     [1.00, 0.10, 0.05, 0.00],

@@ -1,78 +1,89 @@
-"""Lab 15: a Streamlit interface to portfolio.py."""
-import hashlib
-import importlib
-import io
+"""The committee-facing interface. Start with: python run.py"""
+from dataclasses import replace
+import json
 import streamlit as st
-import portfolio
 
-# Reload the engine on every rerun so the lab correlation probe is visible.
-engine = importlib.reload(portfolio)
-st.set_page_config(page_title="Portfolio Stability", layout="wide")
-st.title("Portfolio Stability")
-st.caption("Built with AI help, a learning demonstration, not investment advice.")
-st.sidebar.header("Mandate")
-objective = st.sidebar.number_input("Expected return objective (%)", value=6.5, step=0.1) / 100
-minimum = st.sidebar.number_input("Reserve minimum (%)", min_value=0.0, max_value=100.0,
-                                 value=3.0, step=1.0) / 100
-upload = st.sidebar.file_uploader("Upload prices.csv", type="csv")
-recent = st.sidebar.checkbox("Use last 36 months", disabled=upload is None)
-st.sidebar.caption("For the proposed scholarship mandate: objective 5.5%, reserve 3%, SGOV eligible.")
+from model import (BOUNDARY, NAMES, ROOT, Settings, percent, solve,
+                   stress_suite, weight_text)
+
+st.set_page_config(page_title="Scholarship Fund | Project 2", page_icon="🎓", layout="wide")
+st.title("Scholarship fund · portfolio readiness")
+st.caption("AI-assisted educational research. The student must review and own the analysis and decision. Not investment advice.")
+st.write("A fictional $10 million university fund, funding $75,000 in scholarships each quarter. The mandate seeks CPI + 3% net over rolling five-year periods, with a ten-year horizon.")
+
+with st.sidebar:
+    st.header("Change an assumption")
+    st.caption("Controls are scenarios, not approvals to change the client's mandate.")
+    objective = st.number_input("Annual net objective (%)", min_value=0.0, max_value=100.0, value=5.5, step=0.25)
+    reserve = st.number_input("Minimum SGOV reserve (%)", min_value=0.0, max_value=100.0, value=3.0, step=1.0)
+    annual_cost = st.number_input("Additional annual cost (bps)", min_value=0.0, max_value=2000.0, value=25.0, step=5.0)
+    trading_cost = st.number_input("Trading cost per turnover (bps)", min_value=0.0, max_value=2000.0, value=10.0, step=5.0)
+    turnover_limit = st.number_input("Illustrative turnover limit (%)", min_value=0.0, max_value=100.0, value=25.0, step=5.0)
+    equity_change = st.number_input("ACWI annual estimate adjustment (pp)", min_value=-100.0, max_value=100.0, value=0.0, step=0.25)
+    recent = st.checkbox("Use last 36 monthly returns", value=False)
+    st.caption("bps = basis points: 25 bps is 0.25%. pp = percentage points. Restore the displayed defaults to reproduce the saved output.")
+
+settings = Settings(objective=objective / 100, reserve_minimum=reserve / 100,
+                    annual_cost_bps=annual_cost, trading_cost_bps=trading_cost,
+                    turnover_limit=turnover_limit / 100, last_36=recent,
+                    equity_change_pp=equity_change)
 try:
-    if upload is None:
-        names = [row[0] for row in engine.SLEEVES]
-        baseline_returns = [row[1] for row in engine.SLEEVES]
-        baseline_covariance = engine.build_covariance([row[2] for row in engine.SLEEVES], engine.CORRELATIONS)
-        active_returns, active_covariance = baseline_returns, baseline_covariance
-        defaults = engine.RESERVE_INDICES
-        token = "meridian"
-        st.caption("Meridian: course training inputs; these are not market estimates.")
-    else:
-        raw = upload.getvalue()
-        content = raw.decode("utf-8-sig")
-        loaded = engine.estimate_from_csv(io.StringIO(content))
-        active = engine.estimate_from_csv(io.StringIO(content), last_36=recent)
-        names = loaded["names"]
-        baseline_returns, baseline_covariance = loaded["returns"], loaded["covariance"]
-        active_returns, active_covariance = active["returns"], active["covariance"]
-        defaults = tuple(i for i, name in enumerate(names) if name.upper() == "SGOV")
-        token = hashlib.sha256(raw).hexdigest()[:16]
-        st.caption(f"Historical estimates: {active['months']} monthly returns, "
-                   f"prices {active['start']} to {active['end']}. History is not a forecast.")
-        if loaded["months"] < 59:
-            st.warning("This file has less than five years of monthly price observations. Complete the lab data before submission.")
-    st.subheader("Return estimates and reserve eligibility")
-    st.caption("Returns are annual percentages. Changing the window resets the return boxes to that window's estimates.")
-    edited, eligible = [], []
-    for i, name in enumerate(names):
-        left, right = st.columns([3, 1])
-        edited.append(left.number_input(f"{name} expected return (%)", value=float(active_returns[i] * 100),
-                      step=0.1, format="%.4f", key=f"return_{token}_{recent}_{i}") / 100)
-        if right.checkbox(f"{name}: reserve-eligible", value=i in defaults, key=f"reserve_{token}_{i}"):
-            eligible.append(i)
-    baseline = engine.search_portfolio(baseline_returns, baseline_covariance, objective, minimum, eligible)
-    current = engine.search_portfolio(edited, active_covariance, objective, minimum, eligible)
+    result = solve(settings)
+except (ValueError, OSError, KeyError) as error:
+    st.error(f"Cannot calculate: {error}")
+    st.stop()
 
-    def show_result(title, result):
-        st.subheader(title)
-        if result is None:
-            st.warning("no mix meets the objective")
-            return
-        st.table({"Asset": names, "Weight (%)": [f"{w*100:.2f}" for w in result["weights"]]})
-        st.metric("Expected return", f"{result['return']*100:.2f}%")
-        st.metric("Volatility", f"{result['volatility']*100:.2f}%")
-        st.metric("Reserve-eligible weight", f"{result['reserve']*100:.2f}%")
+selected = result["selected"]
+st.subheader(result["decision"])
+st.warning("Full mandate: FAIL — live use is not cleared. The loss limit is unresolved, operational checks remain, and the historical rate is supported by a prior lab summary rather than a bundled raw vintage.")
+if selected:
+    metrics = st.columns(4)
+    metrics[0].metric("Estimated annual net return", percent(selected["net_return"]))
+    metrics[1].metric("Annualized volatility", percent(selected["volatility"]))
+    metrics[2].metric("SGOV reserve", percent(selected["reserve"]))
+    metrics[3].metric("Illustrative turnover", percent(selected["turnover"]))
+    st.write("**Paper candidate:** " + weight_text(selected))
+    st.write(f"**Modeled numeric rules: {selected['modeled_verdict']}.** The candidate has the lowest estimated volatility among feasible allocations on a 5-percentage-point grid.")
+else:
+    st.error("No allocation on the 5-percentage-point grid meets this scenario's modeled return, reserve and turnover rules. This is grid infeasibility, not proof that no continuous allocation exists.")
 
-    first, second = st.columns(2)
-    with first:
-        show_result("As loaded (all months for CSV)", baseline)
-    with second:
-        show_result("Current inputs", current)
-    if baseline is not None and current is not None:
-        change = max(abs(a-b) for a,b in zip(baseline["weights"], current["weights"])) * 100
-        st.metric("Largest weight change (percentage points)", f"{change:.2f}")
-    else:
-        st.info("Largest weight change unavailable: both runs must have a feasible mix.")
-    st.caption("Both columns use the sidebar mandate and the selected reserve assets. Search uses 5-point steps; "
-               "lowest risk means lowest among those grid allocations. The app checks the return and reserve rules only.")
-except (ValueError, UnicodeError) as error:
-    st.error(str(error))
+st.subheader("Compare allocations")
+st.dataframe([{
+    "Portfolio": p["name"], **{n: f"{100 * p['weights'][n]:.1f}%" for n in NAMES},
+    "Net estimate": percent(p["net_return"]), "Volatility": percent(p["volatility"]),
+    "Reserve": percent(p["reserve"]), "Turnover": percent(p["turnover"]),
+    "Modeled rules": p["modeled_verdict"], "Full mandate": "FAIL: unresolved",
+} for p in result["portfolios"]], hide_index=True, width="stretch")
+for p in result["portfolios"]:
+    with st.expander(f"{p['name']} — see rules and limits"):
+        for rule, passed in p["modeled_rules"].items():
+            st.write(f"{'PASS' if passed else 'FAIL'} · {rule}")
+        st.write("**Unresolved requirements blocking a full pass:**")
+        for gap in p["unresolved_rules"]:
+            st.write("- " + gap)
+
+with st.expander("Data, signal and calculation assumptions", expanded=False):
+    st.write(f"Fixed boundary: {BOUNDARY}; {result['inputs']['months']} monthly returns. Adjusted-price snapshot downloaded October 22, 2026, so this reconstruction is not a historical point-in-time return backtest.")
+    st.dataframe([{"Asset": name, "Annual historical mean": percent(old), "Annual estimate used": percent(new)}
+                  for name, old, new in zip(NAMES, result['inputs']['historical_returns'], result['inputs']['returns'], strict=True)], hide_index=True)
+    st.write("The prior Lab 17 check records August 2026 FEDFUNDS of 3.63% in the September 30 vintage. September's 3.75% was not available at that boundary. The raw vintage could not be retrieved again; this is labeled prior evidence.")
+    st.write("Signal rule: cap SGOV's annual mean at 3.63%, a policy-rate proxy. FEDFUNDS is not a Treasury yield or ETF return; this conservative modeling choice has not been validated as a forecasting model.")
+    st.write("Net estimate = weighted annual means − annual additional cost − trading cost × one-way turnover. Adjusted fund prices already reflect fund-level expenses; the additional cost represents hypothetical advisory/operating expense. Trading cost is charged once for the proposed rebalance, making this a first-year estimate.")
+    st.write("Turnover is half the sum of absolute changes from Lab 15's proposed 75% SGOV / 25% ACWI. These are reference weights, not verified current holdings. Volatility uses sample covariance of monthly returns × 12. It is not a maximum-loss guarantee.")
+
+with st.expander("Predefined stress runs — baseline settings", expanded=False):
+    st.caption("These engineering checks always start from the documented defaults. Your current sidebar settings do not alter this table. They do not count as the student-authored locked experiment.")
+    stresses = stress_suite()
+    st.dataframe([{"Scenario": s["scenario"],
+                   "Fixed portfolio net": percent(s['fixed_base_weights']['net_return']),
+                   "Fixed rules": s['fixed_base_weights']['modeled_verdict'],
+                   "Reoptimized weights": weight_text(s['reoptimized']),
+                   "Reoptimized net": percent(s['reoptimized']['net_return']) if s['reoptimized'] else "Infeasible"}
+                  for s in stresses], hide_index=True, width="stretch")
+
+st.subheader("Decision and monitoring")
+st.write("**Draft committee ask:** authorize a paper-only pilot and resolve the missing risk policy. Live allocation range: **0%** until every unresolved requirement is cleared. The displayed weights apply within the hypothetical paper portfolio; they are not a live allocation instruction.")
+st.write(result["stop_condition"])
+st.write("Monitor estimated net return against the objective; SGOV dollars against twelve months of payouts; publication dates and source integrity; volatility and stress sensitivity; actual cumulative annual turnover and liquidity. Review quarterly with scholarship payments, and rebalance only at the authorized annual review or by committee exception.")
+st.download_button("Download this scenario's result (JSON)", json.dumps(result, indent=2, allow_nan=False), file_name="scenario-result.json", mime="application/json")
+st.caption("Before/after experiment: download each scenario, preserve the files, and link them in the locked record after committing your own AI-off prediction. Saved defaults are also readable in outputs/results.md.")
