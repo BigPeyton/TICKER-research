@@ -43,38 +43,45 @@ Peyton confirmed that he wrote the prediction before testing but did not commit 
 
 Open `model.py` at `evaluate()`: it produces gross return, turnover, cost drag, net return, volatility, and the numeric mandate verdict. Follow its call to `expected_return()` in `portfolio.py` if needed. Explain the actual lines to Luke, then answer a question from the code. This is the student's live explanation, not an AI-written substitute.
 
-- Code block/commit explained: PENDING.
-- Luke's question: PENDING.
-- Peyton's own answer: PENDING.
-- Lines needing further study after the exchange: PENDING.
+- Written walkthrough supplied: `model.py`, `evaluate()`, lines 101–132. The exact commit used for a live explanation was not supplied.
+- Live explanation to Luke with AI closed: confirmed by Peyton. Exact elapsed duration was not recorded.
+- Luke's question, as supplied by Peyton: Why can a portfolio pass the modeled rules but still fail the full mandate?
+- Peyton's supplied answer: The modeled rules check numerical requirements, such as net return, reserve weight, and turnover. Other requirements still need human verification, so the code always sets full_mandate_verdict to "FAIL — not cleared for live use", even if every modeled rule passes.
+- Lines needing further study after the exchange: no additional lines identified in Peyton's supplied response.
+
+**Summary of Peyton's supplied written walkthrough (formatted afterward by Codex):** The function accepts the portfolio name, weights, estimates and settings; validates weights; computes gross return, turnover, costs, net return and covariance-based volatility; checks measurable rules; lists unresolved requirements; and returns a dictionary with numeric results and verdicts. Peyton explained basis-point conversion and asset-order alignment, identified the hardcoded fully-invested/long-only flag, noted the absence of a volatility-limit test, and distinguished numeric PASS from the always-FAIL full-mandate verdict. His gross-return and cost examples calculate correctly.
+
+**Helper details checked during review:** `checked_weights()` converts weights to floats and checks exactly four finite, nonnegative weights summing to one within `TOL = 1e-12`; it does not infer the asset identities from the numbers. `turnover()` is half the sum of absolute weight changes from the illustrative 75% SGOV / 25% ACWI reference. The returned weight dictionary contains all four named assets, including zero weights, rather than the two-key illustrative dictionary in the supplied explanation. The unavailable raw historical evidence specifically concerns the FEDFUNDS vintage; archived Yahoo price responses are bundled. These clarifications are assistant feedback, not a claimed partner question or live student answer.
 
 ## Fix one thing and rerun
 
 - First failure from Luke's run: dependency installation could not resolve `pypi.org`.
 - Change prepared in response: README now names this error, explains that setup failed before app startup, documents the offline fallback's limits, and specifies what constitutes an independent rerun. This is a documentation improvement, not a demonstrated DNS repair. No source-code change was made.
-- Pushed fix commit: PENDING upload of this README/documentation update.
+- Documentation upload: [f497adc026d98c4ad4dd987d3ed8ac8caf44c624](https://github.com/BigPeyton/TICKER-research/commit/f497adc026d98c4ad4dd987d3ed8ac8caf44c624) placed the updated package inside the existing project folder, creating a nested duplicate. The intended project-folder README still needs the update; this is not a verified independent startup fix.
 - Luke's reported retry: same DNS failure; offline report still worked. Later supplied-app control check worked, with startup command and commit unverified.
 - Rerun after the documentation update: PENDING. Independent first-time web-app startup remains unresolved; do not mark this a clean run or “no fix needed.”
 
 The stray `1` corrected during development occurred before Luke's independent run. Do not use that as a substitute for this step.
 
-## Decision line — draft for Peyton to review
+## Decision line — Peyton's confirmed recommendation
 
-**Pilot the process on paper, with 0% live allocation; withdraw a failing paper allocation when return, reserve, turnover or source checks fail, and require a resolved risk policy plus operational/data clearance before considering live capital.**
+**Decision category: pilot for analysis; 0% live allocation.**
 
-Peyton's final line / confirmation: PENDING.
+Peyton's own statement: “I recommend using the app for analysis, but not live investing. I would reverse that decision once the unresolved requirements are verified and approved and the portfolio passes all required checks.”
 
-## Reflect — Peyton explains to Luke
+## Reflect — Peyton's supplied responses
 
-1. What the cold run revealed that I had missed: PENDING after the run.
-2. What I will not change before the deadline: PENDING student choice.
+1. **What the cold run revealed:** “It showed me that passing the modeled checks does not mean the portfolio meets the full mandate. I had focused on the numerical results and overlooked the unresolved requirements.”
+2. **What I will not change before the deadline:** “I will avoid changing the calculations, default settings, decision rules, or app layout before the deadline, except to fix a critical error.”
 
 ## Individual checkout
 
 - Partner's cold-run note: RECEIVED and preserved unchanged; startup limitation documented.
 - Changed-input prediction and result: REPORTED by Peyton for trading cost 10 → 30 bps. Pre-run GitHub commit: NOT COMPLETED; Peyton confirmed predicting before testing but not committing first. Original experiment exports: PENDING.
-- Fix pushed and rerun, or independently clean run recorded: README improvement prepared; push and independent rerun PENDING.
-- Student-owned decision line and reversal condition: PENDING review.
-- Original project folder: published and verified. Updated readiness/validation/README and Luke's returned note: PENDING publication.
+- Fix pushed and rerun, or independently clean run recorded: documentation update uploaded in a nested duplicate; intended-folder README update and successful independent startup remain unresolved.
+- Code explanation: Peyton confirmed explaining the code to Luke with AI closed; supplied question and answer recorded above.
+- Student-owned decision line and reversal condition: CONFIRMED above.
+- Reflection and freeze statement: SUPPLIED above.
+- Original project folder: published and verified. Nested duplicate contains an earlier documentation update. These merged readiness/validation records and the original partner note still need publication in the intended `docs` folder.
 
 Submit individually. The [lab](https://github.com/CinderZhang/FIN43900-Fall2026/blob/main/lessons/week-13/lab-20-project2-readiness.md) allows truthful unresolved items; it does not approve Project 2. Check the separate Project 2 manifest for videos and final submission items.
