@@ -1,3 +1,4 @@
+
 # Validation and AI use
 
 Prepared November 17, 2026. Student review and the independent Lab 20 activities are pending.
@@ -80,3 +81,14 @@ Peyton must review the final interpretation and be able to explain the decision-
 ## Unresolved and not claimed
 
 The independent cold run, AI-off prediction with prior GitHub commit, six-minute human code explanation, subsequent fix/rerun if necessary, final student decision line, recordings/transcripts, GitHub publication, and Brightspace submission have not been established by these automated checks. Raw signal evidence and committee risk/operating approvals also remain unresolved. Lab 20 allows truthful unresolved items; that does not establish Project 2 readiness or approval.
+
+
+## Prospective cost experiment (AI-assisted)
+
+This prediction was drafted and entered with Codex assistance before running this specific 25-to-50-bps experiment. It does not establish completion of the separate AI-off requirement.
+
+- Control: Additional annual cost (bps), 25 -> 50 bps; all other controls at defaults.
+- Prediction: For unchanged weights, estimated annual net return will fall by 0.25 percentage points, from approximately 5.51% to 5.26%. Volatility, reserve and turnover for those unchanged weights will stay the same. The original 75% SGOV / 25% ACWI portfolio should fail the 5.50% net objective.
+- Expected decision: The app may select different weights to meet the objective; if no feasible allocation exists it will reject the scenario. Full-mandate clearance should remain FAIL and live allocation should remain 0%.
+- Timing: November 17, 2026, America/Indianapolis. The GitHub commit timestamp will establish publication before this experiment.
+- Status: Prediction only; this experiment has not yet been run. Results and the immutable prediction commit link will be appended afterward.
