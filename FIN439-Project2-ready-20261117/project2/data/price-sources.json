@@ -1,0 +1,78 @@
+[
+  {
+    "ticker": "SGOV",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/SGOV?period1=1630454400&period2=1790812800&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "history_url": "https://finance.yahoo.com/quote/SGOV/history/",
+    "downloaded_at": "2026-10-22T18:07:11.937471+00:00",
+    "sha256": "9adf8809759b869f9cb465a8fc52cecba5305d7a9752a618da33dd9c1617ffbe",
+    "daily_rows": 1275,
+    "monthly_rows": 61,
+    "first": {
+      "date": "2021-09-30",
+      "adjclose": 83.39159393310547,
+      "close": 100.0250015258789
+    },
+    "last": {
+      "date": "2026-09-30",
+      "adjclose": 100.3790054321289,
+      "close": 100.68000030517578
+    }
+  },
+  {
+    "ticker": "SCHR",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/SCHR?period1=1630454400&period2=1790812800&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "history_url": "https://finance.yahoo.com/quote/SCHR/history/",
+    "downloaded_at": "2026-10-22T18:07:11.937579+00:00",
+    "sha256": "45014f36fa3702d9594a103df3c58afd286585d39351b072e358222f73dc768e",
+    "daily_rows": 1275,
+    "monthly_rows": 61,
+    "first": {
+      "date": "2021-09-30",
+      "adjclose": 24.154314041137695,
+      "close": 28.354999542236328
+    },
+    "last": {
+      "date": "2026-09-30",
+      "adjclose": 23.618000030517578,
+      "close": 23.700000762939453
+    }
+  },
+  {
+    "ticker": "VTC",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/VTC?period1=1630454400&period2=1790812800&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "history_url": "https://finance.yahoo.com/quote/VTC/history/",
+    "downloaded_at": "2026-10-22T18:07:11.938134+00:00",
+    "sha256": "ba76fc7471be084caeea760dc50f6a68a641dfdbd7536830139924314b5c4f36",
+    "daily_rows": 1275,
+    "monthly_rows": 61,
+    "first": {
+      "date": "2021-09-30",
+      "adjclose": 74.18182373046875,
+      "close": 91.23999786376953
+    },
+    "last": {
+      "date": "2026-09-30",
+      "adjclose": 72.45800018310547,
+      "close": 72.77999877929688
+    }
+  },
+  {
+    "ticker": "ACWI",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ACWI?period1=1630454400&period2=1790812800&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "history_url": "https://finance.yahoo.com/quote/ACWI/history/",
+    "downloaded_at": "2026-10-22T18:07:11.938863+00:00",
+    "sha256": "49eca980f431d22803fcb3bc2ed21c123ef17bc8b223a9bd3b669df85a1306df",
+    "daily_rows": 1275,
+    "monthly_rows": 61,
+    "first": {
+      "date": "2021-09-30",
+      "adjclose": 91.59856414794922,
+      "close": 99.91999816894531
+    },
+    "last": {
+      "date": "2026-09-30",
+      "adjclose": 158.77000427246094,
+      "close": 158.77000427246094
+    }
+  }
+]
