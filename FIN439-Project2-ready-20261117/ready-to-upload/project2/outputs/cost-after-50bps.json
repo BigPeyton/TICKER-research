@@ -1,0 +1,252 @@
+{
+  "settings": {
+    "objective": 0.055,
+    "reserve_minimum": 0.03,
+    "annual_cost_bps": 50.0,
+    "trading_cost_bps": 10.0,
+    "turnover_limit": 0.25,
+    "last_36": false,
+    "equity_change_pp": 0.0
+  },
+  "inputs": {
+    "names": [
+      "SGOV",
+      "SCHR",
+      "VTC",
+      "ACWI"
+    ],
+    "returns": [
+      0.0363,
+      -0.003049972912604138,
+      -0.0015151421764943995,
+      0.12141314035001718
+    ],
+    "volatilities": [
+      0.00498883450782401,
+      0.05408645301899603,
+      0.08056506392012373,
+      0.148856469219344
+    ],
+    "covariance": [
+      [
+        2.4888469746455638e-05,
+        6.943285223261279e-05,
+        0.00010930447299605023,
+        0.0001398913230563484
+      ],
+      [
+        6.943285223261279e-05,
+        0.0029253444001760645,
+        0.0040163341362886625,
+        0.004770909978099735
+      ],
+      [
+        0.00010930447299605023,
+        0.0040163341362886625,
+        0.006490729524453623,
+        0.009379444084415607
+      ],
+      [
+        0.0001398913230563484,
+        0.004770909978099735,
+        0.009379444084415607,
+        0.02215824842844951
+      ]
+    ],
+    "months": 60,
+    "start": "2021-09-30",
+    "end": "2026-09-30",
+    "historical_returns": [
+      0.03715067550952211,
+      -0.003049972912604138,
+      -0.0015151421764943995,
+      0.12141314035001718
+    ],
+    "signal": {
+      "series": "FEDFUNDS",
+      "units": "percent",
+      "measurement_month": "2026-08-01",
+      "value": 3.63,
+      "vintage_date": "2026-09-30",
+      "original_check_date": "2026-10-29",
+      "evidence_kind": "student_checked_lab17_transcription",
+      "evidence_file": "docs/prior-evidence/lab17_point_in_time.md",
+      "evidence_commit": "7904f42d1c0f3f800c7ff285d96c7cc87d32d761",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS&vintage_date=2026-09-30",
+      "raw_vintage_bundled": false,
+      "fresh_retrieval_status": "Timed out on 2026-11-17. Prior evidence only; do not claim a newly validated raw vintage."
+    }
+  },
+  "portfolios": [
+    {
+      "name": "Equal weight",
+      "weights": {
+        "SGOV": 0.25,
+        "SCHR": 0.25,
+        "VTC": 0.25,
+        "ACWI": 0.25
+      },
+      "gross_return": 0.03828700631522966,
+      "cost_drag": 0.0055,
+      "net_return": 0.03278700631522966,
+      "volatility": 0.06546461091546127,
+      "reserve": 0.25,
+      "turnover": 0.5,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": false,
+        "SGOV reserve meets minimum": true,
+        "Illustrative one-way rebalance turnover within limit": false
+      },
+      "modeled_verdict": "FAIL",
+      "failed_rules": [
+        "Estimated annual net return meets objective",
+        "Illustrative one-way rebalance turnover within limit"
+      ],
+      "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+      "unresolved_rules": [
+        "Committee loss tolerance, risk limit and breach response are not approved.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    },
+    {
+      "name": "Inverse volatility",
+      "weights": {
+        "SGOV": 0.8419807578209488,
+        "SCHR": 0.0776627496365065,
+        "VTC": 0.05213801684195957,
+        "ACWI": 0.02821847570058515
+      },
+      "gross_return": 0.033674129468573406,
+      "cost_drag": 0.005221781524299415,
+      "net_return": 0.02845234794427399,
+      "volatility": 0.013301789532648744,
+      "reserve": 0.8419807578209488,
+      "turnover": 0.2217815242994149,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": false,
+        "SGOV reserve meets minimum": true,
+        "Illustrative one-way rebalance turnover within limit": true
+      },
+      "modeled_verdict": "FAIL",
+      "failed_rules": [
+        "Estimated annual net return meets objective"
+      ],
+      "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+      "unresolved_rules": [
+        "Committee loss tolerance, risk limit and breach response are not approved.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    },
+    {
+      "name": "60% ACWI / 40% VTC benchmark",
+      "weights": {
+        "SGOV": 0.0,
+        "SCHR": 0.0,
+        "VTC": 0.4,
+        "ACWI": 0.6
+      },
+      "gross_return": 0.07224182733941255,
+      "cost_drag": 0.00575,
+      "net_return": 0.06649182733941254,
+      "volatility": 0.11626529713837183,
+      "reserve": 0.0,
+      "turnover": 0.75,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": true,
+        "SGOV reserve meets minimum": false,
+        "Illustrative one-way rebalance turnover within limit": false
+      },
+      "modeled_verdict": "FAIL",
+      "failed_rules": [
+        "SGOV reserve meets minimum",
+        "Illustrative one-way rebalance turnover within limit"
+      ],
+      "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+      "unresolved_rules": [
+        "Committee loss tolerance, risk limit and breach response are not approved.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    },
+    {
+      "name": "Constrained portfolio",
+      "weights": {
+        "SGOV": 0.7,
+        "SCHR": 0.0,
+        "VTC": 0.0,
+        "ACWI": 0.3
+      },
+      "gross_return": 0.061833942105005146,
+      "cost_drag": 0.00505,
+      "net_return": 0.05678394210500515,
+      "volatility": 0.045444384300151824,
+      "reserve": 0.7,
+      "turnover": 0.05000000000000002,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": true,
+        "SGOV reserve meets minimum": true,
+        "Illustrative one-way rebalance turnover within limit": true
+      },
+      "modeled_verdict": "PASS",
+      "failed_rules": [],
+      "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+      "unresolved_rules": [
+        "Committee loss tolerance, risk limit and breach response are not approved.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    }
+  ],
+  "selected": {
+    "name": "Constrained portfolio",
+    "weights": {
+      "SGOV": 0.7,
+      "SCHR": 0.0,
+      "VTC": 0.0,
+      "ACWI": 0.3
+    },
+    "gross_return": 0.061833942105005146,
+    "cost_drag": 0.00505,
+    "net_return": 0.05678394210500515,
+    "volatility": 0.045444384300151824,
+    "reserve": 0.7,
+    "turnover": 0.05000000000000002,
+    "modeled_rules": {
+      "Fully invested, long-only; no direct leverage/derivatives": true,
+      "Estimated annual net return meets objective": true,
+      "SGOV reserve meets minimum": true,
+      "Illustrative one-way rebalance turnover within limit": true
+    },
+    "modeled_verdict": "PASS",
+    "failed_rules": [],
+    "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+    "unresolved_rules": [
+      "Committee loss tolerance, risk limit and breach response are not approved.",
+      "Five-day redemption capacity and reserve eligibility need operational verification.",
+      "Diversified-fund concentration exemption and fund mandates need confirmation.",
+      "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+      "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+      "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+    ]
+  },
+  "decision": "PILOT ON PAPER; 0% live allocation",
+  "stop_condition": "Stop the paper candidate when its estimated net return or reserve fails, turnover requires unapproved action, or source timing is unverifiable. Do not deploy live before all mandate gaps are resolved."
+}

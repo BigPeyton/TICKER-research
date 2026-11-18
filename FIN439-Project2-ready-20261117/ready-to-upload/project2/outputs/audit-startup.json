@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-11-18T00:52:05.799872+00:00",
+  "command": "python run.py --server.port=8504",
+  "initial_attempt": "Sandbox blocked PyPI with WinError 10013; setup failed before app startup.",
+  "authorized_retry": "Dependencies installed in fresh project .venv after network approval; server started.",
+  "tests": {
+    "exit_code": 0,
+    "count": 15,
+    "log": "audit-tests.txt"
+  },
+  "numerical_outputs_unchanged_from_published_source": true,
+  "scope": "Assistant-run development validation; not Luke independent cold run.",
+  "health": {
+    "status": 200,
+    "body": "ok"
+  }
+}

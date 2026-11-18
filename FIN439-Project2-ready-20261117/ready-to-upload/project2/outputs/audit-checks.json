@@ -1,0 +1,43 @@
+{
+  "audited_at_utc": "2026-11-18T00:47:24.766007+00:00",
+  "archived_monthly_prices_reconciled": 244,
+  "checks": [
+    {
+      "scenario": "Base",
+      "feasible_grid_allocations": 27,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "ACWI estimate -2 percentage points",
+      "feasible_grid_allocations": 11,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Last 36 monthly returns",
+      "feasible_grid_allocations": 98,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Annual additional cost 100 bps",
+      "feasible_grid_allocations": 11,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Reserve minimum 80%",
+      "feasible_grid_allocations": 0,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Combined: equity -2 pp; cost 100 bps; reserve 80%",
+      "feasible_grid_allocations": 0,
+      "independent_result_matches": true
+    }
+  ],
+  "conclusion": "Archived price reconstruction, arithmetic, and published grid-search scenarios agree.",
+  "limits": [
+    "Archive consistency is not fresh external source authentication.",
+    "The 3.63% signal remains a prior lab transcription; this audit does not prove historical availability.",
+    "No approved loss limit, actual holdings, or rolling five-year real-return compliance is established.",
+    "This is AI-assisted development validation, not an independent partner cold run or locked experiment."
+  ]
+}

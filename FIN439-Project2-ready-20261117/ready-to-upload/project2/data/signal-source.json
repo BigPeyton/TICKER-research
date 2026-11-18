@@ -1,0 +1,46 @@
+{
+  "series": "FEDFUNDS",
+  "vintage_date": "2026-09-30",
+  "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS&vintage_date=2026-09-30",
+  "attempt_date": "2026-11-17",
+  "status": "FAILED: endpoint timed out; no raw file retrieved",
+  "fallback_evidence": "signal-record.json and docs/prior-evidence/lab17_point_in_time.md",
+  "sha256": null,
+  "audit_attempts": [
+    {
+      "file": "alfred-20260930.csv",
+      "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS&vintage_date=2026-09-30",
+      "status": "failed",
+      "error": "The read operation timed out"
+    },
+    {
+      "file": "alfred-20261029.csv",
+      "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS&vintage_date=2026-10-29",
+      "status": "failed",
+      "error": "The read operation timed out"
+    },
+    {
+      "name": "alfred-bounded-20260930",
+      "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS&vintage_date=2026-09-30&cosd=2026-07-01&coed=2026-09-30",
+      "status": "failed",
+      "error": "The read operation timed out"
+    },
+    {
+      "name": "alfred-series-vintage",
+      "url": "https://alfred.stlouisfed.org/series?seid=FEDFUNDS&vintage_date=2026-09-30",
+      "status": "failed",
+      "error": "The read operation timed out"
+    }
+  ],
+  "audit_date": "2026-11-17 America/Indianapolis",
+  "current_fred_cross_check": {
+    "url": "https://fred.stlouisfed.org/series/FEDFUNDS",
+    "checked_date": "2026-11-17",
+    "values_percent": {
+      "2026-07-01": 3.63,
+      "2026-08-01": 3.63,
+      "2026-09-01": 3.75
+    },
+    "limitation": "Current FRED page agrees with recorded values; it does not authenticate the September 30 historical vintage."
+  }
+}
