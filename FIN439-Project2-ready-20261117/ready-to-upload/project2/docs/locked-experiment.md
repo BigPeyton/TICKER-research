@@ -1,32 +1,56 @@
-# New Locked Changed-Input Record — not started
+# Locked Changed-Input Record — turnover-limit prediction
 
-This is an empty administrative template, prepared with Codex. It contains no prediction. The previous trading-cost experiment lacked a pre-run GitHub commit; the annual-cost experiment was AI-assisted. Neither completes the required human-authored AI-off record.
+**Status: prediction only; results not yet recorded.** The GitHub commit containing this prediction must be published before the experiment is run. The prediction date/time below is supplied by Peyton; the actual GitHub commit timestamp separately establishes publication time.
 
-## Before the run — Peyton completes this with AI closed
+Peyton supplied the prediction below. Codex reviewed its reasoning after receipt and preserved the wording while formatting this document. No run of this changed-input scenario was performed by Codex before preparing this record. The prior experiments and their limitations remain in `validation-and-ai-use.md`.
 
-Choose a new, untested material input change yourself. Do not copy an existing engineering stress or previous experiment. Do not enter the new value in the app until the prediction has been committed and pushed.
+## Before the run — Peyton's supplied prediction
 
-- Author:
-- Prediction date/time/time zone:
-- App/code commit being tested:
-- Input/control:
-- Original value and units:
-- New value and units:
-- Other controls held fixed:
-- Expected direction of estimated net return:
-- Expected direction of volatility:
-- Expected allocation change, or no change:
-- Expected recommendation/mandate-verdict effect:
-- Reason for these predictions, in your own words:
+Author: Peyton Dow
 
-**STOP: commit and push this prediction to GitHub now.** Preserve the immutable commit URL before running the change. Do not retrospectively rewrite the original prediction to match the result.
+Prediction date/time/time zone: November 17, 2026, 8:40 p.m. EST (America/Indianapolis)
 
-- Immutable prediction commit URL:
-- Confirmation the push preceded the run:
+App/code commit being tested: d03607352c856f8dcdc1f77e72c911cff24565e1
 
-## After the run
+Input/control: Illustrative turnover limit
 
-Download the original scenario, change only the named input, then download the changed scenario. Keep both unique JSON filenames. Record export timestamps and the tested code commit. The files' hashes identify their local code/data; they do not replace the pre-run prediction commit.
+Original value and units: 25%
+
+New value and units: 10%
+
+Other controls held fixed: Annual net objective 5.50%; minimum SGOV reserve 3%; additional annual cost 25 bps; trading cost per turnover 10 bps; ACWI estimate adjustment 0 percentage points; last 36 monthly returns unchecked.
+
+### Expected direction of estimated net return
+
+Stay the same. The selected portfolio has 0% modeled turnover, so it should remain eligible under the tighter limit without changing its return.
+
+### Expected direction of volatility
+
+Stay the same. The current portfolio should remain eligible and retain its position as the lowest-volatility feasible allocation.
+
+### Expected allocation change, or no change
+
+No change. I expect 75% SGOV, 25% ACWI, and 0% SCHR and VTC because the current allocation already meets the new turnover limit.
+
+### Expected recommendation/mandate-verdict effect
+
+Stay the same: PILOT ON PAPER; 0% live allocation, modeled numeric rules PASS, and full mandate FAIL. The tighter turnover limit should not disqualify the current portfolio or resolve the outstanding mandate requirements.
+
+### Reason for these predictions, in your own words
+
+Lowering the turnover limit restricts how much the portfolio can trade. It may eliminate other allocations, but the current portfolio requires no modeled trading. Since it already has the lowest volatility among eligible allocations, narrowing the choices while keeping it eligible should leave the selection and results unchanged.
+
+## Commit evidence — complete after publication, before execution
+
+- Immutable prediction commit URL: PENDING publication.
+- Confirmation the push preceded the run: PENDING verification.
+- AI-off authorship confirmation: to be confirmed by Peyton; no independent verification is claimed.
+
+Preserve the original prediction commit. Do not change the prediction retrospectively to match the results. Append the exact commit link and subsequent results in a later commit.
+
+## After the run — not completed
+
+Download the default scenario, change only the illustrative turnover limit from 25% to 10%, then download the changed scenario. Preserve both unique JSON filenames and their export timestamps. Record the tested code commit separately; file hashes do not replace the pre-run prediction commit.
 
 - Run date/time/time zone:
 - Before-output GitHub link:
@@ -48,4 +72,4 @@ Download the original scenario, change only the named input, then download the c
 - What this establishes, and what it does not:
 - Result commit URL:
 
-Link this completed record from `validation-and-ai-use.md`. Keep the older experiments and their disclosed limitations as historical evidence.
+Link the completed record from `validation-and-ai-use.md`. Keep the older experiments and their disclosed limitations as historical evidence.
