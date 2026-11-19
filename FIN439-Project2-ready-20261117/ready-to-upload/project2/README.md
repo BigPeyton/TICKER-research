@@ -4,7 +4,7 @@ This is an educational project for a fictional university scholarship fund, not 
 
 # Scholarship fund — Project 2 / Lab 20
 
-**Audited working copy, November 17, 2026 (EST).** Peyton previously confirmed the paper-only recommendation and AI-off code explanation. Luke's cold-run attempt and the prior experiment are documented, but independent startup and the required pre-run prediction commit remain unresolved. This revised copy still needs publication and student review. Final videos/transcripts are not recorded. See the [audit and remaining requirements](docs/project2-audit.md).
+**Experiment update, November 19, 2026.** The audited app was published November 17. The [turnover-limit record](docs/locked-experiment.md) now includes a verified pre-run prediction commit and assistant-operated before/after outputs; its predicted unchanged result matched. Peyton confirmed on November 19 that he wrote the original prediction with AI closed; this is his authorship attestation. The timestamped result exports are published on GitHub; see the experiment record for the evidence commit. Independent partner startup and final videos/transcripts remain unresolved. See the [current validation status](docs/validation-and-ai-use.md).
 
 **Decision: pilot on paper; allocate 0% live until the missing risk policy and evidence checks are resolved.** The default hypothetical portfolio is 75% SGOV / 25% ACWI. Its estimated annual net return is **5.51%**, annualized volatility **3.81%**, and SGOV reserve **75%**. It passes the modeled numeric rules but **fails full-mandate clearance**. See the [executed results](outputs/results.md), [memo](docs/decision-memo.md), and [Lab 20 record](docs/lab20-readiness.md).
 
