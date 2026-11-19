@@ -1,0 +1,86 @@
+{
+  "operator": "OpenAI Codex",
+  "method": "Streamlit AppTest ran the unchanged app.py and changed its turnover number_input from 25.0 to 10.0. Captured the exact export_result payload supplied to each download button; no manual browser download or independent student run claimed.",
+  "prediction_commit": "97df60482426668df8c9d3132311759f2d5f6072",
+  "tested_code_commit": "d03607352c856f8dcdc1f77e72c911cff24565e1",
+  "before_file": "scenario-2026-11-19T215201.212714_0000.json",
+  "after_file": "scenario-2026-11-19T215201.684920_0000.json",
+  "before_exported_at_utc": "2026-11-19T21:52:01.212714+00:00",
+  "after_exported_at_utc": "2026-11-19T21:52:01.684920+00:00",
+  "changed_settings": [
+    "turnover_limit"
+  ],
+  "identical_code_and_data_hashes": true,
+  "before": {
+    "name": "Constrained portfolio",
+    "weights": {
+      "SGOV": 0.75,
+      "SCHR": 0.0,
+      "VTC": 0.0,
+      "ACWI": 0.25
+    },
+    "gross_return": 0.057578285087504295,
+    "cost_drag": 0.0025,
+    "net_return": 0.05507828508750429,
+    "volatility": 0.03809658169910532,
+    "reserve": 0.75,
+    "turnover": 0.0,
+    "modeled_rules": {
+      "Fully invested, long-only; no direct leverage/derivatives": true,
+      "Estimated annual net return meets objective": true,
+      "SGOV reserve meets minimum": true,
+      "Illustrative one-way rebalance turnover within limit": true
+    },
+    "modeled_verdict": "PASS",
+    "failed_rules": [],
+    "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+    "unresolved_rules": [
+      "Committee loss tolerance, risk limit and breach response are not approved.",
+      "Five-day redemption capacity and reserve eligibility need operational verification.",
+      "Diversified-fund concentration exemption and fund mandates need confirmation.",
+      "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+      "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+      "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+    ]
+  },
+  "after": {
+    "name": "Constrained portfolio",
+    "weights": {
+      "SGOV": 0.75,
+      "SCHR": 0.0,
+      "VTC": 0.0,
+      "ACWI": 0.25
+    },
+    "gross_return": 0.057578285087504295,
+    "cost_drag": 0.0025,
+    "net_return": 0.05507828508750429,
+    "volatility": 0.03809658169910532,
+    "reserve": 0.75,
+    "turnover": 0.0,
+    "modeled_rules": {
+      "Fully invested, long-only; no direct leverage/derivatives": true,
+      "Estimated annual net return meets objective": true,
+      "SGOV reserve meets minimum": true,
+      "Illustrative one-way rebalance turnover within limit": true
+    },
+    "modeled_verdict": "PASS",
+    "failed_rules": [],
+    "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+    "unresolved_rules": [
+      "Committee loss tolerance, risk limit and breach response are not approved.",
+      "Five-day redemption capacity and reserve eligibility need operational verification.",
+      "Diversified-fund concentration exemption and fund mandates need confirmation.",
+      "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+      "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+      "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+    ]
+  },
+  "decision_before": "PILOT ON PAPER; 0% live allocation",
+  "decision_after": "PILOT ON PAPER; 0% live allocation",
+  "displayed_metrics_after": {
+    "Estimated annual net return": "5.51%",
+    "Annualized volatility": "3.81%",
+    "SGOV reserve": "75.00%",
+    "Illustrative turnover": "0.00%"
+  }
+}

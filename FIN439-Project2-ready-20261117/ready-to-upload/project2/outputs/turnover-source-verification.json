@@ -1,0 +1,21 @@
+{
+  "verified_at_utc": "2026-11-19T21:51:00.921065+00:00",
+  "prediction_commit": "97df60482426668df8c9d3132311759f2d5f6072",
+  "prediction_commit_date": "2026-11-18T01:54:32Z",
+  "prediction_commit_url": "https://github.com/BigPeyton/TICKER-research/commit/97df60482426668df8c9d3132311759f2d5f6072",
+  "tested_code_commit": "d03607352c856f8dcdc1f77e72c911cff24565e1",
+  "repo_project_path": "FIN439-Project2-ready-20261117/ready-to-upload/project2/",
+  "sha256": {
+    "app.py": "a534e7f785a3a32bb9da6948133e95cfcac96635e1e441ae6588521ac3050c13",
+    "model.py": "9c5a5db8516d3b7d62771a7d2ad2d3f79b357cc78f993c3b0e1139dc1fcde993",
+    "portfolio.py": "95a7ccf951330007ac67e3c3cd4e617dbdec77f9ab307963c18be5963a591432",
+    "run.py": "c84ec5b6e5953b37086484e1b53805cf944ac8a0d94d6d4d474449cc30b90cc2",
+    "requirements.txt": "ed3e8712523537bae89f0ed6c8f5bb2ac139eb642aefd53d83e981fea443bc2d",
+    "data/prices.csv": "0b839e4ca65e8ddf479ebde5b930a490af9c02e3d17ef57882da672715176843",
+    "data/price-sources.json": "c0cf18040f8ccaa682647207e72ef29563e670fdb43983d7e415c10b2603f603",
+    "data/signal-record.json": "6dad0c704790d4a9c5456beeabeb24cc0e05f18760c8a4de900352d9ea9e2b61",
+    "data/signal-source.json": "55c7d97582a596f9b2374e45e44f30b4929303997c19f89f9a6b541be10d6e98"
+  },
+  "prediction_sha256": "4d3ebf0851103b47305c05299e32093fd94c0e0a25ba79ada24681123700256f",
+  "method": "Compared local bytes to immutable GitHub code-commit URLs before scenario execution."
+}
