@@ -1,5 +1,13 @@
 # Validation and AI use
 
+## Current update — November 19, 2026
+
+The [turnover-limit Locked Changed-Input Record](locked-experiment.md) now contains the unchanged student-supplied prediction, verified pre-run GitHub commit, both timestamped scenario exports, and a comparison. Codex operated the unchanged app through Streamlit AppTest. The 25% to 10% limit change left the selected weights, 5.51% net estimate, 3.81% volatility, and paper-only decision unchanged; all code/input export hashes match. The prediction commit predates this run. On November 19, after initially expressing uncertainty and receiving a reminder of the requirement, Peyton explicitly confirmed that he wrote the original prediction with AI closed. This is his authorship attestation; Codex reviewed the prediction after receipt and operated the subsequent experiment. Result evidence is published in [commit 83362ec](https://github.com/BigPeyton/TICKER-research/commit/83362eccb27229b71529e5b0e3200a5af0e01d92). The earlier trading-cost experiment below remains historical and still lacked its required pre-run commit.
+
+The November 17 audited package was published at `d03607352c856f8dcdc1f77e72c911cff24565e1` in `FIN439-Project2-ready-20261117/ready-to-upload/project2`. Source and input files were verified against that immutable commit before this run. Earlier statements below that the audit upload or a new pre-run commit was pending describe their historical date; this update supersedes those status statements. The prior tests and cold-run limitations are preserved. Independent partner startup, raw vintage evidence, risk-policy approval, videos/transcripts, and final submission remain unresolved.
+
+Material AI use today: Codex verified the commit and source bytes, operated the experiment, saved the app's export payloads, compared results, and drafted the appended interpretation. This does not claim Peyton performed the run or endorsed the interpretation. No financial calculations, app controls, default values, or decision rules changed.
+
 Prepared November 17, 2026; updated with Luke's returned cold-run note and Peyton's reported 10-to-30-bps trading-cost experiment. Prediction/results are recorded below. Peyton confirmed that he wrote the prediction before testing but did not commit it to GitHub first; that required step remains unmet. Original experiment exports still need to be linked. Peyton confirmed the AI-off code explanation and supplied his decision/reflection; independent app startup remains unresolved.
 
 ## Data, controls, and reproducibility
