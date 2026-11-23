@@ -1,0 +1,26 @@
+[
+  {
+    "path": "data/raw/fomc-20260916.html",
+    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+    "retrieved_at_utc": "2026-11-23T19:46:43.290970+00:00",
+    "sha256": "83f631fad046a7847272cddb01b604dc02edf1aedcf6dddbb07da3b73cb38f14",
+    "required_text": [
+      "September 16, 2026",
+      "For release at 2:00 p.m. EDT",
+      "to 3-3/4 to 4 percent"
+    ],
+    "format": "Official HTML response content saved as UTF-8; links and article text retained"
+  },
+  {
+    "path": "data/raw/fomc-implementation-20260916.html",
+    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm",
+    "retrieved_at_utc": "2026-11-23T19:46:43.338880+00:00",
+    "sha256": "6d0e21c77935c0e04e8714e9965cd4b316d35845fc30780929a1a052cff57ede",
+    "required_text": [
+      "September 16, 2026",
+      "Effective September 17, 2026",
+      "target range of 3-3/4 to 4 percent"
+    ],
+    "format": "Official HTML response content saved as UTF-8; links and article text retained"
+  }
+]

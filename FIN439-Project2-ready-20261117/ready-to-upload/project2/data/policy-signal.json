@@ -1,0 +1,12 @@
+{
+  "series": "FOMC_TARGET_LOWER",
+  "units": "percent",
+  "value": 3.75,
+  "upper_bound": 4.0,
+  "published_at": "2026-09-16T14:00:00-04:00",
+  "effective_date": "2026-09-17",
+  "decision_boundary": "2026-09-30",
+  "evidence_kind": "archived_dated_federal_reserve_release",
+  "use": "Cap SGOV historical annual mean at the announced target lower bound; explicit research heuristic, not ETF yield or forecast.",
+  "supersedes": "Prior 3.63% FEDFUNDS transcription in current model only; historical experiment evidence remains unchanged."
+}
