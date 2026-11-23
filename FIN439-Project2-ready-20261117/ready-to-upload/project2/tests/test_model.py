@@ -5,6 +5,7 @@ import io
 import json
 from pathlib import Path
 import tempfile
+import shutil
 import unittest
 from unittest.mock import patch
 
@@ -59,7 +60,7 @@ class PortfolioTests(unittest.TestCase):
         inputs = model.estimates(model.Settings(last_36=True))
         self.assertEqual(inputs['months'], 36)
         self.assertEqual(inputs['start'], '2023-09-29')
-        self.assertEqual(inputs['returns'][0], 0.0363)
+        self.assertEqual(inputs['returns'][0], 0.0375)
         self.assertGreater(inputs['historical_returns'][0], inputs['returns'][0])
 
     def test_asset_order_rejected(self):
@@ -77,14 +78,44 @@ class PortfolioTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 estimate_from_csv(io.StringIO(text))
 
-    def test_signal_rejects_later_vintage_and_invalid_units(self):
+    def test_signal_rejects_future_release_effective_date_and_invalid_values(self):
         base = model.signal_record()
-        for key, value in [('vintage_date', '2026-10-29'), ('units', 'monthly return'), ('value', float('nan'))]:
+        for key, value in [('published_at', '2026-10-29T14:00:00-04:00'),
+                           ('effective_date', '2026-10-01'), ('published_at', '2026-09-16T14:00:00'),
+                           ('decision_boundary', '2026-10-31'),
+                           ('units', 'monthly return'), ('value', float('nan')), ('value', 3.63)]:
             with tempfile.TemporaryDirectory() as directory:
                 path = Path(directory) / 'signal.json'
                 path.write_text(json.dumps({**base, key: value}))
                 with self.assertRaises(ValueError):
                     model.signal_record(path)
+
+    def test_signal_rejects_tampered_archived_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            shutil.copytree(model.ROOT / 'data', root / 'data')
+            source = root / 'data/raw/fomc-20260916.html'
+            source.write_bytes(source.read_bytes() + b' changed')
+            with patch('model.ROOT', root):
+                with self.assertRaisesRegex(ValueError, 'hash mismatch'):
+                    model.signal_record()
+
+    def test_volatility_ceiling_boundary_and_cost_conflict(self):
+        settings = model.Settings()
+        inputs = model.estimates(settings)
+        reference = model.evaluate('reference', model.REFERENCE, inputs, settings)
+        boundary = replace(settings, volatility_limit=reference['volatility'])
+        self.assertEqual(model.evaluate('reference', model.REFERENCE, inputs, boundary)['modeled_verdict'], 'PASS')
+        breach = model.evaluate('reference', model.REFERENCE, inputs,
+                                replace(boundary, volatility_limit=boundary.volatility_limit - 0.0001))
+        self.assertEqual(breach['failed_rules'], ['Estimated annualized volatility within proposed paper limit'])
+        self.assertIsNotNone(model.solve(replace(settings, volatility_limit=0.04))['selected'])
+        self.assertIsNone(model.solve(replace(settings, volatility_limit=0.04, annual_cost_bps=35))['selected'])
+        self.assertIsNone(model.solve(replace(settings, volatility_limit=0.03))['selected'])
+        self.assertIsNotNone(model.solve(replace(settings, volatility_limit=0.05, annual_cost_bps=35))['selected'])
+        for bad in (-0.01, float('nan'), float('inf'), 1.01):
+            with self.assertRaises(ValueError):
+                model.solve(replace(settings, volatility_limit=bad))
 
     def test_turnover_and_cost_units(self):
         inputs = model.estimates(model.Settings())
