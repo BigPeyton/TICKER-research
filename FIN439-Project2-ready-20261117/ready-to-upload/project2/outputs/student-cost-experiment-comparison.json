@@ -1,0 +1,99 @@
+{
+  "verified_at_utc": "2026-11-23T19:14:38.764020+00:00",
+  "verification_method": "Read supplied JSON exports, compare source hashes, and check arithmetic; no new app scenario run.",
+  "prediction_commit": "53d284a2f3a23b846f2bfe3bfdd9bb320c57d00b",
+  "prediction_commit_utc": "2026-11-23T19:05:47+00:00",
+  "tested_source_snapshot": "661364945c533d03343afb7a9e817c220479f5a0",
+  "changed_controls": {
+    "annual_cost_bps": [
+      25.0,
+      35.0
+    ]
+  },
+  "all_eight_export_source_hashes_match_each_other_and_reviewed_snapshot": true,
+  "baseline_settings_match_documented_defaults": true,
+  "before": {
+    "filename": "scenario-2026-11-23T185925.230308_0000.json",
+    "sha256": "bc66f931b394bbd4b42935aed0d0ef707f3693365c77a5d7cf845f4251413c45",
+    "generated_at_utc": "2026-11-23T18:59:25.230308+00:00",
+    "reported_download_time_est": "2026-11-23 14:08:59",
+    "selected": {
+      "name": "Constrained portfolio",
+      "weights": {
+        "SGOV": 0.75,
+        "SCHR": 0.0,
+        "VTC": 0.0,
+        "ACWI": 0.25
+      },
+      "gross_return": 0.057578285087504295,
+      "cost_drag": 0.0025,
+      "net_return": 0.05507828508750429,
+      "volatility": 0.03809658169910532,
+      "reserve": 0.75,
+      "turnover": 0.0,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": true,
+        "SGOV reserve meets minimum": true,
+        "Illustrative one-way rebalance turnover within limit": true
+      },
+      "modeled_verdict": "PASS",
+      "failed_rules": [],
+      "full_mandate_verdict": "FAIL — not cleared for live use",
+      "unresolved_rules": [
+        "Committee loss tolerance, risk limit and breach response are not approved.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    },
+    "decision": "PILOT ON PAPER; 0% live allocation"
+  },
+  "after": {
+    "filename": "scenario-2026-11-23T190910.590247_0000.json",
+    "sha256": "da19e27a2a62dd85f39cd4ede842f273b5357a72e4d132a90cec8855f8c35f09",
+    "generated_at_utc": "2026-11-23T19:09:10.590247+00:00",
+    "reported_download_time_est": "2026-11-23 14:09:31",
+    "selected": {
+      "name": "Constrained portfolio",
+      "weights": {
+        "SGOV": 0.7,
+        "SCHR": 0.0,
+        "VTC": 0.0,
+        "ACWI": 0.3
+      },
+      "gross_return": 0.061833942105005146,
+      "cost_drag": 0.00355,
+      "net_return": 0.05828394210500515,
+      "volatility": 0.045444384300151824,
+      "reserve": 0.7,
+      "turnover": 0.05000000000000002,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": true,
+        "SGOV reserve meets minimum": true,
+        "Illustrative one-way rebalance turnover within limit": true
+      },
+      "modeled_verdict": "PASS",
+      "failed_rules": [],
+      "full_mandate_verdict": "FAIL — not cleared for live use",
+      "unresolved_rules": [
+        "Committee loss tolerance, risk limit and breach response are not approved.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Historical signal uses a prior student-checked summary; raw vintage is not bundled.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    },
+    "decision": "PILOT ON PAPER; 0% live allocation"
+  },
+  "changed_scenario_generated_after_prediction_commit": true,
+  "fixed_original_weights_net_return_at_35_bps": 0.05407828508750429,
+  "prediction_matched": true,
+  "timing_note": "The app prepares its download payload during rendering. JSON generation times differ from student-reported download click times. Baseline payload predates the prediction commit; the changed scenario payload follows it.",
+  "ai_off_execution_attestation": "On November 23, 2026, Peyton explicitly confirmed that he performed the run and wrote his observations with AI closed. This is his attestation, not independently established by the files.",
+  "publication_status": "Results prepared locally; no result upload verified."
+}
