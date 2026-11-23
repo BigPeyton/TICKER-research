@@ -58,7 +58,7 @@ def audit():
         cov = [[12 * sum((r[i] - means[i]) * (r[j] - means[j]) for r in monthly) / (n - 1)
                 for j in range(4)] for i in range(4)]
         annual = [12 * x for x in means]
-        annual[0] = min(annual[0], 0.0363)  # Disclosed transcribed signal, not source authentication.
+        annual[0] = min(annual[0], 0.0375)  # Independently checked Sep 16 FOMC target lower bound.
         annual[3] += settings.equity_change_pp / 100
         production = model.solve(settings)
         for p in production['portfolios']:
@@ -76,8 +76,8 @@ def audit():
                     w = [a / 20, b / 20, c / 20, (20 - a - b - c) / 20]
                     turnover = sum(abs(w[i] - [0.75, 0, 0, 0.25][i]) for i in range(4)) / 2
                     net = sum(w[i] * annual[i] for i in range(4)) - settings.annual_cost_bps / 10000 - settings.trading_cost_bps * turnover / 10000
-                    if net >= settings.objective - 1e-12 and w[0] >= settings.reserve_minimum - 1e-12 and turnover <= settings.turnover_limit + 1e-12:
-                        variance = sum(w[i] * cov[i][j] * w[j] for i in range(4) for j in range(4))
+                    variance = sum(w[i] * cov[i][j] * w[j] for i in range(4) for j in range(4))
+                    if net >= settings.objective - 1e-12 and w[0] >= settings.reserve_minimum - 1e-12 and turnover <= settings.turnover_limit + 1e-12 and math.sqrt(variance) <= settings.volatility_limit + 1e-12:
                         feasible.append((variance, w))
         chosen = production['selected']
         if feasible:
@@ -91,7 +91,7 @@ def audit():
     return {'audited_at_utc': datetime.now(timezone.utc).isoformat(), 'archived_monthly_prices_reconciled': reconciled,
             'checks': checks, 'conclusion': 'Archived price reconstruction, arithmetic, and published grid-search scenarios agree.',
             'limits': ['Archive consistency is not fresh external source authentication.',
-                       'The 3.63% signal remains a prior lab transcription; this audit does not prove historical availability.',
+                       'The dated policy source is archived; its use as a return cap is not forecast validation.',
                        'No approved loss limit, actual holdings, or rolling five-year real-return compliance is established.',
                        'This is AI-assisted development validation, not an independent partner cold run or locked experiment.']}
 
