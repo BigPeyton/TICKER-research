@@ -1,10 +1,12 @@
-I used OpenAI Codex to help adapt my earlier lab code, build the web app, test calculations, and draft documentation. The analysis and decision are mine to review, explain, and defend.
+I used OpenAI Codex to help adapt my earlier lab code, build the web app, test calculations, and draft documentation and recording guides. The analysis and decision are mine to review, explain, and defend.
 
 This is an educational project for a fictional university scholarship fund, not investment advice.
 
 # Scholarship fund — Project 2 / Lab 20
 
-**Experiment update, November 19, 2026.** The audited app was published November 17. The [turnover-limit record](docs/locked-experiment.md) now includes a verified pre-run prediction commit and assistant-operated before/after outputs; its predicted unchanged result matched. Peyton confirmed on November 19 that he wrote the original prediction with AI closed; this is his authorship attestation. The timestamped result exports are published on GitHub; see the experiment record for the evidence commit. Independent partner startup and final videos/transcripts remain unresolved. See the [current validation status](docs/validation-and-ai-use.md).
+**Current status — November 23, 2026.** The [student-operated cost experiment](docs/student-experiment.md) is published: the AI-off prediction was committed before the changed scenario, and Peyton confirmed performing the run and writing his observations with AI closed. Raising additional annual cost from 25 to 35 bps selected 70% SGOV / 30% ACWI, 5.83% estimated net return, and 4.54% volatility; the decision remained paper-only. This is an experiment, not a change to the defaults below. Peyton also confirmed completing Luke's run and submitting the Lab 20 check-in; the original partner observations are retained in the [readiness record](docs/lab20-readiness.md). Final Project 2 recordings, corrected transcripts, final review and submission remain pending.
+
+**Use this copy:** [current project folder](https://github.com/BigPeyton/TICKER-research/tree/main/FIN439-Project2-ready-20261117/ready-to-upload/project2). After extracting the repository ZIP, open `FIN439-Project2-ready-20261117/ready-to-upload/project2`. Older copies elsewhere in the repository are historical; the [submission manifest](docs/submission-manifest.md) directs graders to this copy.
 
 **Decision: pilot on paper; allocate 0% live until the missing risk policy and evidence checks are resolved.** The default hypothetical portfolio is 75% SGOV / 25% ACWI. Its estimated annual net return is **5.51%**, annualized volatility **3.81%**, and SGOV reserve **75%**. It passes the modeled numeric rules but **fails full-mandate clearance**. See the [executed results](outputs/results.md), [memo](docs/decision-memo.md), and [Lab 20 record](docs/lab20-readiness.md).
 
@@ -26,13 +28,13 @@ If Windows opens the Microsoft Store instead of Python, install Python from [pyt
 
 **Move a control:** change any sidebar assumption; the allocation, return, risk, and verdict update. The rule panels explain every failure. Restore the defaults shown below to reproduce the saved report. The download button saves that scenario's exact results with a UTC export timestamp and calculation-code/input hashes. Preserve its unique filename and record the GitHub code commit separately; a timestamp or hash does not prove a prediction was committed before testing. A scenario can be infeasible; the app then shows no proposed allocation.
 
-For the Lab 20 locked experiment, close AI, write and commit your own prediction **before moving the selected control**, then preserve both result downloads. The already-disclosed engineering stress scenarios are not that experiment.
+The completed Project 2 locked record is the [November 23 student-operated experiment](docs/student-experiment.md). Its original prediction remains in an immutable pre-run commit. The earlier [assistant-operated turnover experiment](docs/locked-experiment.md) and engineering stresses remain supporting evidence; they are not represented as AI-off student runs.
 
 ### If installation cannot reach PyPI
 
 If setup reports `Failed to resolve pypi.org`, `getaddrinfo failed`, or socket access denied, the dependency download failed before the app started. Check the machine's internet/DNS and any sandbox or firewall restrictions, then rerun the README command in an environment allowed to reach PyPI. Changing the portfolio cannot repair this setup problem. `python run.py --report` works offline but is not the interactive app and does not establish a successful app cold run.
 
-For the independent rerun, use a fresh extracted copy, follow this README without coaching, and record the command, first failure or none, elapsed time, result location, and a control change. Preserve the original failed attempt as well.
+Peyton confirmed that the partner-run task and Lab 20 check-in were completed. The historical note preserves the original DNS failure and assisted app check; no new clean-install log is invented. Future users should follow the startup instructions above and record any first failure. The offline fallback is not the web app.
 
 ## Produce or check the saved result without installing anything
 
@@ -86,7 +88,8 @@ The point-in-time signal is the prior Lab 17 record of August 2026 FEDFUNDS **3.
 
 - [Executed output](outputs/results.md) and [machine-readable results](outputs/results.json)
 - [Decision memo](docs/decision-memo.md)
-- [Validation, AI use, and Locked Changed-Input Record](docs/validation-and-ai-use.md)
+- [Validation and AI use, including the full student locked record](docs/validation-and-ai-use.md)
+- [Student experiment and original prediction evidence](docs/student-experiment.md)
 - [Lab 20 partner cold-run record and checkout](docs/lab20-readiness.md)
 - [Video preparation](docs/video-plan.md) and [submission manifest](docs/submission-manifest.md)
 - Source: `app.py` (interface), `model.py` (decision and stress engine), `portfolio.py` (reused Lab 14/15 calculations), `run.py` (launcher)
