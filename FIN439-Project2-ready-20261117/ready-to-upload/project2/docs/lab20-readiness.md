@@ -1,17 +1,27 @@
-# Lab 20 — Peyton's Project 2 readiness record
+# Lab 20 — completion update and preserved record
+
+**Current status — November 23, 2026:** Peyton confirmed that Luke's run was completed and the Lab 20 check-in was submitted. This is student-reported completion; no new receipt or clean-start log was provided with that confirmation. The lab is not reassigned. Its original observations and limitations are preserved below rather than changed into a clean-install claim.
+
+The current Project 2 folder is [here](https://github.com/BigPeyton/TICKER-research/tree/main/FIN439-Project2-ready-20261117/ready-to-upload/project2). The separate final-project [student cost experiment](student-experiment.md) now supplies an AI-off prediction, pre-run commit, student-operated results and reconciliation. The original 10 → 30 bps lab experiment remains historical and lacked its pre-run commit. Completed Lab 20 does not itself establish final Project 2 submission.
+
+The [current validation record](validation-and-ai-use.md), [audit](project2-audit.md) and [submission manifest](submission-manifest.md) control present status. All pending instructions in the dated record below describe the November 17 state, not a new request to repeat the lab.
+
+## Historical November 17 record — preserved verbatim
+
+### Lab 20 — Peyton's Project 2 readiness record
 
 **Status: Luke's returned cold-run note received; independent app startup unresolved.** The note reports a package-installation DNS failure, a successful offline report, and a later assisted browser control check. It does not establish a clean independent web-app launch. Luke's separate code was already cold-run by Peyton and returned, as reported by Peyton.
 
 Question: Could a committee member who has never met me reach my decision from this repository, and does the decision survive one changed input?
 
-## Repository and visible result
+#### Repository and visible result
 
 - Repository / project-folder URL: [published Project 2 folder](https://github.com/BigPeyton/TICKER-research/tree/main/FIN439-Project2-ready-20261117/project2). Its 30 app/data/documentation/test files were verified against the tested local package before this returned-note update. This updated record and README still need to be uploaded.
 - [README](../README.md), [executed output](../outputs/results.md), [decision memo](decision-memo.md), [validation and locked record](validation-and-ai-use.md).
 - App startup command: `python run.py`, from the folder containing `run.py`.
 - Development result: 14 checks pass; separate from the partner cold run below.
 
-## Luke's cold run — returned observations
+#### Luke's cold run — returned observations
 
 Source: [Luke's original returned note](luke-cold-run.md), copied unchanged from `lab20-readiness (2).md`. The table below summarizes his report; it does not add an independently verified startup or an inferred commit.
 
@@ -29,7 +39,7 @@ Source: [Luke's original returned note](luke-cold-run.md), copied unchanged from
 
 The initial startup retry hit the same DNS error. The later browser control check used the app Peyton supplied, so it is recorded as assisted. The infeasible 80% reserve scenario is a model verdict, not an application crash. It is also not Peyton's required prospective changed-input prediction.
 
-## Changed input — predicted first
+#### Changed input — predicted first
 
 Peyton supplied a trading-cost-per-turnover experiment, 10 → 30 bps, with all other controls at defaults. He reports saving his prediction before testing: unchanged 5.51% net return, 3.81% volatility, 75% SGOV / 25% ACWI, paper-only recommendation, numeric PASS and full-mandate FAIL. The reported actual results matched. His explanation is zero modeled turnover, which makes the higher trading-cost multiplier contribute zero drag. The control was left at 30 bps. See the [prediction and result record](validation-and-ai-use.md#locked-changed-input-record).
 
@@ -39,7 +49,7 @@ Peyton confirmed that he wrote the prediction before testing but did not commit 
 - Before/after output links: PENDING.
 - Result commit: PENDING.
 
-## Explain the code — six minutes with AI closed
+#### Explain the code — six minutes with AI closed
 
 Open `model.py` at `evaluate()`: it produces gross return, turnover, cost drag, net return, volatility, and the numeric mandate verdict. Follow its call to `expected_return()` in `portfolio.py` if needed. Explain the actual lines to Luke, then answer a question from the code. This is the student's live explanation, not an AI-written substitute.
 
@@ -53,7 +63,7 @@ Open `model.py` at `evaluate()`: it produces gross return, turnover, cost drag, 
 
 **Helper details checked during review:** `checked_weights()` converts weights to floats and checks exactly four finite, nonnegative weights summing to one within `TOL = 1e-12`; it does not infer the asset identities from the numbers. `turnover()` is half the sum of absolute weight changes from the illustrative 75% SGOV / 25% ACWI reference. The returned weight dictionary contains all four named assets, including zero weights, rather than the two-key illustrative dictionary in the supplied explanation. The unavailable raw historical evidence specifically concerns the FEDFUNDS vintage; archived Yahoo price responses are bundled. These clarifications are assistant feedback, not a claimed partner question or live student answer.
 
-## Fix one thing and rerun
+#### Fix one thing and rerun
 
 - First failure from Luke's run: dependency installation could not resolve `pypi.org`.
 - Change prepared in response: README now names this error, explains that setup failed before app startup, documents the offline fallback's limits, and specifies what constitutes an independent rerun. This is a documentation improvement, not a demonstrated DNS repair. No source-code change was made.
@@ -63,18 +73,18 @@ Open `model.py` at `evaluate()`: it produces gross return, turnover, cost drag, 
 
 The stray `1` corrected during development occurred before Luke's independent run. Do not use that as a substitute for this step.
 
-## Decision line — Peyton's confirmed recommendation
+#### Decision line — Peyton's confirmed recommendation
 
 **Decision category: pilot for analysis; 0% live allocation.**
 
 Peyton's own statement: “I recommend using the app for analysis, but not live investing. I would reverse that decision once the unresolved requirements are verified and approved and the portfolio passes all required checks.”
 
-## Reflect — Peyton's supplied responses
+#### Reflect — Peyton's supplied responses
 
 1. **What the cold run revealed:** “It showed me that passing the modeled checks does not mean the portfolio meets the full mandate. I had focused on the numerical results and overlooked the unresolved requirements.”
 2. **What I will not change before the deadline:** “I will avoid changing the calculations, default settings, decision rules, or app layout before the deadline, except to fix a critical error.”
 
-## Individual checkout
+#### Individual checkout
 
 - Partner's cold-run note: RECEIVED and preserved unchanged; startup limitation documented.
 - Changed-input prediction and result: REPORTED by Peyton for trading cost 10 → 30 bps. Pre-run GitHub commit: NOT COMPLETED; Peyton confirmed predicting before testing but not committing first. Original experiment exports: PENDING.

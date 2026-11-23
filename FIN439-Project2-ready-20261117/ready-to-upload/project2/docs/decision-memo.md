@@ -1,38 +1,42 @@
-I used OpenAI Codex to help adapt my earlier lab code, build the web app, test calculations, and draft documentation. The analysis and decision are mine to review, explain, and defend.
+I used OpenAI Codex to help adapt my earlier lab code, build the web app, test calculations, and draft documentation and recording guides. The analysis and decision are mine to review, explain, and defend.
 
 This is an educational project for a fictional university scholarship fund, not investment advice.
 
-# Decision memo — paper pilot only
+# Decision memo — paper pilot; 0% live allocation
 
-**Prepared November 17, 2026; audited working revision.** Peyton confirmed the paper-only decision in his Lab 20 record; final review of this revised package remains pending. Input boundary: September 30, 2026. Prices were downloaded October 22, so this is a reconstruction, not proof of a strategy executable at that historical boundary.
+Updated November 23, 2026. Analysis boundary: September 30, 2026. Prices were downloaded October 22; this is a reconstruction, not a historical point-in-time return backtest. Final student review of this revised memo remains part of submission preparation.
 
-**Recommendation:** pilot the process on paper; allocate **0% live** until the committee resolves its risk policy and the operational/data gaps. Use **75% SGOV / 25% ACWI** as the base paper allocation, with zero SCHR and VTC. Across the individually feasible engineering scenarios, selected paper weights range from **65–85% SGOV and 15–35% ACWI**. This is an observed sensitivity range, not a live trading band or confidence interval. The reserve and combined stresses have no feasible grid candidate.
+**Recommendation:** authorize a paper research pilot, with **0% live allocation** until the committee resolves the missing risk policy and data/operational checks. Use **75% SGOV / 25% ACWI** as the default paper portfolio. Individually feasible engineering scenarios selected **65–85% SGOV / 15–35% ACWI**, with no SCHR or VTC. This is a sensitivity range, not a confidence interval or live trading band.
 
-**Committee ask:** authorize the paper research exercise, define acceptable loss and a breach response, supply actual holdings/annual turnover, and verify fund eligibility and source evidence before considering live capital. Reverse the paper allocation when it fails a modeled requirement; reject the scenario if no feasible allocation remains on the grid. Do not solve a failure by silently changing the mandate.
+**Committee ask:** permit the paper exercise; define acceptable loss, a numerical risk limit and breach response; supply actual holdings and annual turnover; and verify fund eligibility, liquidity and historical signal evidence before considering live capital. Withdraw a failing candidate. Reject a scenario with no feasible grid allocation rather than silently relaxing the mandate.
 
-## Mandate and evidence
+## Mandate and method
 
-The fictional fund has $10 million, pays $75,000 quarterly, and seeks CPI + 3% net annually over rolling five-year periods with a ten-year horizon. Assumed inflation of 2.5% gives an annual model hurdle of 5.50%. Twelve months of payouts require $300,000, or 3%, in the reserve sleeve. The model includes SGOV, SCHR, VTC, and ACWI. Only SGOV is treated as reserve-eligible; the benchmark is 60% ACWI / 40% VTC.
+The fictional $10 million scholarship fund pays $75,000 quarterly and seeks CPI + 3% net over rolling five-year periods, with a ten-year horizon. Assumed inflation of 2.5% gives a **5.50% annual planning hurdle**. Twelve months of payouts require $300,000, a **3% reserve**, modeled as SGOV only. The universe is SGOV, SCHR, VTC and ACWI; the benchmark is 60% ACWI / 40% VTC.
 
-The fund is long-only with no direct borrowing or derivatives, at least 90% five-day liquidity, and an 8% company limit with the documented exemptions. Annual turnover above 25% requires committee approval. The model uses Lab 15's proposed 75/25 allocation as an illustrative turnover reference, not confirmed holdings. Its single-rebalance calculation cannot establish actual annual turnover compliance. No numeric loss limit was provided, so full-mandate clearance remains **FAIL** for every portfolio.
+The mandate is fully invested and long-only, with no direct borrowing or derivatives, at least 90% five-day liquidity, and an 8% company limit with documented exemptions. Annual turnover above 25% requires approval. Modeled turnover is one-way change from the prior 75/25 paper proposal, not verified holdings or cumulative annual trading. The mandate lacks an approved numerical loss/risk limit; volatility is measured but is not tested against an approved ceiling.
 
-Estimates use 60 monthly adjusted-price returns (October 2021–September 2026), annualized arithmetic means, and sample covariance. Net returns subtract an illustrative 25 bps annual operating/advisory cost and 10 bps per dollar of one-way rebalance turnover. The prior Lab 17 record identifies August FEDFUNDS of 3.63% as available in the September 30 vintage; the model caps SGOV's annual mean at that policy-rate proxy. This is an unvalidated modeling choice, not an observed Treasury yield. The raw vintage could not be retrieved again; the prior checked summary is preserved and clearly labeled.
+The model uses 60 monthly adjusted-price returns, arithmetic means multiplied by twelve, and sample covariance multiplied by twelve. It selects the least volatile feasible allocation on a five-percentage-point grid. Costs are 25 bps annually plus 10 bps times modeled one-way turnover, charged once for the proposed rebalance. These are illustrative additional costs, not verified fee quotes.
 
-## Results and decision limits
+SGOV's annual mean is capped at the prior Lab 17 FEDFUNDS observation of 3.63%, recorded for the September 30 vintage. The raw vintage remains unavailable. This policy-rate proxy is an unvalidated heuristic, not an observed ETF return or Treasury yield forecast. See the [data card](data-card.md).
 
-| Portfolio | Annual net estimate | Annualized volatility | Reserve | Modeled verdict |
+## Results and changed-input evidence
+
+| Portfolio at defaults | Net annual estimate | Annualized volatility | SGOV reserve | Modeled verdict |
 |---|---:|---:|---:|---|
-| Equal weight | 3.53% | 6.55% | 25.00% | FAIL: return and illustrative turnover |
+| Equal weight | 3.53% | 6.55% | 25.00% | FAIL: return and turnover |
 | Inverse volatility | 3.10% | 1.33% | 84.20% | FAIL: return |
-| Benchmark 60% ACWI / 40% VTC | 6.90% | 11.63% | 0.00% | FAIL: reserve and illustrative turnover |
-| Constrained 75% SGOV / 25% ACWI | **5.51%** | **3.81%** | **75.00%** | PASS numeric model; FAIL full clearance |
+| 60% ACWI / 40% VTC benchmark | 6.90% | 11.63% | 0.00% | FAIL: reserve and turnover |
+| Constrained 75% SGOV / 25% ACWI | **5.51%** | **3.81%** | **75.00%** | PASS numerical rules |
 
-The selected portfolio meets the modeled net hurdle by only about **0.01 percentage point**. That margin does not support confidence in the return forecast. It is the lowest-volatility feasible allocation on a 5-point grid; a continuous optimizer could find different weights. Volatility is not a loss guarantee, and a first-year estimate cannot demonstrate rolling five-year CPI + 3% performance.
+**All portfolios fail full-mandate clearance.** The default exceeds the modeled hurdle by only about 0.01 percentage point. A first-year arithmetic estimate does not demonstrate rolling five-year real returns, forecast accuracy, or a maximum-loss guarantee.
 
-Lowering ACWI's mean by two percentage points reduces the unchanged portfolio's net estimate to **5.01%**. Reoptimizing selects 65% SGOV / 35% ACWI, with **5.65%** net and **5.28%** volatility. Increasing annual additional cost to 100 bps reduces the unchanged portfolio to **4.76%**; reoptimization selects the same 65/35 weights at **5.60%** net. With only the latest 36 returns, the optimizer instead selects 85% SGOV / 15% ACWI at **5.90%** net and **1.76%** volatility. A minimum 80% SGOV reserve makes the return hurdle infeasible on this grid. The original weights therefore do not survive all stresses; a feasible replacement is not evidence that the original recommendation was robust.
+In Peyton's [precommitted student experiment](student-experiment.md), increasing additional annual cost from **25 to 35 bps** left the original weights with **5.41%** estimated net return, below the hurdle. Reoptimization selected **70% SGOV / 30% ACWI**, with **5.83% net return, 4.54% volatility and 5% modeled turnover**. The higher selected estimate reflects greater equity exposure, not a benefit from higher fees. The prediction matched; numerical PASS, full-mandate FAIL and the paper-only decision remained. Peyton confirmed writing the prediction, executing the run and writing his observations with AI closed. Code/data hashes match across the exports.
+
+Other stresses expose fragility: ACWI's mean minus two percentage points leaves the original portfolio at 5.01% net; reoptimization selects 65/35 at 5.65% net and 5.28% volatility. At 100 bps annual cost, the original falls to 4.76%; 65/35 gives 5.60%. The 36-return window selects 85/15 at 5.90% net and 1.76% volatility. An 80% SGOV reserve requirement and the combined stress have no feasible grid candidate. Reoptimization does not mean the original weights survived.
 
 ## Monitoring and reversal
 
-At quarterly payout reviews, check reserve dollars against the next twelve months of scholarships; net estimates against the hurdle; price completeness and release timing; estimated volatility and stress sensitivity; actual liquidity and cumulative annual turnover. Rebalance annually or with a documented committee exception. Stop using a candidate when its modeled rules fail or timing evidence becomes unreliable. No live allocation is permitted while risk policy, real holdings, fund permissions, liquidity, or raw-vintage evidence remain unresolved.
+At quarterly payout reviews, check the next twelve months' reserve dollars, net estimate against the objective, source completeness and timing, volatility and stress sensitivity, actual liquidity and cumulative annual turnover. Rebalance annually or by documented exception. Stop using a candidate when a modeled requirement fails or timing evidence becomes unreliable. Restrict the present work to paper research because source and mandate gaps remain; it is not cleared for reliance with live capital.
 
-Evidence: [executed output](../outputs/results.md), [data card](data-card.md), [validation and AI use](validation-and-ai-use.md), and the [original Lab 13 mandate](prior-evidence/lab13_portfolio_mandate.md). Peyton confirmed the decision and code explanation. The valid precommitted AI-off experiment and successful independent app startup remain outstanding; see the [audit](project2-audit.md).
+Evidence: [visible output](../outputs/results.md), [validation and AI use](validation-and-ai-use.md), [student experiment](student-experiment.md), [data card](data-card.md), and [original mandate](prior-evidence/lab13_portfolio_mandate.md). Peyton confirmed the partner task and Lab 20 submission. Those do not establish final Project 2 submission or resolve the model's limitations.
