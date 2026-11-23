@@ -1,0 +1,1408 @@
+{
+  "generated_at_utc": "2026-11-23T19:54:47.165336+00:00",
+  "type": "AI-assisted post-experiment model revision, not a new student locked experiment",
+  "original_experiment_commit": "c24dbb0f6483b38cd8715e40cbb8d9766cbe6865",
+  "current_default": {
+    "settings": {
+      "objective": 0.055,
+      "reserve_minimum": 0.03,
+      "annual_cost_bps": 25.0,
+      "trading_cost_bps": 10.0,
+      "turnover_limit": 0.25,
+      "volatility_limit": 0.06,
+      "last_36": false,
+      "equity_change_pp": 0.0
+    },
+    "inputs": {
+      "names": [
+        "SGOV",
+        "SCHR",
+        "VTC",
+        "ACWI"
+      ],
+      "returns": [
+        0.03715067550952211,
+        -0.003049972912604138,
+        -0.0015151421764943995,
+        0.12141314035001718
+      ],
+      "volatilities": [
+        0.00498883450782401,
+        0.05408645301899603,
+        0.08056506392012373,
+        0.148856469219344
+      ],
+      "covariance": [
+        [
+          2.4888469746455638e-05,
+          6.943285223261279e-05,
+          0.00010930447299605023,
+          0.0001398913230563484
+        ],
+        [
+          6.943285223261279e-05,
+          0.0029253444001760645,
+          0.0040163341362886625,
+          0.004770909978099735
+        ],
+        [
+          0.00010930447299605023,
+          0.0040163341362886625,
+          0.006490729524453623,
+          0.009379444084415607
+        ],
+        [
+          0.0001398913230563484,
+          0.004770909978099735,
+          0.009379444084415607,
+          0.02215824842844951
+        ]
+      ],
+      "months": 60,
+      "start": "2021-09-30",
+      "end": "2026-09-30",
+      "historical_returns": [
+        0.03715067550952211,
+        -0.003049972912604138,
+        -0.0015151421764943995,
+        0.12141314035001718
+      ],
+      "signal": {
+        "series": "FOMC_TARGET_LOWER",
+        "units": "percent",
+        "value": 3.75,
+        "upper_bound": 4.0,
+        "published_at": "2026-09-16T14:00:00-04:00",
+        "effective_date": "2026-09-17",
+        "decision_boundary": "2026-09-30",
+        "evidence_kind": "archived_dated_federal_reserve_release",
+        "use": "Cap SGOV historical annual mean at the announced target lower bound; explicit research heuristic, not ETF yield or forecast.",
+        "supersedes": "Prior 3.63% FEDFUNDS transcription in current model only; historical experiment evidence remains unchanged."
+      }
+    },
+    "portfolios": [
+      {
+        "name": "Equal weight",
+        "weights": {
+          "SGOV": 0.25,
+          "SCHR": 0.25,
+          "VTC": 0.25,
+          "ACWI": 0.25
+        },
+        "gross_return": 0.03849967519261019,
+        "cost_drag": 0.003,
+        "net_return": 0.035499675192610186,
+        "volatility": 0.06546461091546127,
+        "reserve": 0.25,
+        "turnover": 0.5,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": false,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": false,
+          "Estimated annualized volatility within proposed paper limit": false
+        },
+        "modeled_verdict": "FAIL",
+        "failed_rules": [
+          "Estimated annual net return meets objective",
+          "Illustrative one-way rebalance turnover within limit",
+          "Estimated annualized volatility within proposed paper limit"
+        ],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      {
+        "name": "Inverse volatility",
+        "weights": {
+          "SGOV": 0.8419807578209488,
+          "SCHR": 0.0776627496365065,
+          "VTC": 0.05213801684195957,
+          "ACWI": 0.02821847570058515
+        },
+        "gross_return": 0.03439038187874056,
+        "cost_drag": 0.002721781524299415,
+        "net_return": 0.03166860035444114,
+        "volatility": 0.013301789532648744,
+        "reserve": 0.8419807578209488,
+        "turnover": 0.2217815242994149,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": false,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "FAIL",
+        "failed_rules": [
+          "Estimated annual net return meets objective"
+        ],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      {
+        "name": "60% ACWI / 40% VTC benchmark",
+        "weights": {
+          "SGOV": 0.0,
+          "SCHR": 0.0,
+          "VTC": 0.4,
+          "ACWI": 0.6
+        },
+        "gross_return": 0.07224182733941255,
+        "cost_drag": 0.0032500000000000003,
+        "net_return": 0.06899182733941255,
+        "volatility": 0.11626529713837183,
+        "reserve": 0.0,
+        "turnover": 0.75,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": false,
+          "Illustrative one-way rebalance turnover within limit": false,
+          "Estimated annualized volatility within proposed paper limit": false
+        },
+        "modeled_verdict": "FAIL",
+        "failed_rules": [
+          "SGOV reserve meets minimum",
+          "Illustrative one-way rebalance turnover within limit",
+          "Estimated annualized volatility within proposed paper limit"
+        ],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.75,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.25
+        },
+        "gross_return": 0.05821629171964588,
+        "cost_drag": 0.0025,
+        "net_return": 0.05571629171964588,
+        "volatility": 0.03809658169910532,
+        "reserve": 0.75,
+        "turnover": 0.0,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      }
+    ],
+    "selected": {
+      "name": "Constrained portfolio",
+      "weights": {
+        "SGOV": 0.75,
+        "SCHR": 0.0,
+        "VTC": 0.0,
+        "ACWI": 0.25
+      },
+      "gross_return": 0.05821629171964588,
+      "cost_drag": 0.0025,
+      "net_return": 0.05571629171964588,
+      "volatility": 0.03809658169910532,
+      "reserve": 0.75,
+      "turnover": 0.0,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": true,
+        "SGOV reserve meets minimum": true,
+        "Illustrative one-way rebalance turnover within limit": true,
+        "Estimated annualized volatility within proposed paper limit": true
+      },
+      "modeled_verdict": "PASS",
+      "failed_rules": [],
+      "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+      "unresolved_rules": [
+        "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    },
+    "decision": "PILOT ON PAPER; 0% live allocation",
+    "stop_condition": "Stop and withdraw the paper candidate if estimated annualized volatility exceeds the selected ceiling, net return or reserve fails, turnover requires unapproved action, or source timing is unverifiable. Record the breach, suspend new paper allocations, and review inputs and policy before restarting; never automatically raise the limit. No feasible candidate means reject the scenario. Do not deploy live before all mandate gaps are resolved.",
+    "stress_runs": [
+      {
+        "scenario": "Base",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.03,
+          "annual_cost_bps": 25.0,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.06,
+          "last_36": false,
+          "equity_change_pp": 0.0
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05821629171964588,
+          "cost_drag": 0.0025,
+          "net_return": 0.05571629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "PASS",
+          "failed_rules": [],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": {
+          "name": "Constrained portfolio",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05821629171964588,
+          "cost_drag": 0.0025,
+          "net_return": 0.05571629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "PASS",
+          "failed_rules": [],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "decision": "PILOT ON PAPER; 0% live allocation"
+      },
+      {
+        "scenario": "ACWI estimate -2 percentage points",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.03,
+          "annual_cost_bps": 25.0,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.06,
+          "last_36": false,
+          "equity_change_pp": -2
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05321629171964588,
+          "cost_drag": 0.0025,
+          "net_return": 0.05071629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": false,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "FAIL",
+          "failed_rules": [
+            "Estimated annual net return meets objective"
+          ],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": {
+          "name": "Constrained portfolio",
+          "weights": {
+            "SGOV": 0.65,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.35
+          },
+          "gross_return": 0.05964253820369539,
+          "cost_drag": 0.0026,
+          "net_return": 0.05704253820369539,
+          "volatility": 0.0528067359618409,
+          "reserve": 0.65,
+          "turnover": 0.09999999999999998,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "PASS",
+          "failed_rules": [],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "decision": "PILOT ON PAPER; 0% live allocation"
+      },
+      {
+        "scenario": "Last 36 monthly returns",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.03,
+          "annual_cost_bps": 25.0,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.06,
+          "last_36": true,
+          "equity_change_pp": 0.0
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.07938502380419706,
+          "cost_drag": 0.0025,
+          "net_return": 0.07688502380419705,
+          "volatility": 0.02907819183688166,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "PASS",
+          "failed_rules": [],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": {
+          "name": "Constrained portfolio",
+          "weights": {
+            "SGOV": 0.85,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.15
+          },
+          "gross_return": 0.06263101428251823,
+          "cost_drag": 0.0026,
+          "net_return": 0.06003101428251823,
+          "volatility": 0.01762104056837812,
+          "reserve": 0.85,
+          "turnover": 0.09999999999999999,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "PASS",
+          "failed_rules": [],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "decision": "PILOT ON PAPER; 0% live allocation"
+      },
+      {
+        "scenario": "Annual additional cost 100 bps",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.03,
+          "annual_cost_bps": 100,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.06,
+          "last_36": false,
+          "equity_change_pp": 0.0
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05821629171964588,
+          "cost_drag": 0.01,
+          "net_return": 0.04821629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": false,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "FAIL",
+          "failed_rules": [
+            "Estimated annual net return meets objective"
+          ],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": {
+          "name": "Constrained portfolio",
+          "weights": {
+            "SGOV": 0.65,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.35
+          },
+          "gross_return": 0.0666425382036954,
+          "cost_drag": 0.0101,
+          "net_return": 0.0565425382036954,
+          "volatility": 0.0528067359618409,
+          "reserve": 0.65,
+          "turnover": 0.09999999999999998,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "PASS",
+          "failed_rules": [],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "decision": "PILOT ON PAPER; 0% live allocation"
+      },
+      {
+        "scenario": "Reserve minimum 80%",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.8,
+          "annual_cost_bps": 25.0,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.06,
+          "last_36": false,
+          "equity_change_pp": 0.0
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05821629171964588,
+          "cost_drag": 0.0025,
+          "net_return": 0.05571629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": false,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "FAIL",
+          "failed_rules": [
+            "SGOV reserve meets minimum"
+          ],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": null,
+        "decision": "REJECT this scenario; no feasible grid allocation"
+      },
+      {
+        "scenario": "Combined: equity -2 pp; cost 100 bps; reserve 80%",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.8,
+          "annual_cost_bps": 100,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.06,
+          "last_36": false,
+          "equity_change_pp": -2
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05321629171964588,
+          "cost_drag": 0.01,
+          "net_return": 0.04321629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": false,
+            "SGOV reserve meets minimum": false,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "FAIL",
+          "failed_rules": [
+            "Estimated annual net return meets objective",
+            "SGOV reserve meets minimum"
+          ],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": null,
+        "decision": "REJECT this scenario; no feasible grid allocation"
+      },
+      {
+        "scenario": "Proposed volatility ceiling 3%",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.03,
+          "annual_cost_bps": 25.0,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.03,
+          "last_36": false,
+          "equity_change_pp": 0.0
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05821629171964588,
+          "cost_drag": 0.0025,
+          "net_return": 0.05571629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": true,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": false
+          },
+          "modeled_verdict": "FAIL",
+          "failed_rules": [
+            "Estimated annualized volatility within proposed paper limit"
+          ],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": null,
+        "decision": "REJECT this scenario; no feasible grid allocation"
+      },
+      {
+        "scenario": "Cost 35 bps; volatility ceiling 4%",
+        "settings": {
+          "objective": 0.055,
+          "reserve_minimum": 0.03,
+          "annual_cost_bps": 35,
+          "trading_cost_bps": 10.0,
+          "turnover_limit": 0.25,
+          "volatility_limit": 0.04,
+          "last_36": false,
+          "equity_change_pp": 0.0
+        },
+        "fixed_base_weights": {
+          "name": "Unchanged base weights",
+          "weights": {
+            "SGOV": 0.75,
+            "SCHR": 0.0,
+            "VTC": 0.0,
+            "ACWI": 0.25
+          },
+          "gross_return": 0.05821629171964588,
+          "cost_drag": 0.0035,
+          "net_return": 0.05471629171964588,
+          "volatility": 0.03809658169910532,
+          "reserve": 0.75,
+          "turnover": 0.0,
+          "modeled_rules": {
+            "Fully invested, long-only; no direct leverage/derivatives": true,
+            "Estimated annual net return meets objective": false,
+            "SGOV reserve meets minimum": true,
+            "Illustrative one-way rebalance turnover within limit": true,
+            "Estimated annualized volatility within proposed paper limit": true
+          },
+          "modeled_verdict": "FAIL",
+          "failed_rules": [
+            "Estimated annual net return meets objective"
+          ],
+          "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+          "unresolved_rules": [
+            "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+            "Five-day redemption capacity and reserve eligibility need operational verification.",
+            "Diversified-fund concentration exemption and fund mandates need confirmation.",
+            "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+            "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+            "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+          ]
+        },
+        "reoptimized": null,
+        "decision": "REJECT this scenario; no feasible grid allocation"
+      }
+    ],
+    "run_date": "2026-11-23",
+    "exported_at_utc": "2026-11-23T19:54:46.944182+00:00",
+    "analysis_boundary": "2026-09-30",
+    "analysis_type": "Reconstruction using later-downloaded prices; NOT a point-in-time return backtest.",
+    "sha256": {
+      "app.py": "4c55f22b5a7e0a797f7161ea684dd45eedbf2852b17c812d3f82889464e2bae7",
+      "model.py": "fb604956ddd95ce34aa6ab98782b66633c249f3e53ad6d27b141b8b17a4730b8",
+      "portfolio.py": "95a7ccf951330007ac67e3c3cd4e617dbdec77f9ab307963c18be5963a591432",
+      "requirements.txt": "ed3e8712523537bae89f0ed6c8f5bb2ac139eb642aefd53d83e981fea443bc2d",
+      "data/prices.csv": "0b839e4ca65e8ddf479ebde5b930a490af9c02e3d17ef57882da672715176843",
+      "data/price-sources.json": "c0cf18040f8ccaa682647207e72ef29563e670fdb43983d7e415c10b2603f603",
+      "data/policy-signal.json": "ad79a634099e3937b8664247d2fe893cecb0f5126fc88ac5cd536388c258eaea",
+      "data/policy-signal-sources.json": "92776f24377b74f813dd57624d3473a9754150555b1a632e946cab62480e7d60",
+      "data/raw/fomc-20260916.html": "83f631fad046a7847272cddb01b604dc02edf1aedcf6dddbb07da3b73cb38f14",
+      "data/raw/fomc-implementation-20260916.html": "6d0e21c77935c0e04e8714e9965cd4b316d35845fc30780929a1a052cff57ede"
+    }
+  },
+  "current_cost35": {
+    "settings": {
+      "objective": 0.055,
+      "reserve_minimum": 0.03,
+      "annual_cost_bps": 35,
+      "trading_cost_bps": 10.0,
+      "turnover_limit": 0.25,
+      "volatility_limit": 0.06,
+      "last_36": false,
+      "equity_change_pp": 0.0
+    },
+    "inputs": {
+      "names": [
+        "SGOV",
+        "SCHR",
+        "VTC",
+        "ACWI"
+      ],
+      "returns": [
+        0.03715067550952211,
+        -0.003049972912604138,
+        -0.0015151421764943995,
+        0.12141314035001718
+      ],
+      "volatilities": [
+        0.00498883450782401,
+        0.05408645301899603,
+        0.08056506392012373,
+        0.148856469219344
+      ],
+      "covariance": [
+        [
+          2.4888469746455638e-05,
+          6.943285223261279e-05,
+          0.00010930447299605023,
+          0.0001398913230563484
+        ],
+        [
+          6.943285223261279e-05,
+          0.0029253444001760645,
+          0.0040163341362886625,
+          0.004770909978099735
+        ],
+        [
+          0.00010930447299605023,
+          0.0040163341362886625,
+          0.006490729524453623,
+          0.009379444084415607
+        ],
+        [
+          0.0001398913230563484,
+          0.004770909978099735,
+          0.009379444084415607,
+          0.02215824842844951
+        ]
+      ],
+      "months": 60,
+      "start": "2021-09-30",
+      "end": "2026-09-30",
+      "historical_returns": [
+        0.03715067550952211,
+        -0.003049972912604138,
+        -0.0015151421764943995,
+        0.12141314035001718
+      ],
+      "signal": {
+        "series": "FOMC_TARGET_LOWER",
+        "units": "percent",
+        "value": 3.75,
+        "upper_bound": 4.0,
+        "published_at": "2026-09-16T14:00:00-04:00",
+        "effective_date": "2026-09-17",
+        "decision_boundary": "2026-09-30",
+        "evidence_kind": "archived_dated_federal_reserve_release",
+        "use": "Cap SGOV historical annual mean at the announced target lower bound; explicit research heuristic, not ETF yield or forecast.",
+        "supersedes": "Prior 3.63% FEDFUNDS transcription in current model only; historical experiment evidence remains unchanged."
+      }
+    },
+    "portfolios": [
+      {
+        "name": "Equal weight",
+        "weights": {
+          "SGOV": 0.25,
+          "SCHR": 0.25,
+          "VTC": 0.25,
+          "ACWI": 0.25
+        },
+        "gross_return": 0.03849967519261019,
+        "cost_drag": 0.004,
+        "net_return": 0.034499675192610185,
+        "volatility": 0.06546461091546127,
+        "reserve": 0.25,
+        "turnover": 0.5,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": false,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": false,
+          "Estimated annualized volatility within proposed paper limit": false
+        },
+        "modeled_verdict": "FAIL",
+        "failed_rules": [
+          "Estimated annual net return meets objective",
+          "Illustrative one-way rebalance turnover within limit",
+          "Estimated annualized volatility within proposed paper limit"
+        ],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      {
+        "name": "Inverse volatility",
+        "weights": {
+          "SGOV": 0.8419807578209488,
+          "SCHR": 0.0776627496365065,
+          "VTC": 0.05213801684195957,
+          "ACWI": 0.02821847570058515
+        },
+        "gross_return": 0.03439038187874056,
+        "cost_drag": 0.003721781524299415,
+        "net_return": 0.03066860035444114,
+        "volatility": 0.013301789532648744,
+        "reserve": 0.8419807578209488,
+        "turnover": 0.2217815242994149,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": false,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "FAIL",
+        "failed_rules": [
+          "Estimated annual net return meets objective"
+        ],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      {
+        "name": "60% ACWI / 40% VTC benchmark",
+        "weights": {
+          "SGOV": 0.0,
+          "SCHR": 0.0,
+          "VTC": 0.4,
+          "ACWI": 0.6
+        },
+        "gross_return": 0.07224182733941255,
+        "cost_drag": 0.00425,
+        "net_return": 0.06799182733941254,
+        "volatility": 0.11626529713837183,
+        "reserve": 0.0,
+        "turnover": 0.75,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": false,
+          "Illustrative one-way rebalance turnover within limit": false,
+          "Estimated annualized volatility within proposed paper limit": false
+        },
+        "modeled_verdict": "FAIL",
+        "failed_rules": [
+          "SGOV reserve meets minimum",
+          "Illustrative one-way rebalance turnover within limit",
+          "Estimated annualized volatility within proposed paper limit"
+        ],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.7,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.3
+        },
+        "gross_return": 0.06242941496167063,
+        "cost_drag": 0.00355,
+        "net_return": 0.05887941496167063,
+        "volatility": 0.045444384300151824,
+        "reserve": 0.7,
+        "turnover": 0.05000000000000002,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      }
+    ],
+    "selected": {
+      "name": "Constrained portfolio",
+      "weights": {
+        "SGOV": 0.7,
+        "SCHR": 0.0,
+        "VTC": 0.0,
+        "ACWI": 0.3
+      },
+      "gross_return": 0.06242941496167063,
+      "cost_drag": 0.00355,
+      "net_return": 0.05887941496167063,
+      "volatility": 0.045444384300151824,
+      "reserve": 0.7,
+      "turnover": 0.05000000000000002,
+      "modeled_rules": {
+        "Fully invested, long-only; no direct leverage/derivatives": true,
+        "Estimated annual net return meets objective": true,
+        "SGOV reserve meets minimum": true,
+        "Illustrative one-way rebalance turnover within limit": true,
+        "Estimated annualized volatility within proposed paper limit": true
+      },
+      "modeled_verdict": "PASS",
+      "failed_rules": [],
+      "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+      "unresolved_rules": [
+        "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+        "Five-day redemption capacity and reserve eligibility need operational verification.",
+        "Diversified-fund concentration exemption and fund mandates need confirmation.",
+        "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+        "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+        "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+      ]
+    },
+    "decision": "PILOT ON PAPER; 0% live allocation",
+    "stop_condition": "Stop and withdraw the paper candidate if estimated annualized volatility exceeds the selected ceiling, net return or reserve fails, turnover requires unapproved action, or source timing is unverifiable. Record the breach, suspend new paper allocations, and review inputs and policy before restarting; never automatically raise the limit. No feasible candidate means reject the scenario. Do not deploy live before all mandate gaps are resolved.",
+    "exported_at_utc": "2026-11-23T19:54:47.165356+00:00",
+    "analysis_boundary": "2026-09-30",
+    "analysis_type": "Reconstruction using later-downloaded prices; NOT a point-in-time return backtest.",
+    "sha256": {
+      "app.py": "4c55f22b5a7e0a797f7161ea684dd45eedbf2852b17c812d3f82889464e2bae7",
+      "model.py": "fb604956ddd95ce34aa6ab98782b66633c249f3e53ad6d27b141b8b17a4730b8",
+      "portfolio.py": "95a7ccf951330007ac67e3c3cd4e617dbdec77f9ab307963c18be5963a591432",
+      "requirements.txt": "ed3e8712523537bae89f0ed6c8f5bb2ac139eb642aefd53d83e981fea443bc2d",
+      "data/prices.csv": "0b839e4ca65e8ddf479ebde5b930a490af9c02e3d17ef57882da672715176843",
+      "data/price-sources.json": "c0cf18040f8ccaa682647207e72ef29563e670fdb43983d7e415c10b2603f603",
+      "data/policy-signal.json": "ad79a634099e3937b8664247d2fe893cecb0f5126fc88ac5cd536388c258eaea",
+      "data/policy-signal-sources.json": "92776f24377b74f813dd57624d3473a9754150555b1a632e946cab62480e7d60",
+      "data/raw/fomc-20260916.html": "83f631fad046a7847272cddb01b604dc02edf1aedcf6dddbb07da3b73cb38f14",
+      "data/raw/fomc-implementation-20260916.html": "6d0e21c77935c0e04e8714e9965cd4b316d35845fc30780929a1a052cff57ede"
+    }
+  },
+  "current_fixed_weights_at35": {
+    "name": "Original weights at 35 bps",
+    "weights": {
+      "SGOV": 0.75,
+      "SCHR": 0.0,
+      "VTC": 0.0,
+      "ACWI": 0.25
+    },
+    "gross_return": 0.05821629171964588,
+    "cost_drag": 0.0035,
+    "net_return": 0.05471629171964588,
+    "volatility": 0.03809658169910532,
+    "reserve": 0.75,
+    "turnover": 0.0,
+    "modeled_rules": {
+      "Fully invested, long-only; no direct leverage/derivatives": true,
+      "Estimated annual net return meets objective": false,
+      "SGOV reserve meets minimum": true,
+      "Illustrative one-way rebalance turnover within limit": true,
+      "Estimated annualized volatility within proposed paper limit": true
+    },
+    "modeled_verdict": "FAIL",
+    "failed_rules": [
+      "Estimated annual net return meets objective"
+    ],
+    "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+    "unresolved_rules": [
+      "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+      "Five-day redemption capacity and reserve eligibility need operational verification.",
+      "Diversified-fund concentration exemption and fund mandates need confirmation.",
+      "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+      "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+      "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+    ]
+  },
+  "risk_sensitivity": [
+    {
+      "volatility_ceiling": 0.03,
+      "annual_cost_bps": 25,
+      "selected": null,
+      "decision": "REJECT this scenario; no feasible grid allocation"
+    },
+    {
+      "volatility_ceiling": 0.03,
+      "annual_cost_bps": 35,
+      "selected": null,
+      "decision": "REJECT this scenario; no feasible grid allocation"
+    },
+    {
+      "volatility_ceiling": 0.04,
+      "annual_cost_bps": 25,
+      "selected": {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.75,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.25
+        },
+        "gross_return": 0.05821629171964588,
+        "cost_drag": 0.0025,
+        "net_return": 0.05571629171964588,
+        "volatility": 0.03809658169910532,
+        "reserve": 0.75,
+        "turnover": 0.0,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      "decision": "PILOT ON PAPER; 0% live allocation"
+    },
+    {
+      "volatility_ceiling": 0.04,
+      "annual_cost_bps": 35,
+      "selected": null,
+      "decision": "REJECT this scenario; no feasible grid allocation"
+    },
+    {
+      "volatility_ceiling": 0.05,
+      "annual_cost_bps": 25,
+      "selected": {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.75,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.25
+        },
+        "gross_return": 0.05821629171964588,
+        "cost_drag": 0.0025,
+        "net_return": 0.05571629171964588,
+        "volatility": 0.03809658169910532,
+        "reserve": 0.75,
+        "turnover": 0.0,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      "decision": "PILOT ON PAPER; 0% live allocation"
+    },
+    {
+      "volatility_ceiling": 0.05,
+      "annual_cost_bps": 35,
+      "selected": {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.7,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.3
+        },
+        "gross_return": 0.06242941496167063,
+        "cost_drag": 0.00355,
+        "net_return": 0.05887941496167063,
+        "volatility": 0.045444384300151824,
+        "reserve": 0.7,
+        "turnover": 0.05000000000000002,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      "decision": "PILOT ON PAPER; 0% live allocation"
+    },
+    {
+      "volatility_ceiling": 0.06,
+      "annual_cost_bps": 25,
+      "selected": {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.75,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.25
+        },
+        "gross_return": 0.05821629171964588,
+        "cost_drag": 0.0025,
+        "net_return": 0.05571629171964588,
+        "volatility": 0.03809658169910532,
+        "reserve": 0.75,
+        "turnover": 0.0,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      "decision": "PILOT ON PAPER; 0% live allocation"
+    },
+    {
+      "volatility_ceiling": 0.06,
+      "annual_cost_bps": 35,
+      "selected": {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.7,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.3
+        },
+        "gross_return": 0.06242941496167063,
+        "cost_drag": 0.00355,
+        "net_return": 0.05887941496167063,
+        "volatility": 0.045444384300151824,
+        "reserve": 0.7,
+        "turnover": 0.05000000000000002,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      "decision": "PILOT ON PAPER; 0% live allocation"
+    },
+    {
+      "volatility_ceiling": 0.08,
+      "annual_cost_bps": 25,
+      "selected": {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.75,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.25
+        },
+        "gross_return": 0.05821629171964588,
+        "cost_drag": 0.0025,
+        "net_return": 0.05571629171964588,
+        "volatility": 0.03809658169910532,
+        "reserve": 0.75,
+        "turnover": 0.0,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      "decision": "PILOT ON PAPER; 0% live allocation"
+    },
+    {
+      "volatility_ceiling": 0.08,
+      "annual_cost_bps": 35,
+      "selected": {
+        "name": "Constrained portfolio",
+        "weights": {
+          "SGOV": 0.7,
+          "SCHR": 0.0,
+          "VTC": 0.0,
+          "ACWI": 0.3
+        },
+        "gross_return": 0.06242941496167063,
+        "cost_drag": 0.00355,
+        "net_return": 0.05887941496167063,
+        "volatility": 0.045444384300151824,
+        "reserve": 0.7,
+        "turnover": 0.05000000000000002,
+        "modeled_rules": {
+          "Fully invested, long-only; no direct leverage/derivatives": true,
+          "Estimated annual net return meets objective": true,
+          "SGOV reserve meets minimum": true,
+          "Illustrative one-way rebalance turnover within limit": true,
+          "Estimated annualized volatility within proposed paper limit": true
+        },
+        "modeled_verdict": "PASS",
+        "failed_rules": [],
+        "full_mandate_verdict": "FAIL \u2014 not cleared for live use",
+        "unresolved_rules": [
+          "The proposed paper volatility ceiling and breach rule are not an approved client loss policy.",
+          "Five-day redemption capacity and reserve eligibility need operational verification.",
+          "Diversified-fund concentration exemption and fund mandates need confirmation.",
+          "Actual holdings, cumulative annual turnover and rebalance authorization are unknown.",
+          "Dated policy signal is archived, but its SGOV return-cap heuristic is not a validated forecast.",
+          "Annual arithmetic estimates do not demonstrate rolling five-year CPI + 3% net returns."
+        ]
+      },
+      "decision": "PILOT ON PAPER; 0% live allocation"
+    }
+  ],
+  "unchanged_historical_artifacts": [
+    "docs/student-experiment.md",
+    "docs/locked-experiment.md",
+    "docs/luke-cold-run.md",
+    "outputs/scenario-2026-11-23T185925.230308_0000.json",
+    "outputs/scenario-2026-11-23T190910.590247_0000.json",
+    "outputs/student-cost-experiment-comparison.json"
+  ]
+}

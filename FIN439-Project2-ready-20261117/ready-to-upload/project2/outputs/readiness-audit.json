@@ -1,0 +1,53 @@
+{
+  "audited_at_utc": "2026-11-23T19:54:46.738929+00:00",
+  "archived_monthly_prices_reconciled": 244,
+  "checks": [
+    {
+      "scenario": "Base",
+      "feasible_grid_allocations": 15,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "ACWI estimate -2 percentage points",
+      "feasible_grid_allocations": 2,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Last 36 monthly returns",
+      "feasible_grid_allocations": 98,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Annual additional cost 100 bps",
+      "feasible_grid_allocations": 1,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Reserve minimum 80%",
+      "feasible_grid_allocations": 0,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Combined: equity -2 pp; cost 100 bps; reserve 80%",
+      "feasible_grid_allocations": 0,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Proposed volatility ceiling 3%",
+      "feasible_grid_allocations": 0,
+      "independent_result_matches": true
+    },
+    {
+      "scenario": "Cost 35 bps; volatility ceiling 4%",
+      "feasible_grid_allocations": 0,
+      "independent_result_matches": true
+    }
+  ],
+  "conclusion": "Archived price reconstruction, arithmetic, and published grid-search scenarios agree.",
+  "limits": [
+    "Archive consistency is not fresh external source authentication.",
+    "The dated policy source is archived; its use as a return cap is not forecast validation.",
+    "No approved loss limit, actual holdings, or rolling five-year real-return compliance is established.",
+    "This is AI-assisted development validation, not an independent partner cold run or locked experiment."
+  ]
+}

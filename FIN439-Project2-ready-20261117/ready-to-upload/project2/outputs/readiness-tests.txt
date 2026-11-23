@@ -1,0 +1,25 @@
+test_defaults_changed_cost_and_infeasibility (test_app.AppTests.test_defaults_changed_cost_and_infeasibility) ... 2026-11-23 14:54:42.305 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_risk_control_blocks_and_recovers_candidate (test_app.AppTests.test_risk_control_blocks_and_recovers_candidate) ... 2026-11-23 14:54:44.216 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_archived_raw_source_hashes (test_model.PortfolioTests.test_archived_raw_source_hashes) ... ok
+test_asset_order_rejected (test_model.PortfolioTests.test_asset_order_rejected) ... ok
+test_boundaries_and_infeasibility (test_model.PortfolioTests.test_boundaries_and_infeasibility) ... ok
+test_default_rules_and_full_mandate_are_distinct (test_model.PortfolioTests.test_default_rules_and_full_mandate_are_distinct) ... ok
+test_export_preserves_scenario_and_identifies_local_inputs (test_model.PortfolioTests.test_export_preserves_scenario_and_identifies_local_inputs) ... ok
+test_grid_is_exhaustive_for_four_sleeves (test_model.PortfolioTests.test_grid_is_exhaustive_for_four_sleeves) ... ok
+test_independent_two_asset_variance (test_model.PortfolioTests.test_independent_two_asset_variance) ... ok
+test_no_missing_month_or_nonfinite_price (test_model.PortfolioTests.test_no_missing_month_or_nonfinite_price) ... ok
+test_original_lab15_result_is_reproduced (test_model.PortfolioTests.test_original_lab15_result_is_reproduced) ... ok
+test_prior_course_known_answers (test_model.PortfolioTests.test_prior_course_known_answers) ... ok
+test_signal_rejects_future_release_effective_date_and_invalid_values (test_model.PortfolioTests.test_signal_rejects_future_release_effective_date_and_invalid_values) ... ok
+test_signal_rejects_tampered_archived_source (test_model.PortfolioTests.test_signal_rejects_tampered_archived_source) ... ok
+test_stresses_separate_original_and_reoptimized (test_model.PortfolioTests.test_stresses_separate_original_and_reoptimized) ... ok
+test_turnover_and_cost_units (test_model.PortfolioTests.test_turnover_and_cost_units) ... ok
+test_volatility_ceiling_boundary_and_cost_conflict (test_model.PortfolioTests.test_volatility_ceiling_boundary_and_cost_conflict) ... ok
+test_window_uses_36_returns_and_signal_cap (test_model.PortfolioTests.test_window_uses_36_returns_and_signal_cap) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 3.724s
+
+OK
