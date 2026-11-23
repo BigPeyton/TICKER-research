@@ -1,14 +1,14 @@
-I used OpenAI Codex to help adapt my earlier lab code, build the web app, test calculations, and draft documentation and recording guides. The analysis and decision are mine to review, explain, and defend.
+I used OpenAI Codex to help adapt my earlier lab code, build and revise the app, check calculations and primary sources, and draft documentation and recording guides. The analysis and decision are mine to review, explain, and defend.
 
 This is an educational project for a fictional university scholarship fund, not investment advice.
 
 # Scholarship fund — Project 2 / Lab 20
 
-**Current status — November 23, 2026.** The [student-operated cost experiment](docs/student-experiment.md) is published: the AI-off prediction was committed before the changed scenario, and Peyton confirmed performing the run and writing his observations with AI closed. Raising additional annual cost from 25 to 35 bps selected 70% SGOV / 30% ACWI, 5.83% estimated net return, and 4.54% volatility; the decision remained paper-only. This is an experiment, not a change to the defaults below. Peyton also confirmed completing Luke's run and submitting the Lab 20 check-in; the original partner observations are retained in the [readiness record](docs/lab20-readiness.md). Final Project 2 recordings, corrected transcripts, final review and submission remain pending.
+**Current status — November 23, 2026, revised after readiness review.** The app now enforces a proposed 6% annualized-volatility ceiling and verifies a dated, archived Federal Reserve policy announcement. Default paper allocation is still 75% SGOV / 25% ACWI, now **5.57% net and 3.81% volatility**. The original student experiment remains unchanged on its original version (5.51%→5.83%); the revised model's cost scenario is 5.57%→5.89%. See the [revision record](docs/readiness-revision.md), [risk policy](docs/risk-policy.md) and [data card](docs/data-card.md). Luke's run and Lab 20 are completed per Peyton; actual recordings, corrected transcripts and final submission remain pending.
 
 **Use this copy:** [current project folder](https://github.com/BigPeyton/TICKER-research/tree/main/FIN439-Project2-ready-20261117/ready-to-upload/project2). After extracting the repository ZIP, open `FIN439-Project2-ready-20261117/ready-to-upload/project2`. Older copies elsewhere in the repository are historical; the [submission manifest](docs/submission-manifest.md) directs graders to this copy.
 
-**Decision: pilot on paper; allocate 0% live until the missing risk policy and evidence checks are resolved.** The default hypothetical portfolio is 75% SGOV / 25% ACWI. Its estimated annual net return is **5.51%**, annualized volatility **3.81%**, and SGOV reserve **75%**. It passes the modeled numeric rules but **fails full-mandate clearance**. See the [executed results](outputs/results.md), [memo](docs/decision-memo.md), and [Lab 20 record](docs/lab20-readiness.md).
+**Decision: pilot on paper; allocate 0% live until the client risk-policy approval and operational checks are resolved.** The default hypothetical portfolio is 75% SGOV / 25% ACWI. Its estimated annual net return is **5.57%**, annualized volatility **3.81%**, and SGOV reserve **75%**. It passes the modeled numeric rules but **fails full-mandate clearance**. See the [executed results](outputs/results.md), [memo](docs/decision-memo.md), and [Lab 20 record](docs/lab20-readiness.md).
 
 ## Run the app
 
@@ -43,13 +43,13 @@ python run.py --report
 python run.py --check
 ```
 
-The first command regenerates `outputs/results.md` and `outputs/results.json`; these are readable on GitHub without running anything. The second runs the 14 standard-library model/data checks. After app setup, the optional integration check is:
+The first command regenerates `outputs/results.md` and `outputs/results.json`; these are readable on GitHub without running anything. The second runs the 16 standard-library model/data checks. After app setup, the optional integration check is:
 
 ```powershell
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-On macOS/Linux replace `.venv\Scripts\python.exe` with `.venv/bin/python`. This runs all 15 checks, including the Streamlit controls and timestamped scenario-export evidence. Tests are development validation, not Luke's independent cold run.
+On macOS/Linux replace `.venv\Scripts\python.exe` with `.venv/bin/python`. This runs all 18 checks, including the Streamlit controls and timestamped scenario-export evidence. Tests are development validation, not Luke's independent cold run.
 
 Independent arithmetic/archive audit (no installation or network needed):
 
@@ -57,7 +57,7 @@ Independent arithmetic/archive audit (no installation or network needed):
 python tools/audit_model.py
 ```
 
-This reconciles the 244 monthly prices against bundled daily responses, independently recomputes portfolio moments, and checks the selected weights against all 1,771 grid allocations for the existing stress cases. It does not authenticate the missing external signal vintage.
+This reconciles the 244 monthly prices against bundled daily responses, independently recomputes portfolio moments, and checks the selected weights against all 1,771 grid allocations for the existing stress cases. The current signal checker verifies the archived dated policy sources. This does not validate the return-cap forecast heuristic.
 
 ## Mandate and default assumptions
 
@@ -69,8 +69,8 @@ This reconciles the 244 monthly prices against bundled daily responses, independ
 | Universe, fixed column order | SGOV, SCHR, VTC, ACWI |
 | Benchmark | 60% ACWI / 40% VTC; a comparison, not a mandatory allocation |
 | Baselines | Equal weight; inverse standalone volatility |
-| Selection | Minimum estimated annualized volatility on a **5-percentage-point grid**, subject to return, reserve, and modeled turnover limits |
-| Risk limit | **Unresolved**: the committee has not supplied an acceptable loss, metric, limit, or breach response |
+| Selection | Minimum estimated annualized volatility on a **5-percentage-point grid**, subject to return, reserve, modeled turnover and volatility limits |
+| Proposed paper risk limit | **Annualized volatility ≤6%**, enforced in selection; breach withdraws the candidate and requires review. This is a new research assumption; client loss-policy approval remains unresolved. See [risk policy](docs/risk-policy.md). |
 | Trading constraints | Fully invested, long-only; no direct borrowing or derivatives; annual rebalance; turnover above 25% requires approval |
 | Turnover reference | Lab 15's proposed 75% SGOV / 25% ACWI, **not actual holdings**; a single one-way rebalance estimate, not cumulative annual turnover |
 | Additional costs | 25 bps annual advisory/operating drag, plus 10 bps times one-way turnover; illustrative, not a verified fee quote |
@@ -82,7 +82,11 @@ Historical returns are arithmetic monthly means multiplied by twelve; covariance
 
 The bundled prices cover September 30, 2021 through September 30, 2026: 61 prices / 60 monthly returns. They were downloaded October 22, 2026, so **this is not a historical point-in-time return backtest**.
 
-The point-in-time signal is the prior Lab 17 record of August 2026 FEDFUNDS **3.63%**, available in the **September 30, 2026 vintage**. The model caps SGOV's historical annual mean at this rate as a disclosed heuristic. The policy rate is not an ETF return, and the heuristic is not a validated forecast. The raw historical CSV timed out during preparation; only the prior student-checked evidence is bundled. See the [data card](docs/data-card.md). This unresolved provenance issue blocks live clearance.
+The current point-in-time signal is the **3.75% lower bound of the FOMC target range**, published September 16 at 2 p.m. EDT and effective September 17, both before the September 30 cutoff. The dated official statement and implementation note are bundled with URLs, hashes and extraction checks. The code fails on unsupported timing, values or damaged source evidence. This policy target replaces the earlier monthly FEDFUNDS transcription; it is a different measure.
+
+The SGOV estimate is capped at that lower bound. This cap is nonbinding in the 60-return default window and binding in the 36-return scenario. It remains a research heuristic, not a Treasury yield or validated ETF forecast. See the [data card](docs/data-card.md).
+
+The original [student experiment](docs/student-experiment.md) and its exports are preserved byte for byte. Its 5.51% / 5.83% values belong to the original 3.63% signal model. Do not replace those historical results with the revised model's 5.57% / 5.89% values.
 
 ## Package map
 

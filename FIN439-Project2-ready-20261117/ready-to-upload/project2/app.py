@@ -19,6 +19,7 @@ with st.sidebar:
     annual_cost = st.number_input("Additional annual cost (bps)", min_value=0.0, max_value=2000.0, value=25.0, step=5.0)
     trading_cost = st.number_input("Trading cost per turnover (bps)", min_value=0.0, max_value=2000.0, value=10.0, step=5.0)
     turnover_limit = st.number_input("Illustrative turnover limit (%)", min_value=0.0, max_value=100.0, value=25.0, step=5.0)
+    volatility_limit = st.number_input("Proposed annual volatility ceiling (%)", min_value=0.0, max_value=100.0, value=6.0, step=0.5)
     equity_change = st.number_input("ACWI annual estimate adjustment (pp)", min_value=-100.0, max_value=100.0, value=0.0, step=0.25)
     recent = st.checkbox("Use last 36 monthly returns", value=False)
     st.caption("bps = basis points: 25 bps is 0.25%. pp = percentage points. Restore the displayed defaults to reproduce the saved output.")
@@ -26,7 +27,7 @@ with st.sidebar:
 settings = Settings(objective=objective / 100, reserve_minimum=reserve / 100,
                     annual_cost_bps=annual_cost, trading_cost_bps=trading_cost,
                     turnover_limit=turnover_limit / 100, last_36=recent,
-                    equity_change_pp=equity_change)
+                    equity_change_pp=equity_change, volatility_limit=volatility_limit / 100)
 try:
     result = solve(settings)
 except (ValueError, OSError, KeyError) as error:
@@ -35,7 +36,8 @@ except (ValueError, OSError, KeyError) as error:
 
 selected = result["selected"]
 st.subheader(result["decision"])
-st.warning("Full mandate: FAIL — live use is not cleared. The loss limit is unresolved, operational checks remain, and the historical rate is supported by a prior lab summary rather than a bundled raw vintage.")
+st.warning("Full mandate: FAIL — live use is not cleared. The proposed paper volatility ceiling is enforced and the dated policy signal is archived, but client risk-policy approval, operational checks and forecast validation remain.")
+st.caption(f"Proposed paper risk rule: annualized volatility ≤ {volatility_limit:.2f}%. A breach stops the candidate and requires review; the model never raises this limit automatically. Volatility is not a maximum-loss guarantee.")
 if selected:
     metrics = st.columns(4)
     metrics[0].metric("Estimated annual net return", percent(selected["net_return"]))
@@ -45,7 +47,7 @@ if selected:
     st.write("**Paper candidate:** " + weight_text(selected))
     st.write(f"**Modeled numeric rules: {selected['modeled_verdict']}.** The candidate has the lowest estimated volatility among feasible allocations on a 5-percentage-point grid.")
 else:
-    st.error("No allocation on the 5-percentage-point grid meets this scenario's modeled return, reserve and turnover rules. This is grid infeasibility, not proof that no continuous allocation exists.")
+    st.error("No allocation on the 5-percentage-point grid meets this scenario's modeled return, reserve, turnover and volatility rules. This is grid infeasibility, not proof that no continuous allocation exists.")
 
 st.subheader("Compare allocations")
 st.dataframe([{
@@ -66,8 +68,8 @@ with st.expander("Data, signal and calculation assumptions", expanded=False):
     st.write(f"Fixed boundary: {BOUNDARY}; {result['inputs']['months']} monthly returns. Adjusted-price snapshot downloaded October 22, 2026, so this reconstruction is not a historical point-in-time return backtest.")
     st.dataframe([{"Asset": name, "Annual historical mean": percent(old), "Annual estimate used": percent(new)}
                   for name, old, new in zip(NAMES, result['inputs']['historical_returns'], result['inputs']['returns'], strict=True)], hide_index=True)
-    st.write("The prior Lab 17 check records August 2026 FEDFUNDS of 3.63% in the September 30 vintage. September's 3.75% was not available at that boundary. The raw vintage could not be retrieved again; this is labeled prior evidence.")
-    st.write("Signal rule: cap SGOV's annual mean at 3.63%, a policy-rate proxy. FEDFUNDS is not a Treasury yield or ETF return; this conservative modeling choice has not been validated as a forecasting model.")
+    st.write("Current signal: the 3.75% lower bound of the FOMC target range announced September 16, 2026 at 2 p.m. EDT, effective September 17. Both dates precede the September 30 boundary. The Federal Reserve statement and implementation note are bundled, hashed and checked. This is a policy target, not the monthly effective FEDFUNDS rate.")
+    st.write("Signal rule: cap SGOV's annual historical mean at 3.75%. The cap is nonbinding in the 60-return default window, but binds in the 36-return window. This is an explicit research heuristic, not an ETF yield or validated forecast. The original student experiment used the earlier 3.63% signal and remains unchanged in its own record.")
     st.write("Net estimate = weighted annual means − annual additional cost − trading cost × one-way turnover. Adjusted fund prices already reflect fund-level expenses; the additional cost represents hypothetical advisory/operating expense. Trading cost is charged once for the proposed rebalance, making this a first-year estimate.")
     st.write("Turnover is half the sum of absolute changes from Lab 15's proposed 75% SGOV / 25% ACWI. These are reference weights, not verified current holdings. Volatility uses sample covariance of monthly returns × 12. It is not a maximum-loss guarantee.")
 
@@ -82,7 +84,7 @@ with st.expander("Predefined stress runs — baseline settings", expanded=False)
                   for s in stresses], hide_index=True, width="stretch")
 
 st.subheader("Decision and monitoring")
-st.write("**Draft committee ask:** authorize a paper-only pilot and resolve the missing risk policy. Live allocation range: **0%** until every unresolved requirement is cleared. The displayed weights apply within the hypothetical paper portfolio; they are not a live allocation instruction.")
+st.write("**Draft committee ask:** authorize a paper-only pilot, review the proposed 6% annualized-volatility ceiling and breach response, and resolve client loss-policy and operational approvals. Live allocation range: **0%** until every unresolved requirement is cleared. The displayed weights apply within the hypothetical paper portfolio; they are not a live allocation instruction.")
 st.write(result["stop_condition"])
 st.write("Monitor estimated net return against the objective; SGOV dollars against twelve months of payouts; publication dates and source integrity; volatility and stress sensitivity; actual cumulative annual turnover and liquidity. Review quarterly with scholarship payments, and rebalance only at the authorized annual review or by committee exception.")
 exported = export_result(result)
