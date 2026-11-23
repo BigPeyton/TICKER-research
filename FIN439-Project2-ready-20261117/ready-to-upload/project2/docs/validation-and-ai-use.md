@@ -1,34 +1,37 @@
-# Validation and AI use — current record
+# Validation and AI use — revised current record
 
-Updated November 23, 2026. This record supersedes earlier pending-status summaries. Earlier experiments and partner notes remain available at their original commits; no prediction or historical failure has been rewritten.
+Updated November 23, 2026 after the post-experiment readiness repair. Current code/output use an enforced proposed 6% annualized-volatility ceiling and a dated 3.75% FOMC target-lower-bound signal. Historical records below retain their original versions and numbers.
 
-## Current status
+## Current verification
 
-- **Student locked experiment complete and published:** additional annual cost 25 → 35 bps. Peyton confirmed AI-off prediction, execution and written observations. Prediction [53d284a](https://github.com/BigPeyton/TICKER-research/commit/53d284a2f3a23b846f2bfe3bfdd9bb320c57d00b) precedes the changed-scenario payload. Outputs are in [6ef7f95](https://github.com/BigPeyton/TICKER-research/commit/6ef7f9521bf0fd2a128ed317517646fe65913d94); the result record is in [c24dbb0](https://github.com/BigPeyton/TICKER-research/commit/c24dbb0f6483b38cd8715e40cbb8d9766cbe6865). The full record is included below so the submitted Markdown attachment contains the prediction and result.
-- **Partner task and Lab 20:** Peyton confirmed on November 23 that Luke's run was completed and the check-in submitted. The [original returned note](luke-cold-run.md) still documents a DNS failure, offline report and assisted control check. Completion is student-reported; no new independent clean-start log or Brightspace receipt was supplied for this update. The original note is preserved, and the completed lab is not reassigned.
-- **Technical verification:** all 15 tests passed on the downloaded GitHub code on November 23 using the existing tested environment. The independent arithmetic check reconciled all 244 monthly prices and all six scenarios; saved default output matched the calculations. This is assistant verification, not a new partner run or clean installation. The November 17 [test log](../outputs/audit-tests.txt), [installation record](../outputs/audit-startup.json) and [arithmetic audit](../outputs/audit-checks.json) remain historical evidence.
-- **Recommendation:** paper pilot, 0% live allocation. Default portfolio remains 75% SGOV / 25% ACWI at 5.51% net and 3.81% volatility. The 35-bps scenario is an experiment, not a new default.
-- **Remaining final-package work:** actual recordings, corrected transcripts, final student review, final manifest/freeze, deadline check and final Project 2 submission. No final submission is claimed.
+- **18 tests passed** on the revised source, including app controls, risk-limit breach/recovery, exact boundary behavior, invalid limits, source tampering, future publication/effective dates and inconsistent signal values. [Current test log](../outputs/readiness-tests.txt).
+- Independent recomputation reconciled **244 monthly prices and all eight scenarios**, including the risk conflicts. [Current audit](../outputs/readiness-audit.json).
+- [Current visible output](../outputs/results.md): 75% SGOV / 25% ACWI, **5.57% estimated annual net return, 3.81% volatility**, modeled PASS, full-mandate FAIL, paper pilot with 0% live allocation.
+- Current 35-bps case: 70/30, **5.89% net, 4.54% volatility, 5% turnover**. Original weights at 35 bps: **5.47%**, below 5.50%. [Full current results and risk sensitivity](../outputs/readiness-revision-results.json).
+- The original student AI-off experiment remains **5.51%→5.83%**, with unchanged pre-run prediction and exports. It was run on the prior model; the complete record is preserved below. [Version comparison](readiness-revision.md).
+- Peyton confirmed Luke's partner task and Lab 20 check-in completed. The [original note](luke-cold-run.md) preserves the startup failure and assisted app check; this update does not invent a new independent clean-start log.
 
-## Data, methods and limitations
+## Current data, finance and risk checks
 
-The [data card](data-card.md) identifies the September 30, 2026 boundary, October 22 price retrieval, the four archived Yahoo responses and their hashes, and the prior Lab 17 FEDFUNDS transcription. The app is an estimate comparison using later-downloaded prices, not a point-in-time price backtest. The raw historical signal vintage remains missing. Date validation cannot authenticate that transcription; the 3.63% proxy is an unvalidated research assumption.
+The [data card](data-card.md) identifies the September 30 boundary, October 22 adjusted-price retrieval, archived Yahoo responses and the current dated policy signal. The Federal Reserve published the target-range announcement September 16 at 2 p.m. EDT; its implementation note makes it effective September 17. Both official HTML responses are bundled with hashes, rate/timing checks and retrieval dates. This fixes the current signal's source trail by replacing the prior transcription with a different measure; it does not retroactively authenticate the old monthly-rate vintage.
 
-Equal weight and inverse volatility provide two transparent baselines; 60% ACWI / 40% VTC is an additional comparator. Annual means and covariance use monthly observations multiplied by twelve. Costs are converted from bps once. Turnover is half the absolute weight changes from a paper reference. The search enumerates 1,771 four-asset allocations on a five-point grid; a continuous search could differ. Numerical-rule PASS is separated from full-mandate FAIL.
+SGOV's estimate is the minimum of its historical annual mean and the 3.75% target lower bound. The cap is nonbinding for 60 returns and binding for 36. This is an explicit heuristic, not a validated forecast or ETF yield. Prices downloaded after the analysis boundary do not establish a point-in-time return backtest.
 
-An approved risk limit/breach response, actual holdings and cumulative turnover, liquidity/fund permissions, raw signal evidence, and rolling five-year CPI + 3% compliance remain unresolved. A passing unit test or a successful experiment does not resolve those matters. Full clearance is deliberately blocked.
+Two transparent baselines and the constrained candidate display rule failures; the 60/40 benchmark is additional. Means/covariance are annualized from monthly observations. Costs convert basis points once, and turnover is half the absolute changes from paper reference holdings. The exhaustive grid has 1,771 allocations.
 
-## Stress evidence and stop rule
+The new [risk policy](risk-policy.md) enforces annualized volatility ≤6% by default and defines withdrawal, suspension and review on breach. It is a round analyst-proposed research assumption chosen after earlier results, not an approved client limit or maximum-loss guarantee. Tests and sensitivity document that 35-bps cost with a 4% ceiling is infeasible. The app does not automatically loosen constraints.
 
-| Change from defaults | Original portfolio | Reoptimized result |
-|---|---|---|
-| ACWI annual mean −2 percentage points | 5.01% net; return FAIL | 65% SGOV / 35% ACWI; 5.65% net, 5.28% volatility |
-| Last 36 returns | 7.60% net; numerical PASS | 85% SGOV / 15% ACWI; 5.90% net, 1.76% volatility |
-| Annual additional cost 100 bps | 4.76% net; return FAIL | 65% SGOV / 35% ACWI; 5.60% net, 5.28% volatility |
-| SGOV reserve minimum 80% | Reserve FAIL | No feasible grid allocation |
-| Combined equity −2 pp, cost 100 bps, reserve 80% | 4.26% net; return/reserve FAIL | No feasible grid allocation |
+Stress outputs include estimate −2 pp, 36 returns, cost 100 bps, reserve 80%, their combined adverse case and two risk constraints. Fixed weights and replacement results are separate. An approved client loss policy, actual holdings/annual turnover, liquidity/fund eligibility and rolling five-year CPI + 3% evidence remain unresolved. Live allocation remains zero.
 
-These engineering scenarios are AI-assisted checks. They do not substitute for the student experiment. Withdraw a failing candidate; reject an infeasible scenario. Do not silently relax constraints or claim that a replacement proves robustness of the original allocation. Keep live allocation at zero while clearance gaps remain.
+## AI use — readiness repair after the student experiment
+
+On November 23, Peyton requested fixes. **OpenAI Codex** proposed the 6% research ceiling, implemented its rule and app control, retrieved and checked the dated Federal Reserve documents, replaced the current signal, extended tests, independently checked arithmetic, and reconciled documents/recording drafts. The exact backend model build was not exposed. The replacement signal was accepted as traceable point-in-time policy evidence; its use as a return cap remains qualified. The earlier claim that a date-gated transcription fully resolved source provenance was rejected.
+
+The revised code and added sensitivities are AI-assisted development. They are not an AI-off student prediction or execution. The existing student record remains unchanged. Revised prose/narration requires Peyton's review and ownership. Final recordings, corrected transcripts, final metadata/freeze, deadline verification and submission remain pending.
+
+## Historical material below
+
+The dated sections below describe earlier versions. References to 15 tests, missing raw signal evidence and 5.51%/5.83% results are historical. Current status is given above; the original locked record is deliberately preserved rather than rewritten.
 
 ## Earlier experiments and preserved history
 

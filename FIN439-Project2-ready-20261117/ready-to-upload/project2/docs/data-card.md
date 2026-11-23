@@ -12,33 +12,36 @@ Prepared November 17, 2026. The analysis uses a fixed September 30, 2026 boundar
 - Validation: exact column order; unique names; consecutive months; positive finite prices; no dropped or forward-filled missing values. Invalid files fail instead of silently changing the sample.
 - **Availability limitation:** these prices were downloaded after the chosen historical boundary. No historical price-vintage archive or execution-cost study is available. This is not an out-of-sample performance backtest, and no point-in-time price claim is made.
 
-## FEDFUNDS point-in-time signal
+## Current point-in-time signal: dated FOMC target lower bound
 
-| Field | Evidence / rule |
+Updated November 23, 2026. The current model replaces the prior 3.63% monthly FEDFUNDS transcription with a **different measure**, the **3.75% lower bound of the announced policy target range**. It does not relabel the monthly series or claim the failed ALFRED download succeeded.
+
+| Field | Current evidence / rule |
 |---|---|
-| Source | Federal Reserve H.15 via [FRED](https://fred.stlouisfed.org/series/FEDFUNDS) and [ALFRED](https://alfred.stlouisfed.org/series?seid=FEDFUNDS) |
-| Measure | Monthly average of daily effective federal funds rates; percent, not seasonally adjusted |
-| Historical vintage used | September 30, 2026 |
-| Latest observation in prior check | August 2026, label `2026-08-01`, **3.63%** |
-| Later value excluded | September 2026, 3.75%, recorded in the October 29 vintage; not present at the September 30 cutoff |
-| Evidence | [Lab 17 student-checked comparison](prior-evidence/lab17_point_in_time.md), preserved from the source commit above |
-| Original access/check date | October 29, 2026, as recorded in Lab 17 |
-| Fresh retrieval | Attempted November 17, 2026; endpoint timed out. **No raw vintage is bundled and no fresh validation is claimed.** |
-| Revisions | Prior Lab 17 reported none among the shared observations in its specific comparison; this does not establish that FEDFUNDS never revises |
-| Publication timing | Observation labels identify measurement months, not availability; the prior Lab 17 record reports September's release/update on October 1 |
+| Publisher | Board of Governors of the Federal Reserve System |
+| Measure / units | FOMC federal-funds target lower bound, percent per annum; an event-based policy setting, not a monthly effective-rate observation |
+| Announcement | September 16, 2026, 2:00 p.m. EDT (18:00 UTC) |
+| Effective | September 17, 2026 |
+| Announced range | 3.75% to 4.00%; use the 3.75% lower bound |
+| Decision cutoff | September 30, 2026; announcement and effective dates both precede it |
+| Primary sources | [Dated statement](https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm) and [implementation note](https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm) |
+| Bundled evidence | [Statement HTML](../data/raw/fomc-20260916.html), [implementation HTML](../data/raw/fomc-implementation-20260916.html), [URLs, retrieval times, hashes and text checks](../data/policy-signal-sources.json) |
+| Parsed record | [policy-signal.json](../data/policy-signal.json) |
+| Retrieval | November 23, 2026; this is a later retrieval of a dated historical publication, not a contemporaneous download |
+| Timing / revisions | Use the event's publication and effective dates, not a measurement-month label. Later policy decisions are new events and must not be substituted across the cutoff. These archived copies were checked against the publisher; a hash establishes file identity, not a guarantee the website never had an erratum. |
 
-[`signal-record.json`](../data/signal-record.json) is an explicitly labeled transcription of that prior checked summary, **not a downloaded ALFRED CSV**. `signal-source.json` records the failed retrieval. The code requires the specified historical vintage and rejects a later vintage; the date gate alone cannot authenticate the transcription. Raw source verification is an unresolved live-use requirement. Calendar-day vintages also do not establish intraday availability.
+The code validates units, published/effective dates, expected target bounds, hashes of both HTML files, and the source text supporting the dates and range. A missing, changed or unsupported source blocks calculation rather than reverting to the earlier transcription.
 
-**Model use:** SGOV's assumed annual return is `min(historical annual SGOV mean, 3.63% FEDFUNDS proxy)`. This converts percent to decimal once. It prevents using a trailing bill return above the available policy-rate proxy, but it is a disclosed research heuristic; the federal funds rate is neither a Treasury yield nor an SGOV total-return forecast. ACWI's scenario adjustment is then added in percentage points. The user can see both raw historical means and estimates actually used in the app.
+**Use:** `SGOV estimate = min(historical annual SGOV mean, 3.75% target lower bound)`. The 60-return historical mean is about 3.715%, so this cap is nonbinding at defaults. It binds in the recent 36-return scenario. This is a disclosed research heuristic; the policy target is neither an SGOV yield nor a validated return forecast.
 
-To replace the transcription with authenticated raw evidence, retrieve the exact [September 30 vintage CSV](https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=FEDFUNDS&vintage_date=2026-09-30), preserve it and its hash, check the last nonmissing observation and release timing, update the parser/data card/validation together, and rerun the checks. Do not silently substitute the current series or a later vintage.
+## Preserved historical signal and experiment
 
-## Assumptions introduced for Project 2
+The earlier [Lab 17 comparison](prior-evidence/lab17_point_in_time.md), [signal-record.json](../data/signal-record.json), [failed source attempts](../data/signal-source.json), and original [student experiment](student-experiment.md) retain the 3.63% monthly FEDFUNDS evidence used then. Additional retrieval attempts on November 23 also failed. They are historical evidence, not the current model's signal inputs.
 
-Inflation of 2.5% is a planning assumption, not a fetched CPI observation. The 25 bps annual additional cost and 10 bps one-way trading charge are hypothetical scenario inputs; they are not fee quotes. ETF expenses already reflected in adjusted prices are not deducted twice. The 60/40 comparator follows the earlier lab benchmark structure; it does not impose those weights as a mandate. Only SGOV is designated as reserve-eligible in this research model.
+Original experiment: default 5.51% net, changed-cost selected return 5.83%. Current revised model: default **5.57%**, changed-cost selected return **5.89%**. Allocation choices and volatility are unchanged. See [revision reconciliation](readiness-revision.md). No historical prediction or export was overwritten.
 
-The reported annual return is a first-year net estimate including one rebalance cost, not a five-year compounded real return. The reference holdings are a previous paper proposal. Fund eligibility, five-day liquidity, actual turnover, and a committee-approved risk limit still require evidence.
+## Other assumptions and limits
 
-## Audit follow-up ? November 17, 2026 (EST)
+Inflation of 2.5%, annual additional cost of 25 bps, trading cost of 10 bps, and the new 6% volatility ceiling are explicit research assumptions. They are not measured CPI, actual fee quotes or client approvals. Fund expenses embedded in adjusted prices are not deducted twice. Only SGOV is reserve-eligible in this model.
 
-Both historical CSV downloads, a bounded September 30 request, and the ALFRED vintage page timed out again. The current [FRED page](https://fred.stlouisfed.org/series/FEDFUNDS) showed July/August 3.63% and September 3.75%, agreeing with the prior summary. This is a current-value cross-check only; it does not authenticate the historical vintage or close the point-in-time evidence gap. Attempts and their outcomes are preserved in `data/signal-source.json`. The model continues to use the explicitly labeled prior lab transcription, with full-mandate clearance blocked.
+The reported net return is a first-year arithmetic estimate including one rebalance, not demonstrated rolling five-year CPI + 3% performance. The later-downloaded adjusted-price archive is still not a point-in-time price backtest. Fund eligibility, five-day liquidity, actual holdings/annual turnover and client risk-policy approval remain unresolved. The recommendation stays paper-only, 0% live.
