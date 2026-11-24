@@ -20,4 +20,14 @@ OpenAI Codex prepared these documentation/caption changes at Peyton's request. N
 
 ## YouTube caption publication
 
-Corrected SRT files are prepared and published with this documentation. Upload/publication to YouTube is not yet verified in this revision; a subsequent dated status update will record the observed result. Existing automatic caption tracks and video URLs remain available.
+All three corrected English caption tracks were uploaded from the linked SRT files and published in YouTube Studio on November 24, 2026. Each video's subtitle page showed **English (video language): Published Nov 24, 2026**, separately from the retained November 23 automatic track.
+
+- Video 1: UnpkJWsfLx0 — corrected English track published; description adds project and transcript references.
+- Video 2: GSqS_FTrsXI — corrected English track published; description adds project and transcript references.
+- Video 3: mNxp4HEs1OM — corrected English track published with the bracketed 80% reserve correction; saved description also explains the 03:12 correction and the duplicated 89% caption text.
+
+The video files, URLs and Unlisted visibility are unchanged. YouTube indicates that external description links require channel verification to become clickable; plain-text URLs are supplied, and the GitHub/Brightspace manifest remains the primary link index. No channel verification or permission change was made.
+
+Public check after publication: Video 3 was reopened while signed out; at approximately 03:13 the caption displayed both the original 85% wording and the bracketed correction, "[Tested reserve: 80%, not 85%.]" The saved clarification was also visible in the public description.
+
+All three SRT files were checked for valid, positive, nonoverlapping cue times (62, 102 and 104 cues respectively). The initial nine-file GitHub cleanup was verified against local Git blob hashes. Documentation commits: 874877d4ab0e0d8e185f79d6b2f8ae9ba70e5761 and README status commit 65a83f5a33f54b33e6971b426a18f07cbf158e36. This later status update records the completed YouTube publication rather than backdating it.
