@@ -1,0 +1,247 @@
+1
+00:00:00,560 --> 00:00:03,439
+I used OpenAI Codex to help build and
+
+2
+00:00:03,439 --> 00:00:06,480
+revise the app, check calculations and
+
+3
+00:00:06,480 --> 00:00:09,599
+sources, and draft documentation and
+
+4
+00:00:09,599 --> 00:00:12,639
+recording guides. The analysis and
+
+5
+00:00:12,639 --> 00:00:15,280
+decision are mine. This is an
+
+6
+00:00:15,280 --> 00:00:17,279
+educational project for a fictional
+
+7
+00:00:17,279 --> 00:00:19,680
+university scholarship fund, not
+
+8
+00:00:19,680 --> 00:00:22,240
+investment advice.
+
+9
+00:00:22,240 --> 00:00:24,320
+My thinking changed from finding a
+
+10
+00:00:24,320 --> 00:00:27,439
+portfolio that passes numerical rules to
+
+11
+00:00:27,439 --> 00:00:29,119
+asking whether a committee could
+
+12
+00:00:29,119 --> 00:00:32,160
+responsibly use the process.
+
+13
+00:00:32,160 --> 00:00:34,800
+The fund needs scholarship reserves and
+
+14
+00:00:34,800 --> 00:00:37,280
+a return objective, but meeting modeled
+
+15
+00:00:37,280 --> 00:00:39,600
+requirements does not establish that the
+
+16
+00:00:39,600 --> 00:00:41,520
+portfolio is suitable for live
+
+17
+00:00:41,520 --> 00:00:43,680
+investment.
+
+18
+00:00:43,680 --> 00:00:46,879
+One AI assisted output I checked was the
+
+19
+00:00:46,879 --> 00:00:49,760
+model's response to higher costs. With
+
+20
+00:00:49,760 --> 00:00:52,559
+AI off, I predicted that raising annual
+
+21
+00:00:52,559 --> 00:00:56,480
+costs from 25 to 35 basis points would
+
+22
+00:00:56,480 --> 00:01:00,719
+shift the paper portfolio from 75% SGOV
+
+23
+00:01:00,719 --> 00:01:03,920
+and 25% ACWI
+
+24
+00:01:03,920 --> 00:01:07,680
+to 70 and 30.
+
+25
+00:01:07,680 --> 00:01:10,479
+My prediction was committed before the
+
+26
+00:01:10,479 --> 00:01:14,280
+changed input run.
+
+27
+00:01:18,560 --> 00:01:21,200
+The prediction matched. The original
+
+28
+00:01:21,200 --> 00:01:24,000
+model's estimated net return moved from
+
+29
+00:01:24,000 --> 00:01:25,600
+5.51
+
+30
+00:01:25,600 --> 00:01:28,400
+to 5.83%.
+
+31
+00:01:28,400 --> 00:01:32,000
+While volatility increased from 3.81
+
+32
+00:01:32,000 --> 00:01:35,400
+to 4.54%.
+
+33
+00:01:35,680 --> 00:01:39,119
+Higher fees did not improve returns.
+
+34
+00:01:39,119 --> 00:01:41,600
+Holding the original weights fixed would
+
+35
+00:01:41,600 --> 00:01:45,119
+have lowered net return to 5.41%
+
+36
+00:01:45,119 --> 00:01:49,119
+below the 5.5% objective.
+
+37
+00:01:49,119 --> 00:01:51,520
+The model selected more equity exposure
+
+38
+00:01:51,520 --> 00:01:53,759
+to clear that hurdle, accepting more
+
+39
+00:01:53,759 --> 00:01:56,960
+risk. A later review identified two
+
+40
+00:01:56,960 --> 00:01:59,840
+weaknesses. No enforced numerical risk
+
+41
+00:01:59,840 --> 00:02:01,680
+ceiling and insufficient archived
+
+42
+00:02:01,680 --> 00:02:04,159
+evidence for the original signal. I
+
+43
+00:02:04,159 --> 00:02:07,280
+added a proposed 6% volatility ceiling
+
+44
+00:02:07,280 --> 00:02:09,200
+and replace the signal with dated
+
+45
+00:02:09,200 --> 00:02:13,479
+Federal Reserve policy evidence.
+
+46
+00:02:14,640 --> 00:02:16,560
+These revisions changed the current
+
+47
+00:02:16,560 --> 00:02:21,440
+estimates to 5.57% at baseline and 5.89%
+
+48
+00:02:21,440 --> 00:02:24,400
+at higher costs. Those are revised model
+
+49
+00:02:24,400 --> 00:02:26,959
+results. My original prediction and
+
+50
+00:02:26,959 --> 00:02:30,000
+experiment remain preserved separately.
+
+51
+00:02:30,000 --> 00:02:32,080
+So the later improvements do not rewrite
+
+52
+00:02:32,080 --> 00:02:33,840
+the evidence of what I predicted and
+
+53
+00:02:33,840 --> 00:02:35,599
+observed.
+
+54
+00:02:35,599 --> 00:02:38,400
+My recommendation remains a paper pilot
+
+55
+00:02:38,400 --> 00:02:41,760
+with zero live allocation. The 6%
+
+56
+00:02:41,760 --> 00:02:44,400
+ceiling is a research proposal, not an
+
+57
+00:02:44,400 --> 00:02:46,480
+approved client policy or a guarantee
+
+58
+00:02:46,480 --> 00:02:48,480
+against losses.
+
+59
+00:02:48,480 --> 00:02:51,200
+Checking AI means testing outputs,
+
+60
+00:02:51,200 --> 00:02:53,360
+explaining changes, and letting
+
+61
+00:02:53,360 --> 00:02:55,519
+unresolved limitations constrain the
+
+62
+00:02:55,519 --> 00:02:58,080
+decision.

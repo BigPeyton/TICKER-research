@@ -1,0 +1,416 @@
+1
+00:00:00,320 --> 00:00:02,960
+I used OpenAI Codex to help build and
+
+2
+00:00:02,960 --> 00:00:05,520
+revise the app, check calculations and
+
+3
+00:00:05,520 --> 00:00:08,639
+primary sources, and draft documentation
+
+4
+00:00:08,639 --> 00:00:11,759
+and recording guides. The analysis and
+
+5
+00:00:11,759 --> 00:00:14,240
+decision are mine. This is an
+
+6
+00:00:14,240 --> 00:00:16,240
+educational project for a fictional
+
+7
+00:00:16,240 --> 00:00:18,640
+university scholarship fund, not
+
+8
+00:00:18,640 --> 00:00:21,920
+investment advice.
+
+9
+00:00:21,920 --> 00:00:24,640
+I recommend a paper research pilot with
+
+10
+00:00:24,640 --> 00:00:26,960
+zero live allocation.
+
+11
+00:00:26,960 --> 00:00:29,119
+This app evaluates a $10 million
+
+12
+00:00:29,119 --> 00:00:32,160
+scholarship fund paying $75,000
+
+13
+00:00:32,160 --> 00:00:35,680
+quarterly. The fund seeks inflation plus
+
+14
+00:00:35,680 --> 00:00:39,440
+3% net over rolling 5-year periods.
+
+15
+00:00:39,440 --> 00:00:43,680
+Assumed inflation of 2.5% gives a 5.5%
+
+16
+00:00:43,680 --> 00:00:46,879
+annual planning hurdle.
+
+17
+00:00:46,879 --> 00:00:49,200
+12 months of payouts require a 3%
+
+18
+00:00:49,200 --> 00:00:51,200
+reserve.
+
+19
+00:00:51,200 --> 00:00:55,039
+The current paper candidate is 75% SGOV
+
+20
+00:00:55,039 --> 00:00:58,320
+and 25% ACWI
+
+21
+00:00:58,320 --> 00:01:02,239
+with 5.57% estimated net return and
+
+22
+00:01:02,239 --> 00:01:03,840
+3.81%
+
+23
+00:01:03,840 --> 00:01:06,840
+volatility.
+
+24
+00:01:09,600 --> 00:01:11,600
+The alternatives help explain this
+
+25
+00:01:11,600 --> 00:01:14,240
+choice. Equal weight fails return,
+
+26
+00:01:14,240 --> 00:01:17,520
+turnover, and risk. Inverse volatility
+
+27
+00:01:17,520 --> 00:01:20,320
+fails the return objective.
+
+28
+00:01:20,320 --> 00:01:23,520
+The benchmark fails reserve turnover and
+
+29
+00:01:23,520 --> 00:01:25,040
+risk.
+
+30
+00:01:25,040 --> 00:01:27,200
+The constrained portfolio passes the
+
+31
+00:01:27,200 --> 00:01:30,320
+model rules, but every portfolio still
+
+32
+00:01:30,320 --> 00:01:33,040
+fails full mandate clearance.
+
+33
+00:01:33,040 --> 00:01:35,600
+A numerical pass does not replace client
+
+34
+00:01:35,600 --> 00:01:37,840
+policy approval or operational
+
+35
+00:01:37,840 --> 00:01:40,840
+verification.
+
+36
+00:01:47,040 --> 00:01:49,680
+First, I'll change the additional annual
+
+37
+00:01:49,680 --> 00:01:53,520
+cost from 25 to 35.
+
+38
+00:01:53,520 --> 00:01:56,399
+Raising annual costs to 35 basis points
+
+39
+00:01:56,399 --> 00:01:58,399
+would reduce the original portfolio's
+
+40
+00:01:58,399 --> 00:02:01,840
+net estimate to 5.47%
+
+41
+00:02:01,840 --> 00:02:04,880
+below the objective. The model instead
+
+42
+00:02:04,880 --> 00:02:09,759
+selects 70% SGOV and 30% ACWI
+
+43
+00:02:09,759 --> 00:02:14,800
+with 5.89% net return and 4.54%
+
+44
+00:02:14,800 --> 00:02:16,720
+volatility.
+
+45
+00:02:16,720 --> 00:02:19,120
+More equity exposure explains the higher
+
+46
+00:02:19,120 --> 00:02:21,520
+selected return. These are the current
+
+47
+00:02:21,520 --> 00:02:24,640
+revised model results.
+
+48
+00:02:24,640 --> 00:02:27,040
+Next, I'll change proposed annual
+
+49
+00:02:27,040 --> 00:02:32,120
+volatility ceiling from 6 to 4%.
+
+50
+00:02:32,800 --> 00:02:34,879
+And now that the volatility is tightened
+
+51
+00:02:34,879 --> 00:02:38,239
+to 4%, no allocation on the app's grid
+
+52
+00:02:38,239 --> 00:02:40,720
+meets all the modeled rules. So the
+
+53
+00:02:40,720 --> 00:02:43,519
+scenario is rejected. The return
+
+54
+00:02:43,519 --> 00:02:45,440
+objective cannot override the risk
+
+55
+00:02:45,440 --> 00:02:48,000
+ceiling.
+
+56
+00:02:48,000 --> 00:02:53,000
+Next, I'll restore the baseline settings
+
+57
+00:02:58,720 --> 00:03:01,840
+across feasible individual stresses. The
+
+58
+00:03:01,840 --> 00:03:04,640
+selected paper allocations range from 65
+
+59
+00:03:04,640 --> 00:03:09,840
+to 85% SGOV with the remainder in ACWI.
+
+60
+00:03:09,840 --> 00:03:12,319
+That is a sensitivity range, not a live
+
+61
+00:03:12,319 --> 00:03:15,840
+trading band. An 85% reserve requirement
+[Tested reserve: 80%, not 85%.]
+
+62
+00:03:15,840 --> 00:03:18,080
+and the combined adverse scenarios are
+
+63
+00:03:18,080 --> 00:03:20,640
+infeasible. The table separates the
+
+64
+00:03:20,640 --> 00:03:23,680
+original portfolio from its replacement.
+
+65
+00:03:23,680 --> 00:03:25,440
+Finding new weights does not prove that
+
+66
+00:03:25,440 --> 00:03:27,519
+the original allocation survived the
+
+67
+00:03:27,519 --> 00:03:29,840
+stress.
+
+68
+00:03:29,840 --> 00:03:32,080
+The policy signal comes from archived
+
+69
+00:03:32,080 --> 00:03:33,920
+Federal Reserve documents published
+
+70
+00:03:33,920 --> 00:03:36,640
+before the analysis cutoff. However,
+
+71
+00:03:36,640 --> 00:03:38,879
+using that policy rate to cap SGOV's
+
+72
+00:03:38,879 --> 00:03:41,680
+estimated return remains an unvalidated
+
+73
+00:03:41,680 --> 00:03:43,280
+assumption.
+
+74
+00:03:43,280 --> 00:03:45,120
+The prices were downloaded after the
+
+75
+00:03:45,120 --> 00:03:47,360
+cutoff. So, this is not a point in time
+
+76
+00:03:47,360 --> 00:03:49,920
+performance back test. These estimates
+
+77
+00:03:49,920 --> 00:03:51,760
+also do not demonstrate achievement of
+
+78
+00:03:51,760 --> 00:03:53,840
+the rolling 5-year inflation adjusted
+
+79
+00:03:53,840 --> 00:03:56,840
+objective.
+
+80
+00:03:58,400 --> 00:04:00,560
+Before any live allocation, the
+
+81
+00:04:00,560 --> 00:04:02,560
+committee needs an approved loss policy
+
+82
+00:04:02,560 --> 00:04:04,959
+and verification of actual holdings,
+
+83
+00:04:04,959 --> 00:04:08,000
+cumulative turnover, fund eligibility,
+
+84
+00:04:08,000 --> 00:04:11,040
+and liquidity. Review reserves,
+
+85
+00:04:11,040 --> 00:04:14,239
+estimated net return, volatility, source
+
+86
+00:04:14,239 --> 00:04:16,799
+integrity, and operational requirements
+
+87
+00:04:16,799 --> 00:04:19,120
+quarterly with scholarship payouts and
+
+88
+00:04:19,120 --> 00:04:21,359
+when inputs change.
+
+89
+00:04:21,359 --> 00:04:23,759
+A breach withdraws the paper candidate,
+
+90
+00:04:23,759 --> 00:04:26,160
+suspends new paper allocations, and
+
+91
+00:04:26,160 --> 00:04:28,560
+requires investigation and policy review
+
+92
+00:04:28,560 --> 00:04:30,400
+before restarting.
+
+93
+00:04:30,400 --> 00:04:32,560
+The app never raises its risk ceiling
+
+94
+00:04:32,560 --> 00:04:35,280
+automatically. This is a static research
+
+95
+00:04:35,280 --> 00:04:38,800
+tool, not a live market monitor.
+
+96
+00:04:38,800 --> 00:04:40,720
+My request is to authorize paper
+
+97
+00:04:40,720 --> 00:04:43,120
+research, review the proposed 6%
+
+98
+00:04:43,120 --> 00:04:45,280
+volatility ceiling and breach response,
+
+99
+00:04:45,280 --> 00:04:47,120
+and assign the remaining verification
+
+100
+00:04:47,120 --> 00:04:49,360
+work. That ceiling is a research
+
+101
+00:04:49,360 --> 00:04:52,479
+proposal, not a maximum loss guarantee.
+
+102
+00:04:52,479 --> 00:04:54,800
+Keep live allocation at zero until
+
+103
+00:04:54,800 --> 00:04:56,800
+evidence and approvals support a
+
+104
+00:04:56,800 --> 00:04:59,840
+different decision.

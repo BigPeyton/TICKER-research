@@ -1,68 +1,75 @@
-# Project 2 submission manifest — recording and final submission pending
+# FIN 439 Project 2 — submission manifest
 
-Updated November 23, 2026. Project: **Scholarship-fund investment application**, Peyton Dow, FIN 43900. This is the working manifest for the current project copy. Final recording details and the final frozen-package commit remain unfilled because the recordings and final submission have not been supplied.
+Peyton Dow. Scholarship-fund investment application. Prepared November 23, 2026. Post-submission status/link cleanup dated November 24, 2026. The on-time Brightspace attachment is preserved unchanged.
 
-**Decision:** paper pilot; 0% live allocation. Current revised default 75% SGOV / 25% ACWI; 5.57% estimated annual net return; 3.81% annualized volatility. The original student experiment remains 5.51%→5.83%. The current revised model selects 70/30 at 35 bps, 5.89% net and 4.54% volatility. It enforces a proposed 6% volatility ceiling and uses archived dated policy evidence; see the revision record.
+**Deadline:** November 23, 2026, 11:59 p.m. Indianapolis (EST). **Points:** 300. Verified in Brightspace, including account timezone. Lab 20 is marked completed; it is separate from this final project.
 
-## Artifact locations
+## Repository and written artifacts
 
-All published artifact locations are GitHub links except the actual YouTube recordings. Pending rows are explicitly uncreated; they are not broken placeholder links.
+- [Repository](https://github.com/BigPeyton/TICKER-research)
+- [Canonical current project](https://github.com/BigPeyton/TICKER-research/tree/main/FIN439-Project2-ready-20261117/ready-to-upload/project2) — use this folder; older copies are historical.
+- [README and startup instructions](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/README.md): Python 3.11–3.13; `python run.py`; first dependency installation needs internet; no API key required.
+- [Decision memo](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/decision-memo.md) — same file attached as decision-memo.md.
+- [Validation and AI use](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/validation-and-ai-use.md) — same file attached; includes the complete locked experiment.
+- [Student experiment](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/student-experiment.md)
+- [Visible executed output](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/outputs/results.md)
+- [Data card](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/data-card.md)
+- [Risk policy](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/risk-policy.md)
+- [Revision reconciliation](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/readiness-revision.md)
+- [Test log](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/outputs/readiness-tests.txt) and [arithmetic audit](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/outputs/readiness-audit.json).
+- [Partner evidence](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/lab20-readiness.md); the original startup/assisted-run limitations remain documented.
 
-| Artifact | Location | Status |
-|---|---|---|
-| Repository and current project folder | [Repository](https://github.com/BigPeyton/TICKER-research); [current project](https://github.com/BigPeyton/TICKER-research/tree/main/FIN439-Project2-ready-20261117/ready-to-upload/project2) | Use this project copy, not older root/nested copies |
-| README / environment / launcher | [README](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/README.md); [requirements](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/requirements.txt); [run.py](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/run.py) | Supplied; Python 3.11–3.13; no API key needed |
-| Runnable source | [app.py](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/app.py); [model.py](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/model.py); [portfolio.py](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/portfolio.py) | Revised source: enforced risk ceiling and verified dated policy signal |
-| Visible executed output | [Report](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/outputs/results.md); [JSON](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/outputs/results.json) | Readable without running the app; September 30 analysis boundary |
-| Decision memo | [decision-memo.md](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/decision-memo.md) | Reconciled with the completed student experiment; final student review pending |
-| Validation and AI use | [validation-and-ai-use.md](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/validation-and-ai-use.md) | Includes the complete current locked record and historical evidence links |
-| Student locked experiment | [student-experiment.md](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/student-experiment.md); [prediction commit](https://github.com/BigPeyton/TICKER-research/commit/53d284a2f3a23b846f2bfe3bfdd9bb320c57d00b); [output evidence commit](https://github.com/BigPeyton/TICKER-research/commit/6ef7f9521bf0fd2a128ed317517646fe65913d94) | Published; prediction precedes changed-scenario payload; student confirmed AI-off authorship/execution/observations |
-| Data provenance and limitations | [data-card.md](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/data-card.md) | Current dated policy source archived; earlier monthly-rate vintage retained as historical limitation; client/operating approvals remain unresolved |
-| Lab 20 / partner evidence | [readiness record](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/lab20-readiness.md); [original note](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/luke-cold-run.md) | Peyton reports partner task and check-in completed; original failure/assisted-run evidence preserved |
-| Video 1 — evolution and AI-output check | Actual YouTube URL pending | Maximum 3:00; actual recording not supplied |
-| Transcript 1 | Actual GitHub transcript link pending | Create `docs/transcript-video-1.txt` from the recording |
-| Video 2 — technical walkthrough | Actual YouTube URL pending | Maximum 5:00; actual recording not supplied |
-| Transcript 2 | Actual GitHub transcript link pending | Create `docs/transcript-video-2.txt` from the recording |
-| Video 3 — committee presentation | Actual YouTube URL pending | Maximum 5:00; opens with the app running live |
-| Transcript 3 | Actual GitHub transcript link pending | Create `docs/transcript-video-3.txt` from the recording |
-| Risk policy and revision evidence | [Risk policy](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/risk-policy.md); [revision record](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/readiness-revision.md); [current checks](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/outputs/readiness-audit.json) | Added after original experiment; original evidence unchanged |
-| Recording preparation | [video-plan.md](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/video-plan.md) | Suggested narration and screen cues; not an actual transcript |
-| Optional deployment | No deployed URL | Not required by the GitHub brief; local Python web app supplied |
-| Research evolution / Editions A and B | Not required for Project 2 | Do not submit the generic research-evolution PDF or editions |
+## Actual recordings
 
-## Actual video metadata and evidence index — complete after recording
-
-The recording guide's planned times are rehearsal aids only. Enter actual times here after reviewing each video.
-
-| Video | Actual title | YouTube URL | Actual duration | Required evidence timestamps | Access/caption check |
+| Video | Actual title | YouTube link | Studio duration | Visibility | Transcript |
 |---|---|---|---|---|---|
-| 1 | Pending | Pending | Pending; ≤3:00 | Opening disclosures; evolution; checked AI output; resulting judgment — pending | Pending |
-| 2 | Pending | Pending | Pending; ≤5:00 | Opening disclosures; run instructions; code/finance logic; validation and failure case — pending | Pending |
-| 3 | Pending | Pending | Pending; ≤5:00 | Running app from opening frame; disclosures; action/range; demonstration; risks/triggers; committee ask — pending | Pending |
+| 1 | FIN 439 Project 2 — Evolution and AI Validation — Peyton Dow | [Watch](https://www.youtube.com/watch?v=UnpkJWsfLx0) | 2:57 | Unlisted, verified in Studio | [Transcript 1](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/transcript-video-1.txt); original attached in Brightspace |
+| 2 | FIN 439 Project 2 — Technical Walkthrough — Peyton Dow | [Watch](https://www.youtube.com/watch?v=GSqS_FTrsXI) | 4:59 | Unlisted, verified in Studio | [Transcript 2](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/transcript-video-2.txt); original attached in Brightspace |
+| 3 | FIN 439 Project 2 — Committee Presentation — Peyton Dow | [Watch](https://www.youtube.com/watch?v=mNxp4HEs1OM) | 4:59 | Unlisted, verified in Studio | [Transcript 3](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/transcript-video-3.txt); original attached in Brightspace |
 
-Each recording needs a small webcam view unless an approved accommodation supplies an equivalent ownership check. YouTube visibility must be Unlisted or Public, not Private. Keep transcripts enabled and correct substantive finance terms, tickers and numbers.
+The three videos are separate screen recordings supplied by Peyton. Titles, durations and Unlisted status were inspected in YouTube Studio. On November 24, all three videos played in a new InPrivate window while signed out of YouTube; captions and webcam were visible in sampled frames. Video 3 opened on the running app. This was a playback spot-check, not a complete auditory/every-frame review. The original transcripts were attached in Brightspace. The linked November 24 copies add transparent caption cleanup based on the actual recordings, not copied scripts.
 
-## Version and access record
+## Evidence index
 
-- Original student-experiment code/data snapshot: [6613649](https://github.com/BigPeyton/TICKER-research/tree/661364945c533d03343afb7a9e817c220479f5a0/FIN439-Project2-ready-20261117/ready-to-upload/project2). That snapshot preserves the original experiment. The current readiness revision changes the model; do not attribute its outputs to the old snapshot.
-- Original student prediction: [53d284a](https://github.com/BigPeyton/TICKER-research/commit/53d284a2f3a23b846f2bfe3bfdd9bb320c57d00b), November 23, 2026, 2:05:47 p.m. EST.
-- Experiment outputs: [6ef7f95](https://github.com/BigPeyton/TICKER-research/commit/6ef7f9521bf0fd2a128ed317517646fe65913d94); completed record: [c24dbb0](https://github.com/BigPeyton/TICKER-research/commit/c24dbb0f6483b38cd8715e40cbb8d9766cbe6865).
-- Final frozen-package commit: **pending after recordings, transcripts and final reconciliation**. Current `main` links above must be checked and, where appropriate, pinned to that final snapshot before submission.
-- Public GitHub source was retrieved without account credentials on November 23. The final logged-out repository/video link check is still pending.
-- No runtime credentials or `.env.example` are needed for this app. The source uses bundled data; retain the existing exclusion of credentials, `.venv` and generated caches from new uploads.
+Video 1 actual caption timestamps: 00:00 disclosures; 00:22 evolution; 00:43 checked output and AI-off prediction; 01:07 pre-run commit; 01:18 original results; 01:35 fixed-weight explanation; 01:53 readiness weaknesses; 02:14 version reconciliation; 02:35 zero-live recommendation and limits.
 
-## Final submission checklist
+Video 2 actual caption timestamps: 00:00 disclosures; 00:23 startup; 00:47 interface/model flow; 01:11 source checks; 01:40 estimates; 01:54 evaluation; 02:39 grid search; 03:09 cost change; 03:34 risk-ceiling change; 03:42 rejection; 03:59 restore; 04:19 validation; 04:38 AI-use and limitations.
 
-- [x] Source, dependency instructions and visible results are present.
-- [x] Student prediction and result evidence are published, with original prediction preserved.
-- [x] Partner task and Lab 20 check-in are confirmed by Peyton; historical limitations retained.
-- [x] Current documents distinguish the historical student experiment from the later revised source/output, and the default from changed-cost cases.
-- [ ] Peyton reviews and owns the revised memo, complete validation record and narration.
-- [ ] Three actual recordings meet duration, disclosure, webcam and evidence requirements.
-- [ ] Corrected transcripts and actual video metadata/timestamps are added.
-- [ ] Final links work without owner credentials; final snapshot and access-check date recorded.
-- [ ] Exact Project 2 deadline and points are checked in the Brightspace assignment header.
-- [ ] Attach the same final `decision-memo.md` and `validation-and-ai-use.md`, plus the manifest and required links/transcripts, to the final Project 2 submission. Include `student-experiment.md` as supporting evidence if useful; its complete text is already in the validation attachment.
-- [ ] Open and save the final Brightspace submission receipt. Lab 20's check-in is a separate submission.
+Video 3 actual caption timestamps: 00:00 disclosures; 00:21 recommendation; 00:26 mandate; 00:51 default portfolio; 01:09 alternatives; 01:47 cost change; 02:24 risk-ceiling change; 02:32 rejection; 02:48 restore; 02:58 stresses/range; 03:29 data limitations; 03:58 approvals and monitoring; 04:21 breach response; 04:38 committee ask. Caption-derived timestamps locate the spoken evidence; they do not independently establish every on-screen action. The automatic transcript says 85% reserve at about 03:12; the documented predefined stress is 80%, as clarified in the transcript attachment.
 
-Sources: [Project 2 brief](https://github.com/CinderZhang/FIN43900-Fall2026/blob/main/projects/project-2-investment-management-application.md), [checklist](https://github.com/CinderZhang/FIN43900-Fall2026/blob/main/projects/major-project-student-checklist.md), [submission architecture](https://github.com/CinderZhang/FIN43900-Fall2026/blob/main/PROJECT-SUBMISSION-ARCHITECTURE.md).
+## Version and financial reconciliation
+
+Application/source freeze: [b8e0f41ec066a18c8d7c40431b99d5d509db5eb2](https://github.com/BigPeyton/TICKER-research/tree/b8e0f41ec066a18c8d7c40431b99d5d509db5eb2/FIN439-Project2-ready-20261117/ready-to-upload/project2). That published revision was initially verified against 24 changed local files; all 58 current project blobs were rechecked against the reviewed local copy on November 24 before this documentation cleanup; the recordings and this submission manifest were added afterward. This is the source freeze, not a claim that the commit includes the recordings/transcripts.
+
+Current revised model: 75% SGOV / 25% ACWI, 5.57% estimated annual net return, 3.81% volatility at 25 bps; 35 bps selects 70/30, 5.89% net and 4.54% volatility. A 4% ceiling at 35 bps is infeasible. Proposed default ceiling is 6%; policy signal is the dated 3.75% FOMC target lower bound. Recommendation: paper pilot, 0% live.
+
+Original locked experiment remains 5.51% → 5.83% on its earlier model. [Prediction commit](https://github.com/BigPeyton/TICKER-research/commit/53d284a2f3a23b846f2bfe3bfdd9bb320c57d00b) precedes the changed-input export. [Original outputs](https://github.com/BigPeyton/TICKER-research/commit/6ef7f9521bf0fd2a128ed317517646fe65913d94). Original evidence has not been overwritten with revised results.
+
+Neither Edition A nor Edition B is submitted for Project 2. Deployment is not required by the GitHub brief. The dated policy signal does not establish a validated return forecast, and later-downloaded prices are not a point-in-time return backtest. Full-mandate clearance remains failed; client policy and operational evidence are unresolved.
+
+## Final package status
+
+**Brightspace submission confirmed:** November 23, 2026, 11:58 p.m. Indianapolis time, submission ID **24002684**. The successful receipt lists all six files: decision-memo.md, validation-and-ai-use.md, submission-manifest.md, and transcript-video-1/2/3.txt. The attached manifest contains all repository and YouTube links. Total size: 45.59 KB.
+
+The memo and validation remain byte-identical to their on-time attachments. Their older preparation notes saying recordings/submission are pending describe the pre-recording state; this dated manifest supersedes those status notes. Historical experiment, partner-run limitations and financial results remain unchanged.
+
+November 24 cleanup publishes this final status/link record, transcripts and corrected SRT files; it is not represented as part of the November 23 upload or the frozen app commit. See [post-submission cleanup record](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/post-submission-cleanup-20261124.md).
+
+## Frozen-file checklist
+
+- [x] Runnable source, pinned dependency and README startup instructions published.
+- [x] Visible executed output, data card, risk policy and original experiment evidence published.
+- [x] Same decision memo and complete validation/AI-use record attached in Brightspace.
+- [x] Three separate Unlisted videos within the 3/5/5-minute limits; titles, URLs and timestamp indices above.
+- [x] Three actual-recording transcripts attached in the on-time Brightspace submission.
+- [x] Successful on-time receipt verified; original package preserved.
+- [x] Signed-out video access and public repository access checked November 24.
+- [x] Post-submission transcript/caption files clearly dated and original evidence retained.
+
+## Caption files
+
+- [Video 1 SRT](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/video-1-captions.srt)
+- [Video 2 SRT](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/video-2-captions.srt)
+- [Video 3 SRT](https://github.com/BigPeyton/TICKER-research/blob/main/FIN439-Project2-ready-20261117/ready-to-upload/project2/docs/video-3-captions.srt)
+
+These are corrected subtitle files prepared for the actual recordings. The accompanying cleanup record distinguishes file preparation from verified YouTube publication.

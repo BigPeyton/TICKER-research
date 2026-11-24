@@ -1,0 +1,112 @@
+FIN 439 Project 2 - Video 3: Committee Presentation
+Peyton Dow
+https://www.youtube.com/watch?v=mNxp4HEs1OM
+
+Post-submission caption/transcript cleanup: November 24, 2026. Based on the actual recording captions; names/tickers and obvious recognition errors normalized, repeated 89% removed, and cue overlap removed. This is not the planned script or a claim of complete auditory review. The original November 23 Brightspace attachment remains unchanged.
+
+[00:00:00,320] I used OpenAI Codex to help build and
+[00:00:02,960] revise the app, check calculations and
+[00:00:05,520] primary sources, and draft documentation
+[00:00:08,639] and recording guides. The analysis and
+[00:00:11,759] decision are mine. This is an
+[00:00:14,240] educational project for a fictional
+[00:00:16,240] university scholarship fund, not
+[00:00:18,640] investment advice.
+[00:00:21,920] I recommend a paper research pilot with
+[00:00:24,640] zero live allocation.
+[00:00:26,960] This app evaluates a $10 million
+[00:00:29,119] scholarship fund paying $75,000
+[00:00:32,160] quarterly. The fund seeks inflation plus
+[00:00:35,680] 3% net over rolling 5-year periods.
+[00:00:39,440] Assumed inflation of 2.5% gives a 5.5%
+[00:00:43,680] annual planning hurdle.
+[00:00:46,879] 12 months of payouts require a 3%
+[00:00:49,200] reserve.
+[00:00:51,200] The current paper candidate is 75% SGOV
+[00:00:55,039] and 25% ACWI
+[00:00:58,320] with 5.57% estimated net return and
+[00:01:02,239] 3.81%
+[00:01:03,840] volatility.
+[00:01:09,600] The alternatives help explain this
+[00:01:11,600] choice. Equal weight fails return,
+[00:01:14,240] turnover, and risk. Inverse volatility
+[00:01:17,520] fails the return objective.
+[00:01:20,320] The benchmark fails reserve turnover and
+[00:01:23,520] risk.
+[00:01:25,040] The constrained portfolio passes the
+[00:01:27,200] model rules, but every portfolio still
+[00:01:30,320] fails full mandate clearance.
+[00:01:33,040] A numerical pass does not replace client
+[00:01:35,600] policy approval or operational
+[00:01:37,840] verification.
+[00:01:47,040] First, I'll change the additional annual
+[00:01:49,680] cost from 25 to 35.
+[00:01:53,520] Raising annual costs to 35 basis points
+[00:01:56,399] would reduce the original portfolio's
+[00:01:58,399] net estimate to 5.47%
+[00:02:01,840] below the objective. The model instead
+[00:02:04,880] selects 70% SGOV and 30% ACWI
+[00:02:09,759] with 5.89% net return and 4.54%
+[00:02:14,800] volatility.
+[00:02:16,720] More equity exposure explains the higher
+[00:02:19,120] selected return. These are the current
+[00:02:21,520] revised model results.
+[00:02:24,640] Next, I'll change proposed annual
+[00:02:27,040] volatility ceiling from 6 to 4%.
+[00:02:32,800] And now that the volatility is tightened
+[00:02:34,879] to 4%, no allocation on the app's grid
+[00:02:38,239] meets all the modeled rules. So the
+[00:02:40,720] scenario is rejected. The return
+[00:02:43,519] objective cannot override the risk
+[00:02:45,440] ceiling.
+[00:02:48,000] Next, I'll restore the baseline settings
+[00:02:58,720] across feasible individual stresses. The
+[00:03:01,840] selected paper allocations range from 65
+[00:03:04,640] to 85% SGOV with the remainder in ACWI.
+[00:03:09,840] That is a sensitivity range, not a live
+[00:03:12,319] trading band. An 85% reserve requirement [Tested reserve: 80%, not 85%.]
+[00:03:15,840] and the combined adverse scenarios are
+[00:03:18,080] infeasible. The table separates the
+[00:03:20,640] original portfolio from its replacement.
+[00:03:23,680] Finding new weights does not prove that
+[00:03:25,440] the original allocation survived the
+[00:03:27,519] stress.
+[00:03:29,840] The policy signal comes from archived
+[00:03:32,080] Federal Reserve documents published
+[00:03:33,920] before the analysis cutoff. However,
+[00:03:36,640] using that policy rate to cap SGOV's
+[00:03:38,879] estimated return remains an unvalidated
+[00:03:41,680] assumption.
+[00:03:43,280] The prices were downloaded after the
+[00:03:45,120] cutoff. So, this is not a point in time
+[00:03:47,360] performance back test. These estimates
+[00:03:49,920] also do not demonstrate achievement of
+[00:03:51,760] the rolling 5-year inflation adjusted
+[00:03:53,840] objective.
+[00:03:58,400] Before any live allocation, the
+[00:04:00,560] committee needs an approved loss policy
+[00:04:02,560] and verification of actual holdings,
+[00:04:04,959] cumulative turnover, fund eligibility,
+[00:04:08,000] and liquidity. Review reserves,
+[00:04:11,040] estimated net return, volatility, source
+[00:04:14,239] integrity, and operational requirements
+[00:04:16,799] quarterly with scholarship payouts and
+[00:04:19,120] when inputs change.
+[00:04:21,359] A breach withdraws the paper candidate,
+[00:04:23,759] suspends new paper allocations, and
+[00:04:26,160] requires investigation and policy review
+[00:04:28,560] before restarting.
+[00:04:30,400] The app never raises its risk ceiling
+[00:04:32,560] automatically. This is a static research
+[00:04:35,280] tool, not a live market monitor.
+[00:04:38,800] My request is to authorize paper
+[00:04:40,720] research, review the proposed 6%
+[00:04:43,120] volatility ceiling and breach response,
+[00:04:45,280] and assign the remaining verification
+[00:04:47,120] work. That ceiling is a research
+[00:04:49,360] proposal, not a maximum loss guarantee.
+[00:04:52,479] Keep live allocation at zero until
+[00:04:54,800] evidence and approvals support a
+[00:04:56,800] different decision.
+
+Editorial clarification: The caption-derived wording at approximately 03:12 says 85% reserve. The tested predefined reserve stress is 80%, as shown in the app output and memo. The correction is explicitly bracketed in the captions; it does not silently rewrite the original wording.

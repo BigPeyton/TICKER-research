@@ -1,0 +1,68 @@
+FIN 439 Project 2 - Video 1: Evolution and AI Validation
+Peyton Dow
+https://www.youtube.com/watch?v=UnpkJWsfLx0
+
+Post-submission caption/transcript cleanup: November 24, 2026. Based on the actual recording captions; names/tickers and obvious recognition errors normalized, repeated 89% removed, and cue overlap removed. This is not the planned script or a claim of complete auditory review. The original November 23 Brightspace attachment remains unchanged.
+
+[00:00:00,560] I used OpenAI Codex to help build and
+[00:00:03,439] revise the app, check calculations and
+[00:00:06,480] sources, and draft documentation and
+[00:00:09,599] recording guides. The analysis and
+[00:00:12,639] decision are mine. This is an
+[00:00:15,280] educational project for a fictional
+[00:00:17,279] university scholarship fund, not
+[00:00:19,680] investment advice.
+[00:00:22,240] My thinking changed from finding a
+[00:00:24,320] portfolio that passes numerical rules to
+[00:00:27,439] asking whether a committee could
+[00:00:29,119] responsibly use the process.
+[00:00:32,160] The fund needs scholarship reserves and
+[00:00:34,800] a return objective, but meeting modeled
+[00:00:37,280] requirements does not establish that the
+[00:00:39,600] portfolio is suitable for live
+[00:00:41,520] investment.
+[00:00:43,680] One AI assisted output I checked was the
+[00:00:46,879] model's response to higher costs. With
+[00:00:49,760] AI off, I predicted that raising annual
+[00:00:52,559] costs from 25 to 35 basis points would
+[00:00:56,480] shift the paper portfolio from 75% SGOV
+[00:01:00,719] and 25% ACWI
+[00:01:03,920] to 70 and 30.
+[00:01:07,680] My prediction was committed before the
+[00:01:10,479] changed input run.
+[00:01:18,560] The prediction matched. The original
+[00:01:21,200] model's estimated net return moved from
+[00:01:24,000] 5.51
+[00:01:25,600] to 5.83%.
+[00:01:28,400] While volatility increased from 3.81
+[00:01:32,000] to 4.54%.
+[00:01:35,680] Higher fees did not improve returns.
+[00:01:39,119] Holding the original weights fixed would
+[00:01:41,600] have lowered net return to 5.41%
+[00:01:45,119] below the 5.5% objective.
+[00:01:49,119] The model selected more equity exposure
+[00:01:51,520] to clear that hurdle, accepting more
+[00:01:53,759] risk. A later review identified two
+[00:01:56,960] weaknesses. No enforced numerical risk
+[00:01:59,840] ceiling and insufficient archived
+[00:02:01,680] evidence for the original signal. I
+[00:02:04,159] added a proposed 6% volatility ceiling
+[00:02:07,280] and replace the signal with dated
+[00:02:09,200] Federal Reserve policy evidence.
+[00:02:14,640] These revisions changed the current
+[00:02:16,560] estimates to 5.57% at baseline and 5.89%
+[00:02:21,440] at higher costs. Those are revised model
+[00:02:24,400] results. My original prediction and
+[00:02:26,959] experiment remain preserved separately.
+[00:02:30,000] So the later improvements do not rewrite
+[00:02:32,080] the evidence of what I predicted and
+[00:02:33,840] observed.
+[00:02:35,599] My recommendation remains a paper pilot
+[00:02:38,400] with zero live allocation. The 6%
+[00:02:41,760] ceiling is a research proposal, not an
+[00:02:44,400] approved client policy or a guarantee
+[00:02:46,480] against losses.
+[00:02:48,480] Checking AI means testing outputs,
+[00:02:51,200] explaining changes, and letting
+[00:02:53,360] unresolved limitations constrain the
+[00:02:55,519] decision.

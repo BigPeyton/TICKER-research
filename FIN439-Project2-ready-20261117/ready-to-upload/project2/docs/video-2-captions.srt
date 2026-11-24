@@ -1,0 +1,407 @@
+1
+00:00:00,800 --> 00:00:03,760
+I used OpenAI Codex to help build and
+
+2
+00:00:03,760 --> 00:00:06,319
+revise the app, check calculations and
+
+3
+00:00:06,319 --> 00:00:09,360
+primary sources, and draft documentation
+
+4
+00:00:09,360 --> 00:00:12,240
+and recording guides. The analysis and
+
+5
+00:00:12,240 --> 00:00:14,639
+decision are mine. This is an
+
+6
+00:00:14,639 --> 00:00:16,800
+educational project for a fictional
+
+7
+00:00:16,800 --> 00:00:19,119
+university scholarship fund, not
+
+8
+00:00:19,119 --> 00:00:22,600
+investment advice.
+
+9
+00:00:23,920 --> 00:00:26,960
+A user starts the app by running Python
+
+10
+00:00:26,960 --> 00:00:31,439
+run. py from this project folder. The
+
+11
+00:00:31,439 --> 00:00:33,600
+launcher creates the environment,
+
+12
+00:00:33,600 --> 00:00:36,480
+installs the pinned dependency, and starts
+
+13
+00:00:36,480 --> 00:00:39,920
+Streamlit. First setup needs internet.
+
+14
+00:00:39,920 --> 00:00:43,040
+Afterward, calculations use bundled data
+
+15
+00:00:43,040 --> 00:00:47,360
+and no API key is required.
+
+16
+00:00:47,360 --> 00:00:51,280
+The interface is in app.py. It collects
+
+17
+00:00:51,280 --> 00:00:53,920
+the scenario controls, converts
+
+18
+00:00:53,920 --> 00:00:56,800
+percentage inputs into decimals, and
+
+19
+00:00:56,800 --> 00:00:58,399
+passes them to the model through
+
+20
+00:00:58,399 --> 00:01:00,000
+settings.
+
+21
+00:01:00,000 --> 00:01:01,680
+The solve function returns the
+
+22
+00:01:01,680 --> 00:01:04,640
+allocation and rule verdicts.
+
+23
+00:01:04,640 --> 00:01:07,200
+Invalid inputs or source problems
+
+24
+00:01:07,200 --> 00:01:09,760
+produce an error instead of a portfolio
+
+25
+00:01:09,760 --> 00:01:11,760
+recommendation.
+
+26
+00:01:11,760 --> 00:01:14,320
+The signal record function checks the
+
+27
+00:01:14,320 --> 00:01:17,200
+archived Federal Reserve evidence. It
+
+28
+00:01:17,200 --> 00:01:19,840
+verifies the rates units, publication
+
+29
+00:01:19,840 --> 00:01:23,439
+and effective dates and target bounds.
+
+30
+00:01:23,439 --> 00:01:25,840
+Further down, it checks both source
+
+31
+00:01:25,840 --> 00:01:28,479
+files against their recorded hashes and
+
+32
+00:01:28,479 --> 00:01:31,040
+required supporting text.
+
+33
+00:01:31,040 --> 00:01:33,119
+Unsupported evidence stops the
+
+34
+00:01:33,119 --> 00:01:36,119
+calculation.
+
+35
+00:01:40,079 --> 00:01:42,960
+The estimates function caps SGOV's
+
+36
+00:01:42,960 --> 00:01:45,360
+historical annual mean at the policy
+
+37
+00:01:45,360 --> 00:01:48,320
+rates lower bound. This is a research
+
+38
+00:01:48,320 --> 00:01:51,280
+assumption, not an ETF yield or a
+
+39
+00:01:51,280 --> 00:01:54,079
+validated forecast.
+
+40
+00:01:54,079 --> 00:01:56,320
+The evaluate function calculates each
+
+41
+00:01:56,320 --> 00:01:58,799
+portfolio's financial results. Net
+
+42
+00:01:58,799 --> 00:02:00,799
+return equals weighted gross return
+
+43
+00:02:00,799 --> 00:02:03,280
+minus annual additional cost and trading
+
+44
+00:02:03,280 --> 00:02:06,479
+cost times turnover. Basis points are
+
+45
+00:02:06,479 --> 00:02:08,959
+divided by 10,000.
+
+46
+00:02:08,959 --> 00:02:10,720
+Turnover measures the change from the
+
+47
+00:02:10,720 --> 00:02:13,040
+paper reference weights, not verified
+
+48
+00:02:13,040 --> 00:02:15,920
+client holdings. Volatility uses
+
+49
+00:02:15,920 --> 00:02:18,400
+annualized covariance.
+
+50
+00:02:18,400 --> 00:02:20,160
+The measured rules check return,
+
+51
+00:02:20,160 --> 00:02:23,040
+reserve, turnover, and the proposed risk
+
+52
+00:02:23,040 --> 00:02:24,640
+ceiling.
+
+53
+00:02:24,640 --> 00:02:26,640
+Separate unresolved requirements keep
+
+54
+00:02:26,640 --> 00:02:28,879
+full mandate clearance at fail even when
+
+55
+00:02:28,879 --> 00:02:33,000
+the numerical rules pass.
+
+56
+00:02:39,760 --> 00:02:42,720
+The allocations function generates all
+
+57
+00:02:42,720 --> 00:02:44,239
+1771
+
+58
+00:02:44,239 --> 00:02:46,720
+combinations on a five percentage point
+
+59
+00:02:46,720 --> 00:02:49,920
+grid. The solver evaluates the baselines
+
+60
+00:02:49,920 --> 00:02:52,000
+and searches for the lowest volatility
+
+61
+00:02:52,000 --> 00:02:54,000
+candidate that passes every modeled
+
+62
+00:02:54,000 --> 00:02:57,680
+rule. If no candidate qualifies, it
+
+63
+00:02:57,680 --> 00:03:00,640
+returns a rejection. This establishes
+
+64
+00:03:00,640 --> 00:03:03,519
+infeasibility on this grid. It does not
+
+65
+00:03:03,519 --> 00:03:05,280
+prove that every possible continuous
+
+66
+00:03:05,280 --> 00:03:09,080
+allocation would fail.
+
+67
+00:03:09,280 --> 00:03:12,319
+First, I'll change additional annual
+
+68
+00:03:12,319 --> 00:03:15,920
+cost from 25 to 35.
+
+69
+00:03:15,920 --> 00:03:17,920
+Here is a direct check of the risk
+
+70
+00:03:17,920 --> 00:03:20,959
+constraint. At 35 basis points of annual
+
+71
+00:03:20,959 --> 00:03:24,319
+cost and a 6% volatility ceiling, the
+
+72
+00:03:24,319 --> 00:03:27,920
+current model selects 70% SGOV and
+
+73
+00:03:27,920 --> 00:03:30,400
+30% ACWI
+
+74
+00:03:30,400 --> 00:03:34,799
+with 4.54% volatility.
+
+75
+00:03:34,799 --> 00:03:37,680
+Next, I'll change the proposed annual
+
+76
+00:03:37,680 --> 00:03:42,519
+volatility ceiling to 4%.
+
+77
+00:03:42,799 --> 00:03:45,440
+Tightening the ceiling to 4% rejects the
+
+78
+00:03:45,440 --> 00:03:46,959
+scenario.
+
+79
+00:03:46,959 --> 00:03:49,280
+No candidate on the grid satisfies the
+
+80
+00:03:49,280 --> 00:03:51,519
+return target together with the risk
+
+81
+00:03:51,519 --> 00:03:54,000
+ceiling and other rules.
+
+82
+00:03:54,000 --> 00:03:56,080
+The model does not increase the risk
+
+83
+00:03:56,080 --> 00:03:59,280
+limit automatically.
+
+84
+00:03:59,280 --> 00:04:04,319
+Next, I'll restore the ceiling to 6%
+
+85
+00:04:04,319 --> 00:04:10,760
+and restore annual cost to 25.
+
+86
+00:04:11,200 --> 00:04:12,959
+And you can see that restoring the
+
+87
+00:04:12,959 --> 00:04:15,280
+original settings brings back the
+
+88
+00:04:15,280 --> 00:04:19,120
+baseline allocation and results.
+
+89
+00:04:19,120 --> 00:04:22,160
+The saved validation record reports 18
+
+90
+00:04:22,160 --> 00:04:24,560
+passing tests including source
+
+91
+00:04:24,560 --> 00:04:28,240
+tampering, future dates, risk boundary
+
+92
+00:04:28,240 --> 00:04:31,600
+behavior and app recovery. An additional
+
+93
+00:04:31,600 --> 00:04:35,199
+arithmetic audit reconciled 244 monthly
+
+94
+00:04:35,199 --> 00:04:38,880
+prices and eight scenarios.
+
+95
+00:04:38,880 --> 00:04:40,720
+These are AI assisted development
+
+96
+00:04:40,720 --> 00:04:43,600
+checks. My original locked experiment
+
+97
+00:04:43,600 --> 00:04:45,759
+remains separately documented on its
+
+98
+00:04:45,759 --> 00:04:49,040
+original model version. Together, the
+
+99
+00:04:49,040 --> 00:04:50,800
+evidence supports implementation
+
+100
+00:04:50,800 --> 00:04:53,840
+consistency, but it does not establish
+
+101
+00:04:53,840 --> 00:04:56,720
+forecast accuracy or suitability for
+
+102
+00:04:56,720 --> 00:04:59,680
+live investment.

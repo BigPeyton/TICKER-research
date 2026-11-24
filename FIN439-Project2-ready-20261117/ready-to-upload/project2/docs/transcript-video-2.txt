@@ -1,0 +1,108 @@
+FIN 439 Project 2 - Video 2: Technical Walkthrough
+Peyton Dow
+https://www.youtube.com/watch?v=GSqS_FTrsXI
+
+Post-submission caption/transcript cleanup: November 24, 2026. Based on the actual recording captions; names/tickers and obvious recognition errors normalized, repeated 89% removed, and cue overlap removed. This is not the planned script or a claim of complete auditory review. The original November 23 Brightspace attachment remains unchanged.
+
+[00:00:00,800] I used OpenAI Codex to help build and
+[00:00:03,760] revise the app, check calculations and
+[00:00:06,319] primary sources, and draft documentation
+[00:00:09,360] and recording guides. The analysis and
+[00:00:12,240] decision are mine. This is an
+[00:00:14,639] educational project for a fictional
+[00:00:16,800] university scholarship fund, not
+[00:00:19,119] investment advice.
+[00:00:23,920] A user starts the app by running Python
+[00:00:26,960] run. py from this project folder. The
+[00:00:31,439] launcher creates the environment,
+[00:00:33,600] installs the pinned dependency, and starts
+[00:00:36,480] Streamlit. First setup needs internet.
+[00:00:39,920] Afterward, calculations use bundled data
+[00:00:43,040] and no API key is required.
+[00:00:47,360] The interface is in app.py. It collects
+[00:00:51,280] the scenario controls, converts
+[00:00:53,920] percentage inputs into decimals, and
+[00:00:56,800] passes them to the model through
+[00:00:58,399] settings.
+[00:01:00,000] The solve function returns the
+[00:01:01,680] allocation and rule verdicts.
+[00:01:04,640] Invalid inputs or source problems
+[00:01:07,200] produce an error instead of a portfolio
+[00:01:09,760] recommendation.
+[00:01:11,760] The signal record function checks the
+[00:01:14,320] archived Federal Reserve evidence. It
+[00:01:17,200] verifies the rates units, publication
+[00:01:19,840] and effective dates and target bounds.
+[00:01:23,439] Further down, it checks both source
+[00:01:25,840] files against their recorded hashes and
+[00:01:28,479] required supporting text.
+[00:01:31,040] Unsupported evidence stops the
+[00:01:33,119] calculation.
+[00:01:40,079] The estimates function caps SGOV's
+[00:01:42,960] historical annual mean at the policy
+[00:01:45,360] rates lower bound. This is a research
+[00:01:48,320] assumption, not an ETF yield or a
+[00:01:51,280] validated forecast.
+[00:01:54,079] The evaluate function calculates each
+[00:01:56,320] portfolio's financial results. Net
+[00:01:58,799] return equals weighted gross return
+[00:02:00,799] minus annual additional cost and trading
+[00:02:03,280] cost times turnover. Basis points are
+[00:02:06,479] divided by 10,000.
+[00:02:08,959] Turnover measures the change from the
+[00:02:10,720] paper reference weights, not verified
+[00:02:13,040] client holdings. Volatility uses
+[00:02:15,920] annualized covariance.
+[00:02:18,400] The measured rules check return,
+[00:02:20,160] reserve, turnover, and the proposed risk
+[00:02:23,040] ceiling.
+[00:02:24,640] Separate unresolved requirements keep
+[00:02:26,640] full mandate clearance at fail even when
+[00:02:28,879] the numerical rules pass.
+[00:02:39,760] The allocations function generates all
+[00:02:42,720] 1771
+[00:02:44,239] combinations on a five percentage point
+[00:02:46,720] grid. The solver evaluates the baselines
+[00:02:49,920] and searches for the lowest volatility
+[00:02:52,000] candidate that passes every modeled
+[00:02:54,000] rule. If no candidate qualifies, it
+[00:02:57,680] returns a rejection. This establishes
+[00:03:00,640] infeasibility on this grid. It does not
+[00:03:03,519] prove that every possible continuous
+[00:03:05,280] allocation would fail.
+[00:03:09,280] First, I'll change additional annual
+[00:03:12,319] cost from 25 to 35.
+[00:03:15,920] Here is a direct check of the risk
+[00:03:17,920] constraint. At 35 basis points of annual
+[00:03:20,959] cost and a 6% volatility ceiling, the
+[00:03:24,319] current model selects 70% SGOV and
+[00:03:27,920] 30% ACWI
+[00:03:30,400] with 4.54% volatility.
+[00:03:34,799] Next, I'll change the proposed annual
+[00:03:37,680] volatility ceiling to 4%.
+[00:03:42,799] Tightening the ceiling to 4% rejects the
+[00:03:45,440] scenario.
+[00:03:46,959] No candidate on the grid satisfies the
+[00:03:49,280] return target together with the risk
+[00:03:51,519] ceiling and other rules.
+[00:03:54,000] The model does not increase the risk
+[00:03:56,080] limit automatically.
+[00:03:59,280] Next, I'll restore the ceiling to 6%
+[00:04:04,319] and restore annual cost to 25.
+[00:04:11,200] And you can see that restoring the
+[00:04:12,959] original settings brings back the
+[00:04:15,280] baseline allocation and results.
+[00:04:19,120] The saved validation record reports 18
+[00:04:22,160] passing tests including source
+[00:04:24,560] tampering, future dates, risk boundary
+[00:04:28,240] behavior and app recovery. An additional
+[00:04:31,600] arithmetic audit reconciled 244 monthly
+[00:04:35,199] prices and eight scenarios.
+[00:04:38,880] These are AI assisted development
+[00:04:40,720] checks. My original locked experiment
+[00:04:43,600] remains separately documented on its
+[00:04:45,759] original model version. Together, the
+[00:04:49,040] evidence supports implementation
+[00:04:50,800] consistency, but it does not establish
+[00:04:53,840] forecast accuracy or suitability for
+[00:04:56,720] live investment.
